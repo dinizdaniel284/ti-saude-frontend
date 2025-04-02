@@ -1,3 +1,5 @@
+"use client"; // Adicionando a diretiva para tornar este arquivo um componente do cliente
+
 import { useState, useEffect } from "react";
 
 // Definindo as categorias e recomendações
@@ -37,10 +39,10 @@ export default function QuizPage() {
 
   // Carregando as perguntas do quiz
   useEffect(() => {
-    fetch("https://seu-backend-no-render.com/quiz") // Alterar para a URL do backend hospedado no Render
+    fetch("https://ti-saude-backend.onrender.com/quiz") // Substitua pela URL correta do backend no Render
       .then((res) => res.ok ? res.json() : Promise.reject("Erro ao buscar os dados do quiz"))
       .then((data) => {
-        setPerguntas(data.perguntas || []);
+        setPerguntas(data.perguntas || []); // Verifica se a resposta tem perguntas
       })
       .catch((err) => console.error(err));
   }, []);
@@ -83,7 +85,9 @@ export default function QuizPage() {
                 <button
                   key={idx}
                   onClick={() => handleResposta(index, opcao.categoria)}
-                  className={`p-2 rounded-lg ${respostas[index] === opcao.categoria ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+                  className={`p-2 rounded-lg ${
+                    respostas[index] === opcao.categoria ? "bg-blue-500 text-white" : "bg-gray-200"
+                  }`}
                 >
                   {opcao.texto}
                 </button>
