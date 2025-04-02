@@ -1,16 +1,4 @@
-"use client";  // Importando módulos
-import { useEffect, useState } from "react";
-
-// Definindo interfaces
-interface Opcao {
-  texto: string;
-  categoria: string;
-}
-
-interface Pergunta {
-  enunciado: string;
-  opcoes: Opcao[];
-}
+import { useState, useEffect } from "react";
 
 // Definindo as categorias e recomendações
 const links: Record<string, { nome: string; link: string }[]> = {
@@ -32,6 +20,16 @@ const links: Record<string, { nome: string; link: string }[]> = {
   ],
 };
 
+interface Opcao {
+  texto: string;
+  categoria: string;
+}
+
+interface Pergunta {
+  enunciado: string;
+  opcoes: Opcao[];
+}
+
 export default function QuizPage() {
   const [perguntas, setPerguntas] = useState<Pergunta[]>([]);
   const [respostas, setRespostas] = useState<{ [key: number]: string }>({});
@@ -39,7 +37,7 @@ export default function QuizPage() {
 
   // Carregando as perguntas do quiz
   useEffect(() => {
-    fetch("http://localhost:5000/quiz")
+    fetch("https://seu-backend-no-render.com/quiz") // Alterar para a URL do backend hospedado no Render
       .then((res) => res.ok ? res.json() : Promise.reject("Erro ao buscar os dados do quiz"))
       .then((data) => {
         setPerguntas(data.perguntas || []);
@@ -68,7 +66,7 @@ export default function QuizPage() {
       contagem[a] > contagem[b] ? a : b
     );
 
-    setResultado(`A área mais indicada para você é: ${categoriaMaisEscolhida}`);
+    setResultado(categoriaMaisEscolhida); // Agora é apenas a categoria
   };
 
   return (
@@ -107,11 +105,10 @@ export default function QuizPage() {
       {/* Exibe o resultado e recomendações */}
       {resultado && (
         <div className="mt-4 text-lg font-semibold">
-          <p>{resultado}</p>
+          <p>A área mais indicada para você é: {resultado}</p>
           <h2 className="mt-4 text-xl font-semibold">Recomendações de Certificação:</h2>
-          {links[resultado.split(": ")[1]]?.map((link, index) => (
+          {links[resultado]?.map((link, index) => (
             <div key={index}>
-              <h3 className="font-semibold">{resultado.split(": ")[1]}</h3>
               <ul>
                 <li>
                   <a href={link.link} target="_blank" rel="noopener noreferrer" className="text-blue-500">
