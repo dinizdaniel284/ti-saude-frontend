@@ -101,17 +101,13 @@ export default function Home() {
         </div>
 
         <div className="mt-8 text-center">
-          <h2 className="text-xl font-semibold mb-4">Qual área de TI combina com você?</h2>
-          <p className="text-lg mb-4">
-            Responda ao nosso quiz para descobrir a área de TI que mais combina com seu perfil profissional.
-          </p>
-          <Link href="/quiz">
-            <button className="p-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all">
-              Faça o Quiz
-            </button>
-          </Link>
-        </div>
-      </main>
-    </div>
-  );
-}
+  <h2 className="text-xl font-semibold mb-4">Qual área de TI combina com você?</h2>
+  <p className="text-lg mb-4">
+    Responda ao nosso quiz para descobrir a área de TI que mais combina com seu perfil profissional.
+  </p>
+  <Link href="/quiz-ti">
+    <button className="p-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all">
+      Faça o Quiz
+    </button>
+  </Link>
+</div>
