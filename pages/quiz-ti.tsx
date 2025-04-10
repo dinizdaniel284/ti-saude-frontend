@@ -56,26 +56,22 @@ export default function QuizTI() {
   const [result, setResult] = useState<string | null>(null);
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
 
-  const handleAnswer = (category: string, index: number) => {
-    setSelectedOptionIndex(index);
+  const handleAnswer = (category: string) => {
+    const newAnswers = [...answers, category];
+    setAnswers(newAnswers);
+    setSelectedOptionIndex(null);
 
-    setTimeout(() => {
-      const newAnswers = [...answers, category];
-      setAnswers(newAnswers);
-      setSelectedOptionIndex(null);
+    if (currentQuestion + 1 < questions.length) {
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      const counts: Record<string, number> = {};
+      newAnswers.forEach((answer) => {
+        counts[answer] = (counts[answer] || 0) + 1;
+      });
 
-      if (currentQuestion + 1 < questions.length) {
-        setCurrentQuestion(currentQuestion + 1);
-      } else {
-        const counts: Record<string, number> = {};
-        newAnswers.forEach((answer) => {
-          counts[answer] = (counts[answer] || 0) + 1;
-        });
-
-        const topCategory = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
-        setResult(topCategory);
-      }
-    }, 300); // pequeno delay para mostrar o efeito
+      const topCategory = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+      setResult(topCategory);
+    }
   };
 
   const resetQuiz = () => {
@@ -121,12 +117,16 @@ export default function QuizTI() {
               {questions[currentQuestion].options.map((option, idx) => (
                 <button
                   key={idx}
-                  onClick={() => handleAnswer(option.category, idx)}
-                  className={`px-4 py-2 rounded-lg transition font-medium ${
-                    selectedOptionIndex === idx
-                      ? "bg-green-500"
-                      : "bg-purple-500 hover:bg-purple-600"
-                  }`}
+                  onClick={() => {
+                    setSelectedOptionIndex(idx);
+                    setTimeout(() => handleAnswer(option.category), 300);
+                  }}
+                  className={`px-4 py-2 rounded-lg transition text-white font-medium
+                    ${
+                      selectedOptionIndex === idx
+                        ? "bg-green-500"
+                        : "bg-purple-500 hover:bg-purple-600"
+                    }`}
                 >
                   {option.text}
                 </button>
