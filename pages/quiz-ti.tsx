@@ -62,7 +62,6 @@ export default function QuizTI() {
     if (currentQuestion + 1 < questions.length) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      // Finaliza e calcula o resultado
       const counts: Record<string, number> = {};
       newAnswers.forEach((answer) => {
         counts[answer] = (counts[answer] || 0) + 1;
@@ -89,38 +88,42 @@ export default function QuizTI() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-8 text-center">
-      <h1 className="text-2xl font-bold mb-4">Descubra sua área ideal na TI</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white px-6 py-10">
+      <div className="max-w-xl w-full bg-gray-800 rounded-2xl shadow-lg p-8 space-y-6">
+        <h1 className="text-3xl font-bold text-center text-purple-400">
+          Descubra sua área ideal na TI + Saúde
+        </h1>
 
-      {result ? (
-        <div className="max-w-md">
-          <h2 className="text-xl font-semibold mb-4">Resultado:</h2>
-          <p className="mb-6">{resultMessages[result]}</p>
-          <button
-            className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700"
-            onClick={resetQuiz}
-          >
-            Refazer Quiz
-          </button>
-        </div>
-      ) : (
-        <div className="max-w-xl">
-          <h2 className="text-lg font-medium mb-4">
-            {questions[currentQuestion].question}
-          </h2>
-          <div className="grid gap-4">
-            {questions[currentQuestion].options.map((option, idx) => (
-              <button
-                key={idx}
-                className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
-                onClick={() => handleAnswer(option.category)}
-              >
-                {option.text}
-              </button>
-            ))}
+        {result ? (
+          <div className="space-y-4 text-center">
+            <h2 className="text-2xl font-semibold">Resultado:</h2>
+            <p className="text-lg">{resultMessages[result]}</p>
+            <button
+              onClick={resetQuiz}
+              className="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full transition"
+            >
+              Refazer Quiz
+            </button>
           </div>
-        </div>
-      )}
+        ) : (
+          <div className="space-y-4">
+            <h2 className="text-xl font-semibold text-center">
+              {questions[currentQuestion].question}
+            </h2>
+            <div className="grid gap-4">
+              {questions[currentQuestion].options.map((option, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => handleAnswer(option.category)}
+                  className="bg-purple-500 hover:bg-purple-600 px-4 py-2 rounded-lg transition text-white font-medium"
+                >
+                  {option.text}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
-}
+    }
