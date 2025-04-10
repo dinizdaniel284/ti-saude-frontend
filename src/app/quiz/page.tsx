@@ -1,127 +1,106 @@
-"use client"; // Adicionando a diretiva para tornar este arquivo um componente do cliente
+"use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-// Definindo as categorias e recomendações
-const links: Record<string, { nome: string; link: string }[]> = {
-  Desenvolvimento: [
-    { nome: "Certificação de Desenvolvedor Java", link: "https://www.oracle.com/java/technologies/javase/javase-jdk8-certifications.html" },
-    { nome: "Desenvolvedor Frontend - React", link: "https://www.udemy.com/course/react-the-complete-guide-incl-redux/" }
-  ],
-  Infraestrutura: [
-    { nome: "Certificação CCNA", link: "https://www.cisco.com/c/en/us/training-events/training-certifications/certifications.html" },
-    { nome: "Fundamentos de Redes de Computadores", link: "https://www.udemy.com/course/computer-networking/" }
-  ],
-  Segurança: [
-    { nome: "Certificação CISSP", link: "https://www.isc2.org/Certifications/CISSP" },
-    { nome: "Curso de Cibersegurança", link: "https://www.udemy.com/course/cyber-security-for-beginners/" }
-  ],
-  Dados: [
-    { nome: "Certificação em Ciência de Dados - Coursera", link: "https://www.coursera.org/professional-certificates/data-science" },
-    { nome: "Fundamentos de Machine Learning", link: "https://www.udemy.com/course/machinelearning/" }
-  ],
+type Question = {
+  _id: string;
+  question: string;
+  options: string[];
+  category: string;
 };
 
-interface Opcao {
-  texto: string;
-  categoria: string;
-}
-
-interface Pergunta {
-  enunciado: string;
-  opcoes: Opcao[];
-}
-
 export default function QuizPage() {
-  const [perguntas, setPerguntas] = useState<Pergunta[]>([]);
-  const [respostas, setRespostas] = useState<{ [key: number]: string }>({});
-  const [resultado, setResultado] = useState<string | null>(null);
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [answers, setAnswers] = useState<{ [key: string]: string }>({});
+  const [result, setResult] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
-  // Carregando as perguntas do quiz
   useEffect(() => {
-    fetch("https://ti-saude-backend.onrender.com/quiz") // Substitua pela URL correta do backend no Render
-      .then((res) => res.ok ? res.json() : Promise.reject("Erro ao buscar os dados do quiz"))
-      .then((data) => {
-        setPerguntas(data.perguntas || []); // Verifica se a resposta tem perguntas
-      })
-      .catch((err) => console.error(err));
+    const fetchQuestions = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/quiz");
+        const data = await res.json();
+
+        // Tratando diferentes formatos de resposta
+        if (Array.isArray(data)) {
+          setQuestions(data);
+        } else if (Array.isArray(data.questions)) {
+          setQuestions(data.questions);
+        } else {
+          console.error("Formato inesperado:", data);
+        }
+      } catch (error) {
+        console.error("Erro ao buscar as perguntas:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchQuestions();
   }, []);
 
-  // Função para tratar a resposta do usuário
-  const handleResposta = (index: number, categoria: string) => {
-    setRespostas((prev) => ({ ...prev, [index]: categoria }));
+  const handleAnswer = (questionId: string, answer: string) => {
+    setAnswers((prev) => ({ ...prev, [questionId]: answer }));
   };
 
-  // Função para calcular o resultado
-  const calcularResultado = () => {
-    if (Object.keys(respostas).length !== perguntas.length) {
-      setResultado("Responda a todas as perguntas antes de ver o resultado.");
-      return;
+  const handleSubmit = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/quiz/result", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ answers }),
+      });
+
+      const data = await res.json();
+      setResult(data.result);
+    } catch (error) {
+      console.error("Erro ao enviar as respostas:", error);
     }
-
-    const contagem: Record<string, number> = {};
-    Object.values(respostas).forEach((categoria) => {
-      contagem[categoria] = (contagem[categoria] || 0) + 1;
-    });
-
-    const categoriaMaisEscolhida = Object.keys(contagem).reduce((a, b) =>
-      contagem[a] > contagem[b] ? a : b
-    );
-
-    setResultado(categoriaMaisEscolhida); // Agora é apenas a categoria
   };
 
   return (
-    <div className="flex flex-col items-center p-8">
-      <h1 className="text-2xl font-bold mb-4">Quiz: Qual área de TI combina com você?</h1>
+    <div className="p-8 max-w-3xl mx-auto">
+      <h1 className="text-3xl font-bold mb-6">
+        Quiz: Qual área de TI combina com você?
+      </h1>
 
-      {/* Exibe as perguntas */}
-      {perguntas.length > 0 ? (
-        perguntas.map((pergunta, index) => (
-          <div key={index} className="mb-6">
-            <h2 className="text-lg font-semibold">{pergunta.enunciado}</h2>
+      {loading ? (
+        <p className="text-gray-600">Carregando perguntas...</p>
+      ) : (
+        questions.map((q) => (
+          <div key={q._id} className="mb-6">
+            <h2 className="text-xl font-semibold mb-2">{q.question}</h2>
             <div className="flex flex-col gap-2">
-              {pergunta.opcoes.map((opcao, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleResposta(index, opcao.categoria)}
-                  className={`p-2 rounded-lg ${
-                    respostas[index] === opcao.categoria ? "bg-blue-500 text-white" : "bg-gray-200"
-                  }`}
-                >
-                  {opcao.texto}
-                </button>
+              {q.options.map((option) => (
+                <label key={option} className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name={q._id}
+                    value={option}
+                    checked={answers[q._id] === option}
+                    onChange={() => handleAnswer(q._id, option)}
+                  />
+                  {option}
+                </label>
               ))}
             </div>
           </div>
         ))
-      ) : (
-        <p>Carregando quiz...</p>
       )}
 
-      {/* Botão para calcular o resultado */}
-      {Object.keys(respostas).length === perguntas.length && (
-        <button onClick={calcularResultado} className="mt-4 p-2 bg-green-500 text-white rounded-lg">
-          Ver Resultado
-        </button>
-      )}
+      <button
+        onClick={handleSubmit}
+        className="mt-6 px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+      >
+        Ver Resultado
+      </button>
 
-      {/* Exibe o resultado e recomendações */}
-      {resultado && (
-        <div className="mt-4 text-lg font-semibold">
-          <p>A área mais indicada para você é: {resultado}</p>
-          <h2 className="mt-4 text-xl font-semibold">Recomendações de Certificação:</h2>
-          {links[resultado]?.map((link, index) => (
-            <div key={index}>
-              <ul>
-                <li>
-                  <a href={link.link} target="_blank" rel="noopener noreferrer" className="text-blue-500">
-                    {link.nome}
-                  </a>
-                </li>
-              </ul>
-            </div>
-          ))}
+      {result && (
+        <div className="mt-8 p-4 bg-green-100 border border-green-400 rounded">
+          <h2 className="text-2xl font-bold text-green-800">Resultado:</h2>
+          <p className="text-lg mt-2">{result}</p>
         </div>
       )}
     </div>

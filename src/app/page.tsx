@@ -7,7 +7,6 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        {/* Exibindo logo do Next.js */}
         <Image
           className="dark:invert"
           src="/next.svg"
@@ -19,7 +18,6 @@ export default function Home() {
         />
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
-          {/* Exibindo logo da Vercel */}
           <Image
             className="dark:invert"
             src="/vercel.svg"
@@ -30,7 +28,6 @@ export default function Home() {
           />
         </div>
 
-        {/* Seção de serviços de consultoria */}
         <div className="my-8 text-center">
           <h2 className="text-xl font-semibold mb-4">Consultoria em TI para a Saúde</h2>
           <p className="text-lg mb-4">
@@ -44,7 +41,6 @@ export default function Home() {
           </a>
         </div>
 
-        {/* Seção de recomendação de afiliados (exemplo de curso) */}
         <div className="my-8 text-center">
           <h2 className="text-xl font-semibold mb-4">Curso de TI para a Saúde</h2>
           <p className="text-lg mb-4">
@@ -60,7 +56,6 @@ export default function Home() {
           </a>
         </div>
 
-        {/* Seção de produtos (exemplo de produtos relacionados à saúde ou TI) */}
         <div className="my-8 text-center">
           <h2 className="text-xl font-semibold mb-4">Produtos Recomendados</h2>
           <p className="text-lg mb-4">
@@ -106,7 +101,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Seção de Quiz */}
         <div className="mt-8 text-center">
           <h2 className="text-xl font-semibold mb-4">Qual área de TI combina com você?</h2>
           <p className="text-lg mb-4">

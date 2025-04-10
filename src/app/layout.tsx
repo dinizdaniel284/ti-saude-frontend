@@ -1,5 +1,5 @@
 import React from "react";
-import { Roboto } from "next/font/google"; // Exemplo de importação de fontes
+import { Roboto } from "next/font/google";
 import { Metadata } from "next";
 
 const roboto = Roboto({
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: "Quiz para profissionais de saúde que querem aprender TI",
 };
 
-export default function Layout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
