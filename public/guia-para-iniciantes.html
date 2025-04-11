@@ -1,96 +1,25 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Guia completo para iniciantes em Programação por Daniel Diniz - TI + Saúde">
-  <title>Guia para Iniciantes | TI + Saúde</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f172a;
-      color: #f8fafc;
-      margin: 0;
-      padding: 2rem;
-      line-height: 1.6;
-    }
-    h1, h2 {
-      color: #38bdf8;
-    }
-    a {
-      color: #22d3ee;
-      text-decoration: none;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: #1e293b;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
-    }
-    .button {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 1rem 2rem;
-      background: #38bdf8;
-      color: #0f172a;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .button:hover {
-      background: #0ea5e9;
-    }
-    ul {
-      margin-left: 1.5rem;
-    }
-    code {
-      background: #0c4a6e;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: monospace;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Fala, dev em formação!</h1>
-    <p>Se você chegou aqui, provavelmente tá dando os primeiros passos no mundo da programação — e mano, já te digo: isso aqui pode mudar sua vida, assim como tá mudando a minha.</p>
-    
-    <h2>O que é Programação?</h2>
-    <p>Programar é dar instruções para o computador resolver problemas. Desde uma simples calculadora até um sistema de saúde completo, tudo passa por código.</p>
+import Link from 'next/link';
 
-    <h2>Frontend vs Backend</h2>
-    <ul>
-      <li><strong>Frontend:</strong> é o que o usuário vê. A parte visual, bonita, responsiva. Tecnologias: <code>HTML</code>, <code>CSS</code>, <code>JavaScript</code>, <code>React</code>.</li>
-      <li><strong>Backend:</strong> é o que acontece por trás dos panos. Regras, lógica, banco de dados. Tecnologias: <code>Python</code>, <code>Node.js</code>, <code>Java</code>, <code>C#</code>.</li>
-    </ul>
+export default function Home() {
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
+      <h1 className="text-4xl font-bold text-center mb-6 text-blue-700">
+        Bem-vindo ao Portal TI-Saúde
+      </h1>
 
-    <h2>O que é Sintaxe e Estrutura?</h2>
-    <p><strong>Sintaxe</strong> é a forma certa de escrever o código. Um ponto fora do lugar pode quebrar tudo. <strong>Estrutura</strong> é como organizamos o código para que ele seja claro, legível e funcional.</p>
+      <div className="space-y-4 text-center">
+        <Link href="/quiz-ti">
+          <button className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition">
+            Fazer o Quiz Interativo
+          </button>
+        </Link>
 
-    <h2>Como montar seu cronograma?</h2>
-    <p>Segue um exemplo baseado na minha jornada:</p>
-    <ul>
-      <li><strong>Semana 1-2:</strong> Lógica de Programação e Python básico</li>
-      <li><strong>Semana 3-4:</strong> HTML, CSS e JavaScript</li>
-      <li><strong>Semana 5-6:</strong> React e integração com backend</li>
-      <li><strong>Semana 7+:</strong> Criar projetos, usar GitHub e montar portfólio</li>
-    </ul>
-
-    <h2>Dicas valiosas</h2>
-    <ul>
-      <li>Pratique todos os dias, nem que seja por 30 minutos</li>
-      <li>Participe de comunidades (Discord, GitHub, Reddit)</li>
-      <li>Não tenha medo de errar — erro é aprendizado</li>
-      <li>Crie pequenos projetos e vá evoluindo</li>
-    </ul>
-
-    <h2>Motivação final</h2>
-    <p>TI é um universo gigante e tem espaço pra todo mundo. Eu mesmo comecei sem saber nada — só com vontade e persistência. E olha eu aqui, construindo um site, integrando com backend, e ajudando outros a começarem também!</p>
-
-    <a class="button" href="/quiz-ti">Fazer o Quiz</a>
-  </div>
-</body>
-</html>
+        <a href="/guia-para-iniciantes.html" target="_blank" rel="noopener noreferrer">
+          <button className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">
+            Ver Guia para Iniciantes
+          </button>
+        </a>
+      </div>
+    </div>
+  );
+}
