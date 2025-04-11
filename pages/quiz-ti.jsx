@@ -93,10 +93,10 @@ const questions = [
 
 export default function QuizTI() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<string[]>([]);
+  const [answers, setAnswers] = useState([]);
   const [showResult, setShowResult] = useState(false);
 
-  const handleAnswer = (option: string) => {
+  const handleAnswer = (option) => {
     const newAnswers = [...answers, option];
     setAnswers(newAnswers);
 
@@ -108,7 +108,7 @@ export default function QuizTI() {
   };
 
   const calculateArea = () => {
-    const count: Record<string, number> = {};
+    const count = {};
     answers.forEach((res) => {
       count[res] = (count[res] || 0) + 1;
     });
