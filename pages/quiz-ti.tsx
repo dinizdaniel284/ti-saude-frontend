@@ -1,92 +1,86 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-type Pergunta = {
-  pergunta: string;
-  opcoes: string[];
-};
-
-const perguntas: Pergunta[] = [
+const perguntas = [
   {
-    pergunta: 'Você prefere lidar com dados ou com interfaces visuais?',
-    opcoes: ['Dados', 'Interfaces visuais'],
+    pergunta: 'Qual linguagem é conhecida como a linguagem da web?',
+    opcoes: ['Python', 'C++', 'JavaScript', 'Java'],
+    resposta: 'JavaScript',
   },
   {
-    pergunta: 'Você tem interesse em bancos de dados?',
-    opcoes: ['Sim', 'Não'],
+    pergunta: 'O que significa HTML?',
+    opcoes: [
+      'Hyper Trainer Marking Language',
+      'Hyper Text Markup Language',
+      'Hyper Text Marketing Language',
+      'Hyper Tool Markup Language',
+    ],
+    resposta: 'Hyper Text Markup Language',
   },
   {
-    pergunta: 'Você se interessa por design e experiência do usuário?',
-    opcoes: ['Sim', 'Não'],
+    pergunta: 'Qual ferramenta é usada para controle de versão?',
+    opcoes: ['Jira', 'Git', 'Figma', 'Photoshop'],
+    resposta: 'Git',
   },
   {
-    pergunta: 'Você gosta de automatizar tarefas repetitivas?',
-    opcoes: ['Sim', 'Não'],
+    pergunta: 'Qual sistema de gerenciamento ágil é popular para projetos de TI?',
+    opcoes: ['Waterfall', 'Scrum', 'XP', 'DevOps'],
+    resposta: 'Scrum',
   },
   {
-    pergunta: 'Você prefere desenvolver aplicativos ou analisar informações?',
-    opcoes: ['Desenvolver aplicativos', 'Analisar informações'],
-  },
-  {
-    pergunta: 'Você se interessa por segurança digital?',
-    opcoes: ['Sim', 'Não'],
+    pergunta: 'React é uma biblioteca de...',
+    opcoes: ['Estilização', 'Back-end', 'Manipulação de imagens', 'Front-end'],
+    resposta: 'Front-end',
   },
 ];
 
 export default function QuizTI() {
-  const [respostas, setRespostas] = useState<string[]>([]);
-  const [resultado, setResultado] = useState('');
+  const [indice, setIndice] = useState(0);
+  const [respostaSelecionada, setRespostaSelecionada] = useState('');
+  const [acertos, setAcertos] = useState(0);
+  const [finalizado, setFinalizado] = useState(false);
 
-  const handleResposta = (resposta: string) => {
-    const novasRespostas = [...respostas, resposta];
-    setRespostas(novasRespostas);
-
-    if (novasRespostas.length === perguntas.length) {
-      const dados = novasRespostas.filter((r) => r === 'Dados').length;
-      const design = novasRespostas.filter((r) => r === 'Interfaces visuais').length;
-      const analisar = novasRespostas.filter((r) => r === 'Analisar informações').length;
-      const desenvolver = novasRespostas.filter((r) => r === 'Desenvolver aplicativos').length;
-
-      if (dados >= 2 || analisar >= 2) {
-        setResultado('Você tem perfil para área de **Análise de Dados** ou **Banco de Dados**!');
-      } else if (design >= 2) {
-        setResultado('Você tem perfil para área de **Front-End** ou **UX/UI Design**!');
-      } else if (desenvolver >= 2) {
-        setResultado('Você tem perfil para **Desenvolvimento Back-End**!');
-      } else {
-        setResultado('Você pode explorar áreas como **Segurança da Informação** ou **DevOps**!');
-      }
+  const responder = (opcao: string) => {
+    setRespostaSelecionada(opcao);
+    if (opcao === perguntas[indice].resposta) {
+      setAcertos(acertos + 1);
     }
+    setTimeout(() => {
+      if (indice + 1 < perguntas.length) {
+        setIndice(indice + 1);
+        setRespostaSelecionada('');
+      } else {
+        setFinalizado(true);
+      }
+    }, 800);
   };
 
   return (
-    <div style={{ maxWidth: '600px', margin: 'auto', padding: '20px' }}>
-      <h1>Quiz - Qual área da TI combina com você?</h1>
-      {respostas.length < perguntas.length ? (
-        <div>
-          <h2>{perguntas[respostas.length].pergunta}</h2>
-          {perguntas[respostas.length].opcoes.map((opcao, idx) => (
-            <button
-              key={idx}
-              onClick={() => handleResposta(opcao)}
-              style={{
-                margin: '5px',
-                padding: '10px 15px',
-                borderRadius: '8px',
-                border: '1px solid #ccc',
-                backgroundColor: '#f0f0f0',
-                cursor: 'pointer',
-              }}
-            >
-              {opcao}
-            </button>
-          ))}
-        </div>
-      ) : (
-        <div>
-          <h2>Resultado:</h2>
-          <p>{resultado}</p>
-        </div>
-      )}
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-100 flex flex-col items-center justify-center p-6">
+      <div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-xl">
+        {!finalizado ? (
+          <>
+            <h1 className="text-2xl font-bold text-purple-600 mb-4">Quiz de Conhecimentos em TI</h1>
+            <p className="text-lg text-gray-700 mb-6">{perguntas[indice].pergunta}</p>
+            <div className="grid gap-4">
+              {perguntas[indice].opcoes.map((opcao, i) => (
+                <button
+                  key={i}
+                  onClick={() => responder(opcao)}
+                  className={`p-3 rounded-xl text-white font-semibold transition-all duration-300 
+                    ${respostaSelecionada === opcao ? 'bg-green-500' : 'bg-purple-500 hover:bg-purple-600'}`}
+                >
+                  {opcao}
+                </button>
+              ))}
+            </div>
+          </>
+        ) : (
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-green-600 mb-4">Você acertou {acertos} de {perguntas.length}!</h2>
+            <p className="text-gray-700">Parabéns por concluir o quiz. Continue estudando para evoluir ainda mais!</p>
+          </div>
+        )}
+      </div>
     </div>
   );
-}
+}   
