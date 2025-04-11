@@ -126,7 +126,7 @@ const QuizTI = () => {
       setCurrentQuestion((prev) => prev + 1);
       setScores(updatedScores);
     } else {
-      const topArea = Object.entries(updatedScores).reduce((a, b) => (a[1] >= b[1] ? a : b))[0];
+      const topArea = Object.entries(updatedScores).sort((a, b) => b[1] - a[1])[0][0];
       setResult(results[topArea as keyof typeof results]);
     }
   };
