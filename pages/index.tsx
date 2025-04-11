@@ -18,83 +18,71 @@ const IndexPage = () => {
         marginBottom: '20px',
         color: '#334e68',
       }}>
-        Bem-vindo ao <span style={{ color: '#3e7cb1' }}>TI + Saúde</span>
+        Conectando <span style={{ color: '#3e7cb1' }}>Tecnologia e Saúde</span>
       </h1>
 
       <p style={{
         fontSize: '1.2rem',
-        maxWidth: '600px',
+        maxWidth: '700px',
         marginBottom: '15px',
       }}>
-        Nosso projeto conecta profissionais da saúde ao universo da Tecnologia da Informação.
+        Este projeto foi criado para apoiar profissionais da saúde que desejam explorar as oportunidades crescentes no universo da Tecnologia da Informação.
       </p>
 
       <p style={{
         fontSize: '1rem',
-        maxWidth: '600px',
+        maxWidth: '700px',
+        marginBottom: '15px',
+        color: '#486581',
+      }}>
+        A transição de carreira pode parecer desafiadora, mas a verdade é que habilidades como atenção aos detalhes, ética profissional e raciocínio lógico já fazem parte da rotina da área da saúde — e são altamente valorizadas na tecnologia.
+      </p>
+
+      <p style={{
+        fontSize: '1rem',
+        maxWidth: '700px',
         marginBottom: '30px',
         color: '#486581',
       }}>
-        Descubra como suas habilidades podem ser aproveitadas em áreas como Análise de Dados, Desenvolvimento de Sistemas, Segurança da Informação e muito mais.
+        Aqui você vai encontrar conteúdos sobre programação, análise de dados, segurança da informação, desenvolvimento de sistemas e muito mais. 
+        Tudo de forma clara, prática e direcionada para quem está começando.
       </p>
 
-      <a
-        href="/quiz-ti"
-        style={{
-          padding: '12px 25px',
-          backgroundColor: '#3e7cb1',
-          color: '#ffffff',
-          borderRadius: '8px',
-          textDecoration: 'none',
-          fontWeight: 'bold',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-          marginBottom: '25px',
-        }}
-      >
-        Fazer o Quiz Agora
-      </a>
-
-      {/* Bloco novo: Link para o Guia */}
-      <div style={{
-        marginTop: '20px',
-        backgroundColor: '#ffffff',
-        padding: '20px',
-        borderRadius: '10px',
-        boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
-        maxWidth: '500px',
-      }}>
-        <h2 style={{
-          fontSize: '1.3rem',
-          color: '#334e68',
-          marginBottom: '10px',
-        }}>
-          Novo por aqui?
-        </h2>
-        <p style={{
-          fontSize: '1rem',
-          color: '#486581',
-          marginBottom: '15px',
-        }}>
-          Acesse nosso guia exclusivo para iniciantes e descubra o caminho da saúde para a tecnologia.
-        </p>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginBottom: '40px' }}>
         <a
-          href="/guia-para-iniciantes.html"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/quiz-ti"
           style={{
-            display: 'inline-block',
-            padding: '10px 20px',
-            backgroundColor: '#22c55e',
+            padding: '12px 25px',
+            backgroundColor: '#3e7cb1',
             color: '#ffffff',
-            borderRadius: '6px',
-            fontWeight: 'bold',
+            borderRadius: '8px',
             textDecoration: 'none',
-            boxShadow: '0 3px 10px rgba(0, 0, 0, 0.1)',
+            fontWeight: 'bold',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
           }}
         >
-          Acessar o Guia para Iniciantes
+          Fazer o Quiz de Transição para TI
+        </a>
+
+        <a
+          href="/beginners-guide.html"
+          style={{
+            padding: '12px 25px',
+            backgroundColor: '#243b53',
+            color: '#ffffff',
+            borderRadius: '8px',
+            textDecoration: 'none',
+            fontWeight: 'bold',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+          }}
+        >
+          Ler o Guia de Iniciantes em Programação
         </a>
       </div>
+
+      <p style={{ fontSize: '0.9rem', color: '#829ab1' }}>
+        Criado com dedicação por Daniel Diniz — TI + Saúde para transformar vidas.
+      </p>
     </div>
   );
 };
