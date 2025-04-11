@@ -1,8 +1,6 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import Header from "./components/Header";
+import Header from "../components/Header";
 
-function App() {
+export default function Home() {
   return (
     <div>
       <Header />
@@ -17,6 +15,3 @@ function App() {
     </div>
   );
 }
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
