@@ -1,109 +1,177 @@
  "use client";
+
 import React, { useState } from 'react';
 
-const perguntas = [
+const questions = [
   {
-    pergunta: 'Você prefere trabalhar com dados, pessoas ou sistemas?',
-    opcoes: ['Dados', 'Pessoas', 'Sistemas'],
+    question: 'Qual dessas atividades você se imagina fazendo com mais facilidade?',
+    options: [
+      { text: 'Analisando planilhas, gráficos e dados', area: 'analise' },
+      { text: 'Criando sites e aplicativos', area: 'dev' },
+      { text: 'Ajudando pessoas a resolver problemas no computador', area: 'suporte' },
+      { text: 'Trabalhando com servidores, redes e segurança', area: 'seguranca' },
+    ],
   },
   {
-    pergunta: 'Você se considera uma pessoa lógica ou criativa?',
-    opcoes: ['Lógica', 'Criativa', 'Um pouco dos dois'],
+    question: 'Qual dessas ferramentas você gostaria de aprender a usar?',
+    options: [
+      { text: 'Excel e Power BI', area: 'analise' },
+      { text: 'React ou JavaScript', area: 'dev' },
+      { text: 'Sistemas operacionais e manutenção', area: 'suporte' },
+      { text: 'Linux, AWS ou firewalls', area: 'seguranca' },
+    ],
   },
   {
-    pergunta: 'Você tem facilidade com matemática?',
-    opcoes: ['Sim', 'Mais ou menos', 'Não muito'],
+    question: 'O que mais te motiva em uma profissão?',
+    options: [
+      { text: 'Analisar e encontrar padrões', area: 'analise' },
+      { text: 'Criar e inovar soluções digitais', area: 'dev' },
+      { text: 'Ajudar e orientar pessoas', area: 'suporte' },
+      { text: 'Proteger sistemas e dados', area: 'seguranca' },
+    ],
   },
   {
-    pergunta: 'Você gosta de resolver problemas com tecnologia?',
-    opcoes: ['Sim, adoro', 'Às vezes', 'Prefiro evitar'],
+    question: 'Você prefere trabalhar com:',
+    options: [
+      { text: 'Números e estatísticas', area: 'analise' },
+      { text: 'Design e código', area: 'dev' },
+      { text: 'Interações humanas e suporte', area: 'suporte' },
+      { text: 'Tecnologia de infraestrutura', area: 'seguranca' },
+    ],
   },
   {
-    pergunta: 'Prefere trabalhar sozinho ou em equipe?',
-    opcoes: ['Sozinho', 'Em equipe', 'Depende da situação'],
+    question: 'Você se sente mais confortável:',
+    options: [
+      { text: 'Interpretando gráficos e relatórios', area: 'analise' },
+      { text: 'Criando páginas ou sistemas interativos', area: 'dev' },
+      { text: 'Resolvendo dúvidas de usuários', area: 'suporte' },
+      { text: 'Configurando redes ou servidores', area: 'seguranca' },
+    ],
+  },
+  {
+    question: 'Qual cenário te atrai mais?',
+    options: [
+      { text: 'Análise preditiva para negócios', area: 'analise' },
+      { text: 'Desenvolvimento de apps ou jogos', area: 'dev' },
+      { text: 'Help desk e atendimento técnico', area: 'suporte' },
+      { text: 'Monitoramento de sistemas e segurança digital', area: 'seguranca' },
+    ],
+  },
+  {
+    question: 'Como você prefere aprender?',
+    options: [
+      { text: 'Estudando dados e relatórios', area: 'analise' },
+      { text: 'Praticando com códigos e frameworks', area: 'dev' },
+      { text: 'Com situações reais e suporte técnico', area: 'suporte' },
+      { text: 'Testando sistemas e ambientes de rede', area: 'seguranca' },
+    ],
+  },
+  {
+    question: 'Você se identifica mais com:',
+    options: [
+      { text: 'Projetos analíticos', area: 'analise' },
+      { text: 'Projetos criativos e funcionais', area: 'dev' },
+      { text: 'Atendimento e resolução de problemas', area: 'suporte' },
+      { text: 'Prevenção de ameaças e vulnerabilidades', area: 'seguranca' },
+    ],
+  },
+  {
+    question: 'Qual dessas situações você gostaria de resolver?',
+    options: [
+      { text: 'Entender por que um negócio não está crescendo com dados', area: 'analise' },
+      { text: 'Criar uma plataforma online para um serviço novo', area: 'dev' },
+      { text: 'Ensinar alguém a usar um sistema de forma eficiente', area: 'suporte' },
+      { text: 'Identificar e evitar ataques hackers', area: 'seguranca' },
+    ],
+  },
+  {
+    question: 'O que mais te representa?',
+    options: [
+      { text: 'Curiosidade por estatísticas e tendências', area: 'analise' },
+      { text: 'Paixão por desenvolver soluções digitais', area: 'dev' },
+      { text: 'Empatia e paciência para lidar com pessoas', area: 'suporte' },
+      { text: 'Cuidado com a proteção de dados e sistemas', area: 'seguranca' },
+    ],
   },
 ];
 
-const QuizTI = () => {
-  const [respostas, setRespostas] = useState(Array(perguntas.length).fill(null));
+const results = {
+  analise: {
+    title: 'Análise de Dados',
+    message: 'Você tem um perfil analítico! A área de Análise de Dados pode ser perfeita para você. Comece estudando Excel, Power BI, SQL e Python.'
+  },
+  dev: {
+    title: 'Desenvolvimento de Sistemas',
+    message: 'Você tem um perfil criativo e lógico! O Desenvolvimento de Software é ideal para você. Comece com HTML, CSS, JavaScript e Python.'
+  },
+  suporte: {
+    title: 'Suporte Técnico',
+    message: 'Você tem um perfil comunicativo e prático! O Suporte Técnico pode te oferecer boas oportunidades. Estude hardware, redes e sistemas operacionais.'
+  },
+  seguranca: {
+    title: 'Segurança da Informação / Cloud',
+    message: 'Você gosta de proteger e organizar sistemas! A área de Segurança da Informação ou Cloud pode ser seu futuro. Estude redes, Linux e AWS.'
+  }
+};
 
-  const handleResposta = (indicePergunta: number, resposta: string) => {
-    const novasRespostas = [...respostas];
-    novasRespostas[indicePergunta] = resposta;
-    setRespostas(novasRespostas);
+const QuizTI = () => {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [scores, setScores] = useState({ analise: 0, dev: 0, suporte: 0, seguranca: 0 });
+  const [showResult, setShowResult] = useState(false);
+  const [result, setResult] = useState(null);
+
+  const handleAnswer = (area) => {
+    setScores(prev => ({ ...prev, [area]: prev[area] + 1 }));
+    const next = currentQuestion + 1;
+    if (next < questions.length) {
+      setCurrentQuestion(next);
+    } else {
+      const topArea = Object.entries(scores).reduce((a, b) => a[1] >= b[1] ? a : b)[0];
+      setResult(results[topArea]);
+      setShowResult(true);
+    }
   };
 
-  const terminou = respostas.every(resposta => resposta !== null);
+  if (showResult && result) {
+    return (
+      <div style={{ padding: 20, textAlign: 'center' }}>
+        <h2>{result.title}</h2>
+        <p>{result.message}</p>
+        <a href="/" style={{ textDecoration: 'none', marginTop: 20, display: 'inline-block', color: '#3e7cb1' }}>
+          Voltar à Página Inicial
+        </a>
+      </div>
+    );
+  }
+
+  const question = questions[currentQuestion];
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      background: '#f0f4f8',
-      padding: '20px',
-      fontFamily: 'Segoe UI, sans-serif',
-      color: '#102a43',
-    }}>
-      <h1 style={{ textAlign: 'center', fontSize: '2rem', marginBottom: '20px' }}>Quiz: Encontre sua área na TI</h1>
-
-      <div style={{
-        maxWidth: '800px',
-        margin: '0 auto',
-        backgroundColor: '#ffffff',
-        padding: '30px',
-        borderRadius: '12px',
-        boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-      }}>
-        {perguntas.map((item, i) => (
-          <div key={i} style={{ marginBottom: '30px' }}>
-            <p style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>{item.pergunta}</p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-              {item.opcoes.map((opcao, j) => (
-                <button
-                  key={j}
-                  onClick={() => handleResposta(i, opcao)}
-                  style={{
-                    padding: '10px 16px',
-                    borderRadius: '8px',
-                    border: '2px solid #3e7cb1',
-                    backgroundColor: respostas[i] === opcao ? '#3e7cb1' : '#ffffff',
-                    color: respostas[i] === opcao ? '#ffffff' : '#3e7cb1',
-                    fontWeight: 'bold',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease',
-                  }}
-                >
-                  {opcao}
-                </button>
-              ))}
-            </div>
-          </div>
+    <div style={{ padding: 20, maxWidth: 600, margin: '0 auto', fontFamily: 'Segoe UI, sans-serif' }}>
+      <h2>{question.question}</h2>
+      <ul style={{ listStyle: 'none', padding: 0 }}>
+        {question.options.map((opt, idx) => (
+          <li key={idx} style={{ margin: '10px 0' }}>
+            <button
+              onClick={() => handleAnswer(opt.area)}
+              style={{
+                padding: '10px 20px',
+                backgroundColor: '#3e7cb1',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                width: '100%',
+                fontSize: '1rem'
+              }}
+            >
+              {opt.text}
+            </button>
+          </li>
         ))}
-
-        {terminou && (
-          <div style={{
-            marginTop: '30px',
-            padding: '20px',
-            backgroundColor: '#e1f0ff',
-            borderRadius: '10px',
-            textAlign: 'center',
-          }}>
-            <h2 style={{ color: '#334e68' }}>Parabéns!</h2>
-            <p style={{ fontSize: '1.1rem' }}>Com base nas suas respostas, você pode se identificar com áreas como:</p>
-            <p style={{ fontWeight: 'bold', marginTop: '10px', color: '#3e7cb1' }}>
-              Análise de Dados, Desenvolvimento, UX, Segurança da Informação...
-            </p>
-            <p style={{ fontSize: '0.9rem', color: '#486581' }}>
-              Continue explorando para descobrir o melhor caminho para você!
-            </p>
-          </div>
-        )}
-      </div>
+      </ul>
     </div>
   );
 };
 
 export default QuizTI;
-
-
-
-  
