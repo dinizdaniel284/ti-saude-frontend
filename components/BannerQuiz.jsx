@@ -1,16 +1,12 @@
 export default function BannerQuiz() {
   return (
-    <div className="relative w-full h-64 md:h-80 lg:h-96 mb-8 overflow-hidden rounded-2xl shadow-lg">
-      <img
-        src="/images/banner-quiz-ti.jpg"
-        alt="Banner TI"
-        className="object-cover w-full h-full"
-      />
-      <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl text-white font-bold text-center">
-          Qual área da TI combina com você?
-        </h1>
-      </div>
+    <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 py-12 px-6 rounded-2xl shadow-lg text-center mb-8">
+      <h1 className="text-4xl font-bold text-white mb-2">
+        Descubra sua área ideal na TI!
+      </h1>
+      <p className="text-lg text-white opacity-90">
+        Responda o quiz e veja qual caminho mais combina com você
+      </p>
     </div>
   );
 }
