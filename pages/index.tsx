@@ -48,10 +48,53 @@ const IndexPage = () => {
           textDecoration: 'none',
           fontWeight: 'bold',
           boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+          marginBottom: '25px',
         }}
       >
         Fazer o Quiz Agora
       </a>
+
+      {/* Bloco novo: Link para o Guia */}
+      <div style={{
+        marginTop: '20px',
+        backgroundColor: '#ffffff',
+        padding: '20px',
+        borderRadius: '10px',
+        boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
+        maxWidth: '500px',
+      }}>
+        <h2 style={{
+          fontSize: '1.3rem',
+          color: '#334e68',
+          marginBottom: '10px',
+        }}>
+          Novo por aqui?
+        </h2>
+        <p style={{
+          fontSize: '1rem',
+          color: '#486581',
+          marginBottom: '15px',
+        }}>
+          Acesse nosso guia exclusivo para iniciantes e descubra o caminho da saúde para a tecnologia.
+        </p>
+        <a
+          href="/guia-para-iniciantes.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-block',
+            padding: '10px 20px',
+            backgroundColor: '#22c55e',
+            color: '#ffffff',
+            borderRadius: '6px',
+            fontWeight: 'bold',
+            textDecoration: 'none',
+            boxShadow: '0 3px 10px rgba(0, 0, 0, 0.1)',
+          }}
+        >
+          Acessar o Guia para Iniciantes
+        </a>
+      </div>
     </div>
   );
 };
