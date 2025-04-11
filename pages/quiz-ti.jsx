@@ -117,8 +117,6 @@ export default function QuizTI() {
     return mostFrequent[0][0];
   };
 
-  const current = questions[currentQuestion];
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-200 p-4 text-gray-800">
       <div className="max-w-3xl mx-auto mt-10 bg-white shadow-2xl rounded-3xl p-8">
@@ -126,13 +124,13 @@ export default function QuizTI() {
           Descubra sua área ideal na TI
         </h1>
 
-        {!showResult && current ? (
+        {!showResult && questions[currentQuestion] ? (
           <div className="animate-fade-in">
             <h2 className="text-xl font-semibold mb-4 text-blue-500">
-              {current.question}
+              {questions[currentQuestion]?.question}
             </h2>
             <div className="grid grid-cols-1 gap-4">
-              {current.options.map((option, idx) => (
+              {questions[currentQuestion]?.options.map((option, idx) => (
                 <button
                   key={idx}
                   onClick={() => handleAnswer(option)}
