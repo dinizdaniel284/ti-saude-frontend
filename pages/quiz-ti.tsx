@@ -117,7 +117,7 @@ const results = {
 const QuizTI = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scores, setScores] = useState({ analise: 0, dev: 0, suporte: 0, seguranca: 0 });
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState<null | { title: string; message: string }>(null);
 
   const handleAnswer = (area: keyof typeof scores) => {
     const updatedScores = { ...scores, [area]: scores[area] + 1 };
@@ -126,9 +126,15 @@ const QuizTI = () => {
       setCurrentQuestion((prev) => prev + 1);
       setScores(updatedScores);
     } else {
-      const topArea = Object.entries(updatedScores).sort((a, b) => b[1] - a[1])[0][0];
+      const topArea = Object.entries(updatedScores).reduce((a, b) => (a[1] >= b[1] ? a : b))[0];
       setResult(results[topArea as keyof typeof results]);
     }
+  };
+
+  const restartQuiz = () => {
+    setCurrentQuestion(0);
+    setScores({ analise: 0, dev: 0, suporte: 0, seguranca: 0 });
+    setResult(null);
   };
 
   if (result) {
@@ -136,9 +142,12 @@ const QuizTI = () => {
       <div className="text-center p-6">
         <h2 className="text-2xl font-bold mb-4">{result.title}</h2>
         <p className="mb-6">{result.message}</p>
-        <a href="/" className="text-blue-600 underline">
-          Voltar à Página Inicial
-        </a>
+        <button
+          onClick={restartQuiz}
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+        >
+          Recomeçar Quiz
+        </button>
       </div>
     );
   }
