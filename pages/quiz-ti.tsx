@@ -1,6 +1,7 @@
-"use client";
+ "use client";
 
 import { useState } from "react";
+import clsx from "clsx";
 
 type Question = {
   question: string;
@@ -48,37 +49,48 @@ const questions: Question[] = [
       { text: "Firewalls, criptografia, autenticação", category: "Segurança" },
     ],
   },
+  {
+    question: "Em um projeto, você se sente mais confortável:",
+    options: [
+      { text: "Montando relatórios para tomada de decisões", category: "Dados" },
+      { text: "Codando e testando funcionalidades", category: "Desenvolvimento" },
+      { text: "Identificando e corrigindo vulnerabilidades", category: "Segurança" },
+    ],
+  },
 ];
 
 export default function QuizTI() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [result, setResult] = useState<string | null>(null);
-  const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
 
-  const handleAnswer = (category: string) => {
-    const newAnswers = [...answers, category];
-    setAnswers(newAnswers);
-    setSelectedOptionIndex(null);
+  const handleAnswer = (category: string, index: number) => {
+    setSelectedOption(index);
 
-    if (currentQuestion + 1 < questions.length) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      const counts: Record<string, number> = {};
-      newAnswers.forEach((answer) => {
-        counts[answer] = (counts[answer] || 0) + 1;
-      });
+    setTimeout(() => {
+      const newAnswers = [...answers, category];
+      setAnswers(newAnswers);
+      setSelectedOption(null);
 
-      const topCategory = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
-      setResult(topCategory);
-    }
+      if (currentQuestion + 1 < questions.length) {
+        setCurrentQuestion(currentQuestion + 1);
+      } else {
+        const counts: Record<string, number> = {};
+        newAnswers.forEach((answer) => {
+          counts[answer] = (counts[answer] || 0) + 1;
+        });
+
+        const topCategory = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+        setResult(topCategory);
+      }
+    }, 300);
   };
 
   const resetQuiz = () => {
     setCurrentQuestion(0);
     setAnswers([]);
     setResult(null);
-    setSelectedOptionIndex(null);
   };
 
   const resultMessages: Record<string, string> = {
@@ -91,15 +103,15 @@ export default function QuizTI() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white px-6 py-10">
-      <div className="max-w-xl w-full bg-gray-800 rounded-2xl shadow-lg p-8 space-y-6">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 text-white px-6 py-10">
+      <div className="max-w-xl w-full bg-gray-800 rounded-2xl shadow-2xl p-8 space-y-6">
         <h1 className="text-3xl font-bold text-center text-purple-400">
           Descubra sua área ideal na TI + Saúde
         </h1>
 
         {result ? (
           <div className="space-y-4 text-center">
-            <h2 className="text-2xl font-semibold">Resultado:</h2>
+            <h2 className="text-2xl font-semibold text-green-400">Resultado:</h2>
             <p className="text-lg">{resultMessages[result]}</p>
             <button
               onClick={resetQuiz}
@@ -117,16 +129,13 @@ export default function QuizTI() {
               {questions[currentQuestion].options.map((option, idx) => (
                 <button
                   key={idx}
-                  onClick={() => {
-                    setSelectedOptionIndex(idx);
-                    setTimeout(() => handleAnswer(option.category), 300);
-                  }}
-                  className={`px-4 py-2 rounded-lg transition text-white font-medium
-                    ${
-                      selectedOptionIndex === idx
-                        ? "bg-green-500"
-                        : "bg-purple-500 hover:bg-purple-600"
-                    }`}
+                  onClick={() => handleAnswer(option.category, idx)}
+                  className={clsx(
+                    "px-4 py-3 rounded-xl transition font-medium text-left border",
+                    selectedOption === idx
+                      ? "bg-purple-600 border-purple-400"
+                      : "bg-gray-700 hover:bg-gray-600 border-gray-500"
+                  )}
                 >
                   {option.text}
                 </button>
