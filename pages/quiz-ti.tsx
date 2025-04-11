@@ -1,143 +1,115 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
 
-const perguntas = [
+const questions = [
   {
-    pergunta: "Qual linguagem é mais usada no desenvolvimento backend?",
-    opcoes: ["Python", "HTML", "CSS", "Photoshop"],
-    respostaCorreta: "Python",
+    question: "Qual dessas linguagens é mais usada para desenvolver APIs?",
+    options: ["HTML", "Python", "CSS", "SQL"],
+    answer: "Python",
   },
   {
-    pergunta: "O que significa API?",
-    opcoes: [
-      "Aplicativo Público de Interface",
-      "Interface de Programação de Aplicações",
-      "Aplicação Privada de Internet",
-      "Acesso Público à Internet",
+    question: "O que significa HTTP?",
+    options: [
+      "HyperText Transfer Protocol",
+      "HighText Transfer Protocol",
+      "HyperTool Transfer Protocol",
+      "None of the above",
     ],
-    respostaCorreta: "Interface de Programação de Aplicações",
+    answer: "HyperText Transfer Protocol",
   },
   {
-    pergunta: "Qual dessas ferramentas é usada para versionamento de código?",
-    opcoes: ["Photoshop", "Excel", "Git", "PowerPoint"],
-    respostaCorreta: "Git",
+    question: "Qual banco de dados é orientado a documentos?",
+    options: ["MySQL", "PostgreSQL", "MongoDB", "SQLite"],
+    answer: "MongoDB",
   },
   {
-    pergunta: "O que o React ajuda a construir?",
-    opcoes: [
-      "Planilhas",
-      "Interfaces de usuário (UI)",
-      "Bancos de dados",
-      "Sistemas operacionais",
-    ],
-    respostaCorreta: "Interfaces de usuário (UI)",
-  },
-  {
-    pergunta: "Qual a principal função do Node.js?",
-    opcoes: [
-      "Estilizar páginas web",
-      "Criar slides",
-      "Executar JavaScript no servidor",
-      "Editar vídeos",
-    ],
-    respostaCorreta: "Executar JavaScript no servidor",
+    question: "Qual dessas ferramentas é usada para controle de versão?",
+    options: ["Docker", "Git", "Figma", "Jira"],
+    answer: "Git",
   },
 ];
 
 export default function QuizTI() {
-  const [indiceAtual, setIndiceAtual] = useState(0);
-  const [respostaSelecionada, setRespostaSelecionada] = useState<string | null>(null);
-  const [pontuacao, setPontuacao] = useState(0);
-  const [finalizado, setFinalizado] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [showResult, setShowResult] = useState(false);
+  const [score, setScore] = useState(0);
 
-  const responder = (resposta: string) => {
-    if (!respostaSelecionada) {
-      setRespostaSelecionada(resposta);
-      if (resposta === perguntas[indiceAtual].respostaCorreta) {
-        setPontuacao((prev) => prev + 1);
-      }
-      setTimeout(() => {
-        if (indiceAtual + 1 < perguntas.length) {
-          setIndiceAtual((prev) => prev + 1);
-          setRespostaSelecionada(null);
-        } else {
-          setFinalizado(true);
-        }
-      }, 800);
+  const handleOptionClick = (option: string) => {
+    setSelectedOption(option);
+    if (option === questions[currentQuestion].answer) {
+      setScore(score + 1);
     }
+    setTimeout(() => {
+      const nextQuestion = currentQuestion + 1;
+      if (nextQuestion < questions.length) {
+        setCurrentQuestion(nextQuestion);
+        setSelectedOption(null);
+      } else {
+        setShowResult(true);
+      }
+    }, 700);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 to-blue-300 flex flex-col items-center justify-start p-4 text-gray-800">
-      
-      {/* Botão chamativo separado */}
-      <div className="bg-white rounded-2xl shadow-md px-6 py-4 mb-6 w-full max-w-md text-center border border-blue-300">
-        <h2 className="text-xl font-semibold text-blue-800 mb-2 drop-shadow-sm">
-          Novo por aqui?
-        </h2>
-        <p className="text-blue-700 mb-4">Confira o guia prático para iniciantes em TI!</p>
-        <Link href="/guia-para-iniciantes.html" target="_blank">
-          <button className="bg-blue-600 text-white font-semibold px-6 py-2 rounded-xl shadow-md hover:bg-blue-700 transition">
-            Acessar Guia
-          </button>
-        </Link>
-      </div>
+    <div className="min-h-screen bg-blue-100 text-center p-6">
+      {/* Cabeçalho bonito com mensagem e botão */}
+      <h1 className="text-4xl font-extrabold text-blue-700 mb-2 drop-shadow-md">
+        Bem-vindo ao Quiz Interativo de TI!
+      </h1>
+      <p className="text-lg text-blue-800 mb-6">
+        Teste seus conhecimentos e descubra sua afinidade com o mundo da tecnologia.
+      </p>
+      <a
+        href="/beginners-guide.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <button className="mb-10 bg-gradient-to-r from-blue-400 to-blue-600 text-white text-lg font-bold py-3 px-6 rounded-2xl shadow-lg hover:scale-105 hover:shadow-blue-500 transition duration-300">
+          Guia para Iniciantes
+        </button>
+      </a>
 
-      {/* Título do Quiz */}
-      <div className="text-center mb-8 mt-2">
-        <h1 className="text-4xl font-bold text-blue-800 drop-shadow-lg">
-          Quiz TI-Saúde
-        </h1>
-        <p className="mt-2 text-lg text-blue-700 font-medium">
-          Teste seus conhecimentos em tecnologia!
-        </p>
-      </div>
-
-      {/* Cartão do Quiz */}
-      <div className="bg-white rounded-2xl shadow-xl p-6 w-full max-w-xl transition-all">
-        {finalizado ? (
-          <div className="text-center">
-            <h2 className="text-2xl font-bold text-green-700">
-              Parabéns, você concluiu!
-            </h2>
-            <p className="mt-4 text-xl">
-              Você acertou{" "}
-              <span className="font-bold text-blue-600">{pontuacao}</span> de{" "}
-              {perguntas.length} perguntas.
-            </p>
-            <p className="mt-4 text-sm text-gray-600 italic">
-              Continue praticando, você está no caminho certo!
-            </p>
+      {/* Corpo do Quiz */}
+      {!showResult ? (
+        <div className="bg-white rounded-xl p-6 shadow-xl max-w-xl mx-auto">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            {questions[currentQuestion].question}
+          </h2>
+          <div className="space-y-4">
+            {questions[currentQuestion].options.map((option, index) => (
+              <button
+                key={index}
+                onClick={() => handleOptionClick(option)}
+                className={`w-full py-3 px-4 rounded-xl text-lg font-medium transition-colors duration-300
+                  ${
+                    selectedOption === option
+                      ? option === questions[currentQuestion].answer
+                        ? "bg-green-500 text-white"
+                        : "bg-red-500 text-white"
+                      : "bg-blue-200 hover:bg-blue-300 text-gray-800"
+                  }`}
+                disabled={!!selectedOption}
+              >
+                {option}
+              </button>
+            ))}
           </div>
-        ) : (
-          <>
-            <h2 className="text-lg font-semibold mb-4 text-blue-700">
-              {perguntas[indiceAtual].pergunta}
-            </h2>
-            <div className="space-y-3">
-              {perguntas[indiceAtual].opcoes.map((opcao, index) => (
-                <button
-                  key={index}
-                  onClick={() => responder(opcao)}
-                  className={`w-full py-2 px-4 rounded-xl border text-base font-medium transition-colors duration-300
-                    ${
-                      respostaSelecionada
-                        ? opcao === perguntas[indiceAtual].respostaCorreta
-                          ? "bg-green-500 text-white"
-                          : opcao === respostaSelecionada
-                          ? "bg-red-500 text-white"
-                          : "bg-gray-100"
-                        : "bg-blue-200 hover:bg-blue-300 text-blue-800"
-                    }`}
-                >
-                  {opcao}
-                </button>
-              ))}
-            </div>
-          </>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="bg-white p-6 rounded-xl shadow-xl max-w-xl mx-auto">
+          <h2 className="text-2xl font-bold text-blue-700 mb-4">Resultado Final</h2>
+          <p className="text-lg text-gray-700 mb-4">
+            Você acertou {score} de {questions.length} perguntas!
+          </p>
+          <a
+            href="/quiz-ti"
+            className="inline-block mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-xl"
+          >
+            Refazer Quiz
+          </a>
+        </div>
+      )}
     </div>
   );
 }
