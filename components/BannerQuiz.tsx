@@ -1,4 +1,6 @@
-export default function BannerQuiz() {
+import React from "react";
+
+const BannerQuiz: React.FC = () => {
   return (
     <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 py-12 px-6 rounded-2xl shadow-lg text-center mb-8">
       <h1 className="text-4xl font-bold text-white mb-2">
@@ -9,4 +11,6 @@ export default function BannerQuiz() {
       </p>
     </div>
   );
-}
+};
+
+export default BannerQuiz;
