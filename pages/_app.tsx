@@ -1,0 +1,5 @@
+- pages/
+  - _app.tsx   <-- Este arquivo deve estar aqui
+  - index.tsx
+- styles/
+  - globals.css
