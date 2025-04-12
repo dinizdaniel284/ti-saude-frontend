@@ -1,4 +1,7 @@
-/* styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply bg-gradient-to-b from-blue-50 to-white text-gray-800 font-sans;
+}
