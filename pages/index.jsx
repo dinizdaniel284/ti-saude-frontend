@@ -1,25 +1,29 @@
-import Head from "next/head";
+"use client";
+import { useState } from "react";
 import QuizTI from "./quiz-ti";
 
 export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Descubra sua área na TI</title>
-        <meta name="description" content="Quiz interativo para descobrir sua área ideal na tecnologia" />
-      </Head>
+  const [startQuiz, setStartQuiz] = useState(false);
 
-      <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-white to-blue-200">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-blue-700 mb-8">
-            Bem-vindo ao TI-Saúde
-          </h1>
-          <p className="mb-6 text-lg text-gray-700">
-            Clique no botão abaixo para iniciar o quiz e descobrir com qual área da TI você mais se identifica!
-          </p>
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-300 via-white to-blue-100 text-gray-800">
+      <div className="flex flex-col items-center justify-center text-center py-20 px-4 shadow-xl bg-blue-500 text-white rounded-b-3xl">
+        <h1 className="text-4xl font-bold mb-4 drop-shadow-lg">Bem-vindo ao TI-Saúde!</h1>
+        <p className="text-lg mb-2">"A tecnologia muda o mundo, e você pode mudar a tecnologia."</p>
+        <p className="text-lg mb-6">"Descubra o seu caminho na área da TI e brilhe com seu talento!"</p>
+        <button
+          onClick={() => setStartQuiz(true)}
+          className="bg-white text-blue-600 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-blue-100 hover:text-blue-800 transition-all"
+        >
+          Bora fazer um quiz e descobrir sua área ideal?
+        </button>
+      </div>
+
+      {startQuiz && (
+        <div className="animate-fade-in mt-10 px-4">
           <QuizTI />
         </div>
-      </main>
-    </>
+      )}
+    </div>
   );
 }
