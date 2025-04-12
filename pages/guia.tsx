@@ -1,5 +1,6 @@
 // pages/guia.tsx
 import React, { useState } from 'react';
+import Head from 'next/head';
 
 const Guia = () => {
   const [messageSent, setMessageSent] = useState(false);
@@ -11,6 +12,11 @@ const Guia = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white">
+      <Head>
+        <title>Guia para Iniciantes em TI & Saúde | TI-Saúde</title>
+        <meta name="description" content="Comece sua transição para a área de TI com foco em Saúde. Dicas, áreas de atuação e próximos passos." />
+      </Head>
+
       <div className="max-w-4xl mx-auto p-6">
         <header className="text-center mb-12">
           <h1 className="text-4xl font-extrabold mb-4">Guia para Iniciantes na TI & Saúde</h1>
@@ -84,7 +90,7 @@ const Guia = () => {
           <h3 className="text-2xl font-semibold mb-4">❓ Dúvidas? Entre em contato!</h3>
           <form onSubmit={handleFormSubmit} className="max-w-md mx-auto">
             {messageSent && (
-              <div className="text-center text-green-600 p-4">
+              <div className="text-center text-green-600 p-4 bg-white rounded-md mb-4">
                 Sua mensagem foi enviada com sucesso!
               </div>
             )}
@@ -99,7 +105,10 @@ const Guia = () => {
               className="w-full mb-4 p-3 rounded-lg bg-gray-200 text-gray-800"
               required
             ></textarea>
-            <button type="submit" className="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg w-full hover:bg-blue-800">
+            <button
+              type="submit"
+              className="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg w-full hover:bg-blue-800 cursor-pointer transition"
+            >
               Enviar Mensagem
             </button>
           </form>
