@@ -14,15 +14,15 @@ const Home = () => {
         </p>
       </header>
 
-      <div className="space-y-6 text-center w-full max-w-sm">
+      <div className="space-y-8 text-center w-full max-w-sm">
         <Link href="/quiz">
-          <button className="w-full bg-green-500 text-white font-semibold py-3 rounded-xl shadow-lg hover:bg-green-600 hover:scale-105 transition-transform duration-300 ease-in-out">
+          <button className="w-full bg-green-500 text-white font-semibold py-4 rounded-xl shadow-lg hover:bg-green-600 hover:scale-105 transition-transform duration-300 ease-in-out">
             Comece o Quiz Interativo
           </button>
         </Link>
 
         <Link href="/guide">
-          <button className="w-full bg-blue-500 text-white font-semibold py-3 rounded-xl shadow-lg hover:bg-blue-600 hover:scale-105 transition-transform duration-300 ease-in-out">
+          <button className="w-full bg-blue-500 text-white font-semibold py-4 rounded-xl shadow-lg hover:bg-blue-600 hover:scale-105 transition-transform duration-300 ease-in-out">
             Leia o Guia para Iniciantes
           </button>
         </Link>
