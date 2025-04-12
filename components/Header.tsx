@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <header className="bg-blue-800 text-white p-4 rounded-b-2xl shadow-md">
       <h1 className="text-2xl font-bold text-center">TI & Saúde</h1>
