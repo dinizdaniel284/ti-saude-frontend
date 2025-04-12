@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/router";
 
-export default function Home() {
+const Home = () => {
   const router = useRouter();
 
   const handleStartQuiz = () => {
@@ -36,4 +36,4 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
