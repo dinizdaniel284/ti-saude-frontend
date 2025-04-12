@@ -2,12 +2,17 @@
 
 import { useState } from "react";
 
+interface Question {
+  question: string;
+  options: string[];
+}
+
 export default function Quiz() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [answers, setAnswers] = useState([]);
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  const [answers, setAnswers] = useState<string[]>([]);
 
-  const questions = [
+  const questions: Question[] = [
     {
       question: "Qual área da TI mais te interessa?",
       options: ["Desenvolvimento", "Infraestrutura", "Análise de Dados", "Segurança"],
@@ -22,14 +27,14 @@ export default function Quiz() {
     },
   ];
 
-  const handleOptionChange = (index) => {
+  const handleOptionChange = (index: number) => {
     setSelectedOption(index);
   };
 
   const handleNextQuestion = () => {
     if (selectedOption !== null) {
       const selectedAnswer = questions[currentQuestionIndex].options[selectedOption];
-      setAnswers([...answers, selectedAnswer]);
+      setAnswers((prev) => [...prev, selectedAnswer]);
       setSelectedOption(null);
 
       if (currentQuestionIndex < questions.length - 1) {
