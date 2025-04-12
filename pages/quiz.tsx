@@ -1,3 +1,4 @@
+// pages/quiz.tsx
 "use client";
 
 import { useState } from "react";
@@ -11,6 +12,7 @@ export default function Quiz() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [answers, setAnswers] = useState<string[]>([]);
+  const [quizFinished, setQuizFinished] = useState(false);
 
   const questions: Question[] = [
     {
@@ -40,7 +42,7 @@ export default function Quiz() {
       if (currentQuestionIndex < questions.length - 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
       } else {
-        alert("Quiz Finalizado! Respostas: " + JSON.stringify([...answers, selectedAnswer]));
+        setQuizFinished(true);
       }
     } else {
       alert("Por favor, selecione uma opção.");
@@ -48,61 +50,61 @@ export default function Quiz() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center">
-      <div className="bg-white bg-opacity-80 shadow-2xl rounded-3xl p-10 max-w-3xl w-full text-center">
-        <h1 className="text-3xl md:text-4xl font-extrabold text-blue-900 mb-6 drop-shadow-xl">
-          Quiz TI-Saúde
-        </h1>
+    <div className="min-h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center p-4">
+      <div className="bg-white bg-opacity-90 shadow-2xl rounded-3xl p-10 max-w-3xl w-full text-center">
+        {!quizFinished ? (
+          <>
+            <h1 className="text-3xl md:text-4xl font-extrabold text-blue-900 mb-6">
+              Quiz TI-Saúde
+            </h1>
+            <p className="text-lg text-gray-600 mb-4">
+              Pergunta {currentQuestionIndex + 1} de {questions.length}
+            </p>
+            <p className="text-xl text-gray-800 mb-6">{questions[currentQuestionIndex].question}</p>
 
-        {/* Contador de Perguntas */}
-        <p className="text-lg text-gray-600 mb-4">
-          Pergunta {currentQuestionIndex + 1} de {questions.length}
-        </p>
+            <div className="space-y-4 mb-6">
+              {questions[currentQuestionIndex].options.map((option, index) => (
+                <label
+                  key={index}
+                  className={`block cursor-pointer text-left px-4 py-3 rounded-lg border-2 ${
+                    selectedOption === index
+                      ? "border-blue-600 bg-blue-100"
+                      : "border-gray-300 bg-white"
+                  } hover:bg-blue-50 transition`}
+                >
+                  <input
+                    type="radio"
+                    name="option"
+                    value={index}
+                    checked={selectedOption === index}
+                    onChange={() => handleOptionChange(index)}
+                    className="mr-2"
+                  />
+                  {option}
+                </label>
+              ))}
+            </div>
 
-        <div className="space-y-6">
-          <p className="text-xl text-gray-800">{questions[currentQuestionIndex].question}</p>
-
-          <div className="space-y-4">
-            {questions[currentQuestionIndex].options.map((option, index) => (
-              <button
-                key={index}
-                className={`w-full py-3 px-4 border rounded-lg text-lg transition-all duration-300 ease-in-out transform ${
-                  selectedOption === index
-                    ? "bg-blue-600 text-white scale-105"
-                    : "bg-gray-100 hover:bg-blue-500"
-                }`}
-                onClick={() => handleOptionChange(index)}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
-
-          <div className="mt-6">
             <button
               onClick={handleNextQuestion}
-              className="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-800 w-full transition-all duration-300 ease-in-out transform hover:scale-105"
+              className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg transition"
             >
-              {currentQuestionIndex < questions.length - 1 ? "Próxima Pergunta" : "Finalizar Quiz"}
+              {currentQuestionIndex === questions.length - 1 ? "Finalizar" : "Próxima"}
             </button>
-          </div>
-        </div>
-
-        {/* Tela de Conclusão */}
-        {currentQuestionIndex === questions.length && (
-          <div className="mt-6 text-center">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-              Parabéns! Você completou o Quiz.
-            </h2>
-            <p className="text-lg text-gray-700">Aqui estão suas respostas:</p>
-            <ul className="mt-4 space-y-2 text-left text-gray-800">
+          </>
+        ) : (
+          <>
+            <h2 className="text-3xl font-bold text-green-700 mb-6">Quiz Finalizado!</h2>
+            <p className="text-lg text-gray-700 mb-4">Aqui estão suas respostas:</p>
+            <ul className="text-left text-gray-800 space-y-2">
               {answers.map((answer, index) => (
-                <li key={index} className="text-xl">
-                  Pergunta {index + 1}: {answer}
+                <li key={index}>
+                  <strong>{questions[index].question}</strong><br />
+                  <span className="ml-2">{answer}</span>
                 </li>
               ))}
             </ul>
-          </div>
+          </>
         )}
       </div>
     </div>
