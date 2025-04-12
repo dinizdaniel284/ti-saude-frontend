@@ -1,4 +1,3 @@
-// pages/quiz.tsx
 "use client";
 
 import { useState } from "react";
@@ -49,20 +48,19 @@ export default function Quiz() {
     }
   };
 
-  // Função para determinar a mensagem de resultado com base nas respostas
-  const getFinalMessage = () => {
-    const devInterest = answers[0]; // Resposta da primeira pergunta
-    const dataAnalysis = answers[1]; // Resposta da segunda pergunta
-    const workPreference = answers[2]; // Resposta da terceira pergunta
-
-    if (devInterest === "Desenvolvimento" && workPreference === "Backend") {
-      return "Parabéns, você se identifica como um Desenvolvedor de Sistemas!";
-    } else if (devInterest === "Desenvolvimento" && workPreference === "Frontend") {
-      return "Parabéns, você se identifica como um Desenvolvedor Frontend!";
-    } else if (devInterest === "Análise de Dados" && dataAnalysis === "Sim") {
-      return "Parabéns, você se identifica como um Analista de Dados!";
+  // Lógica para determinar o perfil
+  const getProfile = () => {
+    const areaTI = answers[0]; // A primeira resposta é sobre a área de TI.
+    if (areaTI === "Desenvolvimento") {
+      return "Desenvolvedor de Sistemas";
+    } else if (areaTI === "Infraestrutura") {
+      return "Especialista em Infraestrutura de TI";
+    } else if (areaTI === "Análise de Dados") {
+      return "Analista de Dados";
+    } else if (areaTI === "Segurança") {
+      return "Especialista em Segurança da Informação";
     } else {
-      return "Parabéns, você está explorando diversas áreas da TI!";
+      return "Profissional de TI";
     }
   };
 
@@ -111,8 +109,7 @@ export default function Quiz() {
           </>
         ) : (
           <>
-            <h2 className="text-3xl font-bold text-green-700 mb-6">Quiz Finalizado!</h2>
-            <p className="text-lg text-gray-700 mb-4">{getFinalMessage()}</p>
+            <h2 className="text-3xl font-bold text-green-700 mb-6">Parabéns, quiz finalizado!</h2>
             <p className="text-lg text-gray-700 mb-4">Aqui estão suas respostas:</p>
             <ul className="text-left text-gray-800 space-y-2">
               {answers.map((answer, index) => (
@@ -122,6 +119,9 @@ export default function Quiz() {
                 </li>
               ))}
             </ul>
+            <p className="mt-6 text-xl font-semibold text-blue-700">
+              Você se identifica como um {getProfile()}!
+            </p>
           </>
         )}
       </div>
