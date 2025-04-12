@@ -1,7 +1,6 @@
-// components/Main.jsx
 import React from "react";
 
-const Main = () => {
+const Main: React.FC = () => {
   return (
     <main className="p-4 text-center">
       <h2 className="text-2xl font-semibold mb-4">Bem-vindo ao TI-Saúde</h2>
