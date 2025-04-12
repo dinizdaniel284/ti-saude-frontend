@@ -1,4 +1,5 @@
 "use client";
+
 import { useRouter } from "next/router";
 
 export default function Home() {
@@ -9,16 +10,26 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-300 via-white to-blue-100 text-gray-800">
-      <div className="flex flex-col items-center justify-center text-center py-20 px-4 shadow-xl bg-blue-500 text-white rounded-b-3xl">
-        <h1 className="text-4xl font-bold mb-4 drop-shadow-lg">Bem-vindo ao TI-Saúde!</h1>
-        <p className="text-lg mb-2">&quot;A tecnologia muda o mundo, e você pode mudar a tecnologia.&quot;</p>
-        <p className="text-lg mb-6">&quot;Descubra o seu caminho na área da TI e brilhe com seu talento!&quot;</p>
+    <div className="min-h-screen bg-gradient-to-br from-blue-200 via-white to-blue-400 flex items-center justify-center px-4">
+      <div className="bg-white bg-opacity-90 shadow-2xl rounded-2xl p-10 max-w-2xl w-full text-center">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-blue-800 drop-shadow mb-4">
+          Seja bem-vindo ao TI-Saúde!
+        </h1>
+        <p className="text-lg text-gray-700 mb-2 italic">
+          "A tecnologia muda o mundo, e você pode mudar a tecnologia."
+        </p>
+        <p className="text-lg text-gray-700 mb-2 italic">
+          "Transforme sua paixão em carreira e encontre seu caminho na TI."
+        </p>
+        <p className="text-lg text-gray-700 mb-6 italic">
+          "Cada clique é um passo rumo ao seu futuro!"
+        </p>
+
         <button
           onClick={handleStartQuiz}
-          className="bg-white text-blue-600 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-blue-100 hover:text-blue-800 transition-all"
+          className="mt-4 bg-blue-600 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300"
         >
-          Bora fazer um quiz e descobrir sua área ideal?
+          Fazer o Quiz e Descobrir Minha Área
         </button>
       </div>
     </div>
