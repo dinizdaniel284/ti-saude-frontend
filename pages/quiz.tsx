@@ -11,19 +11,48 @@ export default function Quiz() {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [answers, setAnswers] = useState<string[]>([]);
   const [quizFinished, setQuizFinished] = useState(false);
+  const [loadingResult, setLoadingResult] = useState(false);
 
   const questions: Question[] = [
     {
-      question: "Qual área da TI mais te interessa?",
-      options: ["Desenvolvimento", "Infraestrutura", "Análise de Dados", "Segurança"],
+      question: "Qual destas áreas da TI mais te desperta curiosidade?",
+      options: ["Desenvolvimento de Software", "Infraestrutura de Redes", "Análise de Dados", "Cibersegurança"],
     },
     {
-      question: "Você gosta de trabalhar com análise de dados?",
-      options: ["Sim", "Não"],
+      question: "Você se imagina trabalhando com interpretação e visualização de dados?",
+      options: ["Sim, adoro isso!", "Não muito, prefiro outra área"],
     },
     {
-      question: "Prefere trabalhar mais no frontend ou backend?",
-      options: ["Frontend", "Backend", "Ambos"],
+      question: "Se pudesse escolher agora, onde preferiria atuar?",
+      options: ["Frontend (interface do usuário)", "Backend (lógica por trás)", "Fullstack (ambos)"],
+    },
+    {
+      question: "Machine Learning parece interessante para você?",
+      options: ["Com certeza!", "Acho confuso", "Tenho curiosidade, mas não conheço muito"],
+    },
+    {
+      question: "Você gostaria de trabalhar com bancos de dados e grandes volumes de informação?",
+      options: ["Sim, gosto dessa área", "Não, prefiro outras áreas", "Talvez, dependendo do projeto"],
+    },
+    {
+      question: "Segurança digital te parece um campo importante e empolgante?",
+      options: ["Sim, totalmente!", "Não é o que me atrai", "Talvez, tenho interesse crescente"],
+    },
+    {
+      question: "Você prefere resolver problemas lógicos ou lidar com pessoas e processos?",
+      options: ["Problemas lógicos", "Pessoas e processos", "Um pouco dos dois"],
+    },
+    {
+      question: "Como você se sente aprendendo novas linguagens de programação?",
+      options: ["Motivado, gosto de aprender", "Um pouco perdido, mas animado", "Não gosto muito"],
+    },
+    {
+      question: "Você se vê criando soluções para facilitar o dia a dia de profissionais da saúde?",
+      options: ["Sim! Quero fazer a diferença", "Talvez, dependendo da área", "Prefiro trabalhar nos bastidores"],
+    },
+    {
+      question: "Prefere projetos com resultados visuais ou que otimizem o funcionamento interno de sistemas?",
+      options: ["Visuais", "Funcionamento interno", "Ambos são legais"],
     },
   ];
 
@@ -40,7 +69,11 @@ export default function Quiz() {
       if (currentQuestionIndex < questions.length - 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
       } else {
-        setQuizFinished(true);
+        setLoadingResult(true);
+        setTimeout(() => {
+          setQuizFinished(true);
+          setLoadingResult(false);
+        }, 2000);
       }
     } else {
       alert("Por favor, selecione uma opção.");
@@ -48,18 +81,40 @@ export default function Quiz() {
   };
 
   const getProfile = () => {
-    const areaTI = answers[0];
-    if (areaTI === "Desenvolvimento") return "Desenvolvedor de Sistemas";
-    if (areaTI === "Infraestrutura") return "Especialista em Infraestrutura de TI";
-    if (areaTI === "Análise de Dados") return "Analista de Dados";
-    if (areaTI === "Segurança") return "Especialista em Segurança da Informação";
-    return "Profissional de TI";
+    const area = answers[0];
+    if (area.includes("Desenvolvimento")) return "Desenvolvedor(a) de Software";
+    if (area.includes("Infraestrutura")) return "Especialista em Redes e Suporte";
+    if (area.includes("Análise")) return "Analista de Dados";
+    if (area.includes("Cibersegurança")) return "Especialista em Segurança da Informação";
+    return "Profissional de TI em formação";
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-700 via-purple-700 to-pink-600 flex items-center justify-center p-4">
       <div className="bg-white bg-opacity-90 shadow-2xl rounded-3xl p-10 max-w-3xl w-full text-center animate-fade-in">
-        {!quizFinished ? (
+        {loadingResult ? (
+          <div className="flex flex-col items-center justify-center space-y-6 animate-fade-in-up">
+            <div className="w-16 h-16 border-4 border-blue-300 border-t-blue-700 rounded-full animate-spin"></div>
+            <p className="text-xl text-blue-800 font-medium">Calculando seu perfil...</p>
+          </div>
+        ) : quizFinished ? (
+          <>
+            <h2 className="text-3xl font-bold text-green-700 mb-6 animate-fade-in-up">Parabéns, quiz finalizado!</h2>
+            <p className="text-lg text-gray-700 mb-4">Aqui estão suas respostas:</p>
+            <ul className="text-left text-gray-800 space-y-4 mb-6">
+              {answers.map((answer, index) => (
+                <li key={index} className="bg-white bg-opacity-70 p-4 rounded-xl shadow">
+                  <strong className="text-blue-800">{questions[index].question}</strong>
+                  <br />
+                  <span className="ml-2">{answer}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-2xl font-semibold text-purple-800">
+              Você se identifica como um <span className="text-yellow-500">{getProfile()}</span>!
+            </p>
+          </>
+        ) : (
           <>
             <h1 className="text-4xl font-extrabold text-blue-900 mb-6 drop-shadow-sm">
               Quiz TI-Saúde
@@ -98,23 +153,6 @@ export default function Quiz() {
             >
               {currentQuestionIndex === questions.length - 1 ? "Finalizar" : "Próxima"}
             </button>
-          </>
-        ) : (
-          <>
-            <h2 className="text-3xl font-bold text-green-700 mb-6 animate-fade-in-up">Parabéns, quiz finalizado!</h2>
-            <p className="text-lg text-gray-700 mb-4">Aqui estão suas respostas:</p>
-            <ul className="text-left text-gray-800 space-y-4 mb-6">
-              {answers.map((answer, index) => (
-                <li key={index} className="bg-white bg-opacity-70 p-4 rounded-xl shadow">
-                  <strong className="text-blue-800">{questions[index].question}</strong>
-                  <br />
-                  <span className="ml-2">{answer}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="text-2xl font-semibold text-purple-800">
-              Você se identifica como um <span className="text-yellow-500">{getProfile()}</span>!
-            </p>
           </>
         )}
       </div>

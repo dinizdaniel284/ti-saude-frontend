@@ -1,7 +1,25 @@
+/* globals.css */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  @apply bg-gradient-to-b from-blue-50 to-white text-gray-800 font-sans;
+  @apply bg-gradient-to-b from-soft-white to-white text-dark-text font-sans min-h-screen antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold text-dark-text;
+}
+
+a {
+  @apply text-primary-blue hover:text-accent-purple transition-colors duration-200;
+}
+
+button {
+  @apply bg-button-blue text-white font-medium py-2 px-4 rounded-xl shadow-md hover:bg-button-hover transition-all duration-200;
+}
+
+.card {
+  @apply bg-white p-6 rounded-2xl shadow-card;
 }

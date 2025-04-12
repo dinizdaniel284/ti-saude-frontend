@@ -11,21 +11,26 @@ const Guia = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-soft-white to-white text-dark-text">
       <Head>
         <title>Guia para Iniciantes em TI & Saúde | TI-Saúde</title>
-        <meta name="description" content="Comece sua transição para a área de TI com foco em Saúde. Dicas, áreas de atuação e próximos passos." />
+        <meta
+          name="description"
+          content="Comece sua transição para a área de TI com foco em Saúde. Dicas, áreas de atuação e próximos passos."
+        />
       </Head>
 
-      <div className="max-w-4xl mx-auto p-6">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl font-extrabold mb-4">Guia para Iniciantes na TI & Saúde</h1>
-          <p className="text-lg opacity-80">
+      <div className="max-w-5xl mx-auto px-6 py-10">
+        <header className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-primary-blue">
+            Guia para Iniciantes na TI & Saúde
+          </h1>
+          <p className="text-lg text-light-text max-w-2xl mx-auto">
             Transforme sua carreira e descubra como a tecnologia pode melhorar a saúde.
           </p>
         </header>
 
-        <section className="mb-12">
+        <section className="mb-16">
           <h2 className="text-3xl font-semibold mb-6">💡 O Que é TI & Saúde?</h2>
           <p className="text-lg leading-relaxed mb-4">
             A tecnologia da informação (TI) aplicada à área da saúde está transformando o atendimento
@@ -33,89 +38,86 @@ const Guia = () => {
             o diagnóstico, tratamentos e gestão de dados dos pacientes.
           </p>
           <p className="text-lg leading-relaxed">
-            Se você é um profissional da saúde e quer migrar para a área de TI, este guia irá ajudá-lo
+            Se você é um profissional da saúde e quer migrar para a área de TI, este guia irá te ajudar
             a entender as áreas de atuação, habilidades necessárias e como começar sua jornada de transição.
           </p>
         </section>
 
-        <section className="mb-12">
+        <section className="mb-16">
           <h2 className="text-3xl font-semibold mb-6">🚀 Áreas de Atuação na TI & Saúde</h2>
-          <div className="space-y-8">
-            <div className="bg-green-100 text-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300">
-              <h3 className="text-2xl font-semibold mb-3">💻 Desenvolvimento de Software para Saúde</h3>
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="bg-white p-6 rounded-2xl shadow-card border-l-4 border-secondary-green hover:scale-105 transition-all duration-300">
+              <h3 className="text-2xl font-semibold mb-2">💻 Desenvolvimento de Software para Saúde</h3>
               <p>
-                Desenvolvedores de software criam sistemas de gestão hospitalar, apps de monitoramento, entre outros. 
-                Se você gosta de programar, essa área é pra você!
+                Criação de sistemas de gestão hospitalar, apps de monitoramento, entre outros.
+                Se você curte programar, essa é pra você!
               </p>
             </div>
-            <div className="bg-blue-100 text-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300">
-              <h3 className="text-2xl font-semibold mb-3">📊 Análise de Dados em Saúde</h3>
+            <div className="bg-white p-6 rounded-2xl shadow-card border-l-4 border-primary-blue hover:scale-105 transition-all duration-300">
+              <h3 className="text-2xl font-semibold mb-2">📊 Análise de Dados em Saúde</h3>
               <p>
-                A análise de dados melhora processos e decisões. Big data e machine learning são grandes aliados aqui!
+                Analisar e interpretar dados para melhorar decisões clínicas e administrativas. Big Data e IA são aliados!
               </p>
             </div>
-            <div className="bg-purple-100 text-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300">
-              <h3 className="text-2xl font-semibold mb-3">⚙️ Consultoria e Implementação de Sistemas</h3>
+            <div className="bg-white p-6 rounded-2xl shadow-card border-l-4 border-accent-purple hover:scale-105 transition-all duration-300 md:col-span-2">
+              <h3 className="text-2xl font-semibold mb-2">⚙️ Consultoria e Implementação de Sistemas</h3>
               <p>
-                Aqui você ajuda hospitais e clínicas a escolherem e usarem sistemas eficientes, seguros e personalizados.
+                Ajudar instituições a escolherem, configurarem e usarem sistemas com segurança e eficiência.
               </p>
             </div>
           </div>
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">🛠️ Habilidades Necessárias para Iniciar</h2>
+        <section className="mb-16">
+          <h2 className="text-3xl font-semibold mb-6">🛠️ Habilidades Necessárias</h2>
           <ul className="list-disc list-inside space-y-4 text-lg">
-            <li><strong>💡 Programação:</strong> Aprenda Python, JavaScript e SQL. Essenciais para dev ou análise.</li>
-            <li><strong>🧠 Conhecimentos em Saúde:</strong> Entender o contexto é essencial! Gestão hospitalar, protocolos e legislações.</li>
-            <li><strong>📋 Gestão de Projetos:</strong> Fundamental pra quem quer implementar ou liderar projetos de sistemas.</li>
-            <li><strong>📈 Machine Learning e Big Data:</strong> Super úteis pra analisar e prever com dados de saúde.</li>
+            <li><strong>💡 Programação:</strong> Python, JavaScript e SQL são essenciais.</li>
+            <li><strong>🧠 Conhecimentos em Saúde:</strong> Entender protocolos, fluxos e gestão hospitalar.</li>
+            <li><strong>📋 Gestão de Projetos:</strong> Fundamental para liderar ou participar de implementações.</li>
+            <li><strong>📈 Big Data e IA:</strong> Para análise e predição de dados clínicos.</li>
           </ul>
         </section>
 
-        <section className="mb-12">
+        <section className="mb-16">
           <h2 className="text-3xl font-semibold mb-6">📍 Próximos Passos</h2>
-          <p className="text-lg leading-relaxed mb-4">
-            Agora que você já conhece o cenário, bora agir!
-          </p>
           <ul className="list-decimal list-inside space-y-4 text-lg">
-            <li>👉 <strong>Aprenda Programação:</strong> Cursos de Python, JavaScript... <a href="https://www.coursera.org" className="text-blue-500 underline">Veja aqui</a></li>
-            <li>👉 <strong>Explore Análise de Dados:</strong> Ferramentas como Excel, Power BI, SQL são fundamentais.</li>
-            <li>👉 <strong>Estude TI aplicada à Saúde:</strong> Há cursos específicos sobre isso também.</li>
-            <li>👉 <strong>Participe de Comunidades:</strong> Converse com quem já tá na área e troque ideias.</li>
+            <li><strong>Aprenda Programação:</strong> Comece com cursos de <a href="https://www.coursera.org" target="_blank" className="text-primary-blue underline">Python e JS</a>.</li>
+            <li><strong>Explore Análise de Dados:</strong> Use Excel, Power BI, SQL.</li>
+            <li><strong>Estude TI em Saúde:</strong> Faça cursos e leia conteúdos especializados.</li>
+            <li><strong>Participe de Comunidades:</strong> Conecte-se com pessoas da área.</li>
           </ul>
         </section>
 
-        <section className="text-center">
+        <section className="text-center mb-16">
           <h3 className="text-2xl font-semibold mb-4">❓ Dúvidas? Entre em contato!</h3>
           <form onSubmit={handleFormSubmit} className="max-w-md mx-auto">
             {messageSent && (
-              <div className="text-center text-green-600 p-4 bg-white rounded-md mb-4">
+              <div className="text-success-green bg-white p-4 rounded-md mb-4">
                 Sua mensagem foi enviada com sucesso!
               </div>
             )}
             <input
               type="email"
               placeholder="Seu email"
-              className="w-full mb-4 p-3 rounded-lg bg-gray-200 text-gray-800"
+              className="w-full mb-4 p-3 rounded-xl bg-gray-100 text-dark-text"
               required
             />
             <textarea
-              placeholder="Sua dúvida ou mensagem"
-              className="w-full mb-4 p-3 rounded-lg bg-gray-200 text-gray-800"
+              placeholder="Sua mensagem"
+              className="w-full mb-4 p-3 rounded-xl bg-gray-100 text-dark-text"
               required
             ></textarea>
             <button
               type="submit"
-              className="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg w-full hover:bg-blue-800 cursor-pointer transition"
+              className="bg-button-blue hover:bg-button-hover text-white font-semibold py-3 px-6 rounded-xl w-full transition-all"
             >
               Enviar Mensagem
             </button>
           </form>
         </section>
 
-        <footer className="text-center mt-12">
-          <p className="text-sm text-gray-300">
+        <footer className="text-center mt-20">
+          <p className="text-sm text-light-text">
             © {new Date().getFullYear()} TI-Saúde. Todos os direitos reservados.
           </p>
         </footer>

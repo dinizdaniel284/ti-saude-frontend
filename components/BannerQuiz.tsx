@@ -2,8 +2,8 @@ import React from "react";
 
 const BannerQuiz: React.FC = () => {
   return (
-    <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 py-12 px-6 rounded-2xl shadow-lg text-center mb-8">
-      <h1 className="text-4xl font-bold text-white mb-2">
+    <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 py-12 px-6 rounded-2xl shadow-lg text-center mb-8 max-w-4xl mx-auto">
+      <h1 className="text-4xl font-bold text-white mb-4">
         Descubra sua área ideal na TI!
       </h1>
       <p className="text-lg text-white opacity-90">
