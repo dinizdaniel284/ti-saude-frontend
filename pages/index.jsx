@@ -19,13 +19,13 @@ export default function Home() {
         {/* Frases Motivacionais */}
         <div className="space-y-4 mb-6">
           <p className="text-xl text-gray-800 italic">
-            "A tecnologia muda o mundo, e você pode mudar a tecnologia."
+            &quot;A tecnologia muda o mundo, e você pode mudar a tecnologia.&quot;
           </p>
           <p className="text-xl text-gray-800 italic">
-            "Transforme sua paixão em carreira e encontre seu caminho na TI."
+            &quot;Transforme sua paixão em carreira e encontre seu caminho na TI.&quot;
           </p>
           <p className="text-xl text-gray-800 italic">
-            "Cada clique é um passo rumo ao seu futuro!"
+            &quot;Cada clique é um passo rumo ao seu futuro!&quot;
           </p>
         </div>
 
