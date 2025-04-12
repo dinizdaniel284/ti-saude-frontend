@@ -60,17 +60,19 @@ export default function Quiz() {
             <p className="text-lg text-gray-600 mb-4">
               Pergunta {currentQuestionIndex + 1} de {questions.length}
             </p>
-            <p className="text-xl text-gray-800 mb-6">{questions[currentQuestionIndex].question}</p>
+            <p className="text-xl text-gray-800 mb-6 font-medium">
+              {questions[currentQuestionIndex].question}
+            </p>
 
             <div className="space-y-4 mb-6">
               {questions[currentQuestionIndex].options.map((option, index) => (
                 <label
                   key={index}
-                  className={`block cursor-pointer text-left px-4 py-3 rounded-lg border-2 ${
+                  className={`block cursor-pointer px-5 py-4 rounded-xl border-2 text-lg font-medium transition duration-300 ${
                     selectedOption === index
-                      ? "border-blue-600 bg-blue-100"
-                      : "border-gray-300 bg-white"
-                  } hover:bg-blue-50 transition`}
+                      ? "border-green-600 bg-green-100 shadow-md"
+                      : "border-gray-300 bg-white hover:bg-gray-100"
+                  }`}
                 >
                   <input
                     type="radio"
@@ -78,7 +80,7 @@ export default function Quiz() {
                     value={index}
                     checked={selectedOption === index}
                     onChange={() => handleOptionChange(index)}
-                    className="mr-2"
+                    className="mr-3 accent-green-600"
                   />
                   {option}
                 </label>
@@ -87,7 +89,7 @@ export default function Quiz() {
 
             <button
               onClick={handleNextQuestion}
-              className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg transition"
+              className="bg-green-600 hover:bg-green-800 text-white font-bold py-3 px-8 rounded-lg transition duration-300"
             >
               {currentQuestionIndex === questions.length - 1 ? "Finalizar" : "Próxima"}
             </button>
@@ -96,10 +98,10 @@ export default function Quiz() {
           <>
             <h2 className="text-3xl font-bold text-green-700 mb-6">Quiz Finalizado!</h2>
             <p className="text-lg text-gray-700 mb-4">Aqui estão suas respostas:</p>
-            <ul className="text-left text-gray-800 space-y-2">
+            <ul className="text-left text-gray-800 space-y-4">
               {answers.map((answer, index) => (
-                <li key={index}>
-                  <strong>{questions[index].question}</strong><br />
+                <li key={index} className="bg-gray-100 p-4 rounded-xl shadow">
+                  <strong className="text-blue-700">{questions[index].question}</strong><br />
                   <span className="ml-2">{answer}</span>
                 </li>
               ))}
