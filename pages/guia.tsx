@@ -1,7 +1,14 @@
 // pages/guia.tsx
-import React from 'react';
+import React, { useState } from 'react';
 
 const Guia = () => {
+  const [messageSent, setMessageSent] = useState(false);
+
+  const handleFormSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    setMessageSent(true); // Aqui você pode implementar a lógica para enviar a mensagem
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white">
       <div className="max-w-4xl mx-auto p-6">
@@ -28,7 +35,7 @@ const Guia = () => {
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Áreas de Atuação na TI & Saúde</h2>
           <div className="space-y-8">
-            <div className="bg-white text-gray-800 p-6 rounded-lg shadow-lg">
+            <div className="bg-white text-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300">
               <h3 className="text-2xl font-semibold mb-3">Desenvolvimento de Software para Saúde</h3>
               <p>
                 Desenvolvedores de software trabalham na criação de sistemas de gestão hospitalar, aplicativos
@@ -36,7 +43,7 @@ const Guia = () => {
                 uma excelente opção.
               </p>
             </div>
-            <div className="bg-white text-gray-800 p-6 rounded-lg shadow-lg">
+            <div className="bg-white text-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300">
               <h3 className="text-2xl font-semibold mb-3">Análise de Dados em Saúde</h3>
               <p>
                 A análise de dados é crucial para a melhoria de processos e tomada de decisões. Profissionais
@@ -44,7 +51,7 @@ const Guia = () => {
                 de dados de saúde.
               </p>
             </div>
-            <div className="bg-white text-gray-800 p-6 rounded-lg shadow-lg">
+            <div className="bg-white text-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300">
               <h3 className="text-2xl font-semibold mb-3">Consultoria e Implementação de Sistemas</h3>
               <p>
                 Profissionais da TI ajudam hospitais e clínicas a escolher e implementar sistemas adequados
@@ -71,7 +78,7 @@ const Guia = () => {
             dar o próximo passo na sua jornada para a TI & Saúde. Aqui estão algumas sugestões de ações:
           </p>
           <ul className="list-decimal list-inside space-y-4 text-lg">
-            <li><strong>1. Aprenda as Bases da Programação:</strong> Comece com cursos online de Python, JavaScript ou outras linguagens de programação.</li>
+            <li><strong>1. Aprenda as Bases da Programação:</strong> Comece com cursos online de Python, JavaScript ou outras linguagens de programação. <a href="https://www.coursera.org" className="text-blue-400">Veja cursos aqui</a></li>
             <li><strong>2. Explore Ferramentas de Análise de Dados:</strong> Ferramentas como Excel, Power BI, e SQL são essenciais para quem trabalha com dados de saúde.</li>
             <li><strong>3. Faça um Curso de TI Aplicado à Saúde:</strong> Existem cursos específicos que ensinam como aplicar TI no contexto de saúde.</li>
             <li><strong>4. Participe de Comunidades de TI & Saúde:</strong> Troque experiências com profissionais da área e fique por dentro das novidades.</li>
@@ -80,9 +87,27 @@ const Guia = () => {
 
         <section className="text-center">
           <h3 className="text-2xl font-semibold mb-4">Dúvidas? Entre em contato!</h3>
-          <p className="text-lg">
-            Se você tem alguma dúvida sobre como começar, não hesite em nos enviar uma mensagem. Estamos aqui para ajudar na sua jornada para a TI & Saúde!
-          </p>
+          <form onSubmit={handleFormSubmit} className="max-w-md mx-auto">
+            {messageSent && (
+              <div className="text-center text-green-600 p-4">
+                Sua mensagem foi enviada com sucesso!
+              </div>
+            )}
+            <input
+              type="email"
+              placeholder="Seu email"
+              className="w-full mb-4 p-3 rounded-lg bg-gray-200"
+              required
+            />
+            <textarea
+              placeholder="Sua dúvida ou mensagem"
+              className="w-full mb-4 p-3 rounded-lg bg-gray-200"
+              required
+            ></textarea>
+            <button type="submit" className="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg w-full hover:bg-blue-800">
+              Enviar Mensagem
+            </button>
+          </form>
         </section>
 
         <footer className="text-center mt-12">
