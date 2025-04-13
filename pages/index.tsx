@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0ABAB5] to-white flex flex-col items-center justify-center px-6 py-16 text-dark-text">
+    <div className="min-h-screen bg-blue-400 flex flex-col items-center justify-center px-6 py-16 text-dark-text">
       <Head>
         <title>Bem-vindo ao TI-Saúde</title>
         <meta
