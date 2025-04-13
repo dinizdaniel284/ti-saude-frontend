@@ -1,4 +1,3 @@
-// pages/guia.tsx
 import React, { useState } from 'react';
 import Head from 'next/head';
 
@@ -11,7 +10,7 @@ const Guia = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-soft-white to-white text-dark-text">
+    <div className="min-h-screen bg-gradient-to-b from-indigo-100 to-white text-dark-text">
       <Head>
         <title>Guia para Iniciantes em TI & Saúde | TI-Saúde</title>
         <meta
@@ -20,96 +19,92 @@ const Guia = () => {
         />
       </Head>
 
-      <div className="max-w-5xl mx-auto px-6 py-10">
-        <header className="text-center mb-16">
+      <div className="max-w-4xl mx-auto px-6 py-12 md:px-16 md:py-20">
+        <header className="text-center mb-20">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-primary-blue">
             Guia para Iniciantes na TI & Saúde
           </h1>
-          <p className="text-lg text-light-text max-w-2xl mx-auto">
-            Transforme sua carreira e descubra como a tecnologia pode melhorar a saúde.
+          <p className="text-lg text-light-text max-w-3xl mx-auto">
+            A tecnologia está revolucionando a saúde. Pronto para transformar sua carreira e fazer parte dessa mudança?
           </p>
         </header>
 
-        <section className="mb-16">
+        <section className="mb-20">
           <h2 className="text-3xl font-semibold mb-6">💡 O Que é TI & Saúde?</h2>
-          <p className="text-lg leading-relaxed mb-4">
-            A tecnologia da informação (TI) aplicada à área da saúde está transformando o atendimento
-            e a gestão de cuidados médicos. Profissionais da saúde podem se beneficiar da TI para melhorar
-            o diagnóstico, tratamentos e gestão de dados dos pacientes.
+          <p className="text-lg leading-relaxed mb-6">
+            A Tecnologia da Informação (TI) tem se tornado uma aliada essencial para transformar a saúde. Sistemas de gestão hospitalar, aplicativos de monitoramento e a análise de dados são apenas algumas das maneiras em que a TI pode aprimorar os cuidados médicos.
           </p>
           <p className="text-lg leading-relaxed">
-            Se você é um profissional da saúde e quer migrar para a área de TI, este guia irá te ajudar
-            a entender as áreas de atuação, habilidades necessárias e como começar sua jornada de transição.
+            Se você é da área da saúde e está considerando migrar para a TI, este guia foi feito para você. Vamos te mostrar as melhores áreas para atuar, as habilidades necessárias e como começar sua jornada para uma nova carreira promissora.
           </p>
         </section>
 
-        <section className="mb-16">
+        <section className="mb-20">
           <h2 className="text-3xl font-semibold mb-6">🚀 Áreas de Atuação na TI & Saúde</h2>
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="bg-white p-6 rounded-2xl shadow-card border-l-4 border-secondary-green hover:scale-105 transition-all duration-300">
+          <div className="grid gap-12 md:grid-cols-2">
+            <div className="bg-white p-6 rounded-3xl shadow-xl border-l-4 border-secondary-green hover:scale-105 transform transition-all duration-300">
               <h3 className="text-2xl font-semibold mb-2">💻 Desenvolvimento de Software para Saúde</h3>
               <p>
-                Criação de sistemas de gestão hospitalar, apps de monitoramento, entre outros.
-                Se você curte programar, essa é pra você!
+                Imagine criar soluções digitais que ajudam hospitais e clínicas a oferecerem cuidados mais rápidos e eficientes. Se você gosta de programar, essa área oferece muitas oportunidades.
               </p>
             </div>
-            <div className="bg-white p-6 rounded-2xl shadow-card border-l-4 border-primary-blue hover:scale-105 transition-all duration-300">
+            <div className="bg-white p-6 rounded-3xl shadow-xl border-l-4 border-primary-blue hover:scale-105 transform transition-all duration-300">
               <h3 className="text-2xl font-semibold mb-2">📊 Análise de Dados em Saúde</h3>
               <p>
-                Analisar e interpretar dados para melhorar decisões clínicas e administrativas. Big Data e IA são aliados!
+                Trabalhe com dados para otimizar decisões médicas e administrativas. A combinação de Big Data e Inteligência Artificial está transformando a medicina e a gestão hospitalar.
               </p>
             </div>
-            <div className="bg-white p-6 rounded-2xl shadow-card border-l-4 border-accent-purple hover:scale-105 transition-all duration-300 md:col-span-2">
+            <div className="bg-white p-6 rounded-3xl shadow-xl border-l-4 border-accent-purple hover:scale-105 transform transition-all duration-300 md:col-span-2">
               <h3 className="text-2xl font-semibold mb-2">⚙️ Consultoria e Implementação de Sistemas</h3>
               <p>
-                Ajudar instituições a escolherem, configurarem e usarem sistemas com segurança e eficiência.
+                Ajude organizações de saúde a escolherem e implementarem sistemas de TI seguros e eficientes, garantindo a integridade dos dados dos pacientes.
               </p>
             </div>
           </div>
         </section>
 
-        <section className="mb-16">
+        <section className="mb-20">
           <h2 className="text-3xl font-semibold mb-6">🛠️ Habilidades Necessárias</h2>
           <ul className="list-disc list-inside space-y-4 text-lg">
-            <li><strong>💡 Programação:</strong> Python, JavaScript e SQL são essenciais.</li>
-            <li><strong>🧠 Conhecimentos em Saúde:</strong> Entender protocolos, fluxos e gestão hospitalar.</li>
-            <li><strong>📋 Gestão de Projetos:</strong> Fundamental para liderar ou participar de implementações.</li>
-            <li><strong>📈 Big Data e IA:</strong> Para análise e predição de dados clínicos.</li>
+            <li><strong>💡 Programação:</strong> Python, JavaScript e SQL são as linguagens essenciais para a maioria dos sistemas de TI.</li>
+            <li><strong>🧠 Conhecimentos em Saúde:</strong> Ter um entendimento básico de protocolos médicos, fluxos hospitalares e gestão de saúde é uma vantagem.</li>
+            <li><strong>📋 Gestão de Projetos:</strong> Ser capaz de liderar ou colaborar na implementação de novos sistemas de TI no ambiente da saúde.</li>
+            <li><strong>📈 Big Data e IA:</strong> Essenciais para processar grandes volumes de dados clínicos e gerar insights para melhorias na saúde.</li>
           </ul>
         </section>
 
-        <section className="mb-16">
+        <section className="mb-20">
           <h2 className="text-3xl font-semibold mb-6">📍 Próximos Passos</h2>
           <ul className="list-decimal list-inside space-y-4 text-lg">
-            <li><strong>Aprenda Programação:</strong> Comece com cursos de <a href="https://www.coursera.org" target="_blank" className="text-primary-blue underline">Python e JS</a>.</li>
-            <li><strong>Explore Análise de Dados:</strong> Use Excel, Power BI, SQL.</li>
-            <li><strong>Estude TI em Saúde:</strong> Faça cursos e leia conteúdos especializados.</li>
-            <li><strong>Participe de Comunidades:</strong> Conecte-se com pessoas da área.</li>
+            <li><strong>Aprenda Programação:</strong> Comece com cursos gratuitos de <a href="https://www.coursera.org" target="_blank" className="text-primary-blue underline">Python e JavaScript</a> para dominar as linguagens mais comuns.</li>
+            <li><strong>Explore Análise de Dados:</strong> Use ferramentas como Excel, Power BI e SQL para explorar dados e gerar relatórios importantes.</li>
+            <li><strong>Estude TI em Saúde:</strong> Busque cursos e recursos especializados, e entenda como a tecnologia está moldando o setor de saúde.</li>
+            <li><strong>Participe de Comunidades:</strong> Conecte-se com outros profissionais da área, participe de fóruns, webinars e workshops para crescer na área.</li>
           </ul>
         </section>
 
-        <section className="text-center mb-16">
-          <h3 className="text-2xl font-semibold mb-4">❓ Dúvidas? Entre em contato!</h3>
-          <form onSubmit={handleFormSubmit} className="max-w-md mx-auto">
+        <section className="text-center mb-20">
+          <h3 className="text-2xl font-semibold mb-4">❓ Tem Dúvidas? Fale Conosco!</h3>
+          <form onSubmit={handleFormSubmit} className="max-w-xl mx-auto">
             {messageSent && (
-              <div className="text-success-green bg-white p-4 rounded-md mb-4">
-                Sua mensagem foi enviada com sucesso!
+              <div className="text-success-green bg-white p-4 rounded-md mb-4 shadow-xl">
+                Sua mensagem foi enviada com sucesso! Estamos aqui para ajudar na sua jornada.
               </div>
             )}
             <input
               type="email"
-              placeholder="Seu email"
-              className="w-full mb-4 p-3 rounded-xl bg-gray-100 text-dark-text"
+              placeholder="Seu e-mail"
+              className="w-full mb-4 p-4 rounded-2xl bg-gray-100 text-dark-text shadow-md"
               required
             />
             <textarea
               placeholder="Sua mensagem"
-              className="w-full mb-4 p-3 rounded-xl bg-gray-100 text-dark-text"
+              className="w-full mb-4 p-4 rounded-2xl bg-gray-100 text-dark-text shadow-md"
               required
             ></textarea>
             <button
               type="submit"
-              className="bg-button-blue hover:bg-button-hover text-white font-semibold py-3 px-6 rounded-xl w-full transition-all"
+              className="bg-button-blue hover:bg-button-hover text-white font-semibold py-4 px-8 rounded-xl w-full transition-all shadow-lg"
             >
               Enviar Mensagem
             </button>

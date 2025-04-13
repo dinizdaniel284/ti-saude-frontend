@@ -1,25 +1,76 @@
-/* globals.css */
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* styles/globals.css */
+:root {
+  --primary-blue: #1D4ED8;
+  --primary-hover: #2563EB;
+  --soft-white: #F9FAFB;
+  --dark-text: #111827;
+  --light-text: #6B7280;
+}
 
 body {
-  @apply bg-gradient-to-b from-soft-white to-white text-dark-text font-sans min-h-screen antialiased;
+  font-family: 'Arial', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  @apply font-bold text-dark-text;
+.bg-primary-blue {
+  background-color: var(--primary-blue);
 }
 
-a {
-  @apply text-primary-blue hover:text-accent-purple transition-colors duration-200;
+.bg-primary-hover:hover {
+  background-color: var(--primary-hover);
 }
 
-button {
-  @apply bg-button-blue text-white font-medium py-2 px-4 rounded-xl shadow-md hover:bg-button-hover transition-all duration-200;
+.text-primary-blue {
+  color: var(--primary-blue);
 }
 
-.card {
-  @apply bg-white p-6 rounded-2xl shadow-card;
+.text-dark-text {
+  color: var(--dark-text);
+}
+
+.bg-soft-white {
+  background-color: var(--soft-white);
+}
+
+.shadow-xl {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-md {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem;
 }

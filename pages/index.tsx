@@ -1,56 +1,70 @@
-// pages/index.tsx
-"use client";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { Brain, BookOpenCheck } from "lucide-react";
+import React from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
-const Home = () => {
+export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-700 via-purple-800 to-indigo-900 text-white flex flex-col items-center justify-center px-6 py-12">
-      <motion.header
-        className="text-center mb-12 drop-shadow-lg"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <h1 className="text-5xl md:text-6xl font-extrabold mb-4 text-white tracking-tight">
-          Bem-vindo ao <span className="text-yellow-300">TI & Saúde</span>
-        </h1>
-        <p className="text-xl md:text-2xl text-gray-200 max-w-xl mx-auto">
-          Conectando profissionais da saúde com a tecnologia para uma nova era.
-        </p>
-      </motion.header>
+    <div className="min-h-screen bg-gradient-to-b from-[#0ABAB5] to-white flex flex-col items-center justify-center px-6 py-16 text-dark-text">
+      <Head>
+        <title>Bem-vindo ao TI-Saúde</title>
+        <meta
+          name="description"
+          content="Conectando tecnologia e saúde para transformar carreiras."
+        />
+      </Head>
 
-      <motion.div
-        className="space-y-8 text-center w-full max-w-md"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 1 }}
-      >
-        <Link href="/quiz">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            className="w-full bg-green-500 text-white font-semibold py-4 px-6 rounded-2xl shadow-xl flex items-center justify-center gap-3 hover:bg-green-600 transition"
-          >
-            <Brain className="w-6 h-6" />
-            Comece o Quiz Interativo
-          </motion.button>
-        </Link>
+      <main className="text-center">
+        <motion.h1
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-5xl font-extrabold mb-6 text-blue-600 drop-shadow-md"
+        >
+          Transforme sua Carreira com TI na Saúde 💡
+        </motion.h1>
 
-        <Link href="/guia">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            className="w-full bg-blue-500 text-white font-semibold py-4 px-6 rounded-2xl shadow-xl flex items-center justify-center gap-3 hover:bg-blue-600 transition"
-          >
-            <BookOpenCheck className="w-6 h-6" />
-            Leia o Guia para Iniciantes
-          </motion.button>
-        </Link>
-      </motion.div>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="text-xl mb-4 max-w-2xl mx-auto text-gray-700"
+        >
+          Seja você da área da saúde querendo migrar para tecnologia ou curioso sobre o futuro digital da medicina,
+          aqui é seu ponto de partida. Vamos juntos explorar as possibilidades!
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
+          className="text-lg text-gray-600 mb-8"
+        >
+          🚀 Cursos, testes interativos, guias, e muito mais. Tudo em um só lugar.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.9, duration: 0.4 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+        >
+          <Link href="/quiz">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-2xl shadow-lg transition-all duration-300">
+              Fazer o Quiz
+            </button>
+          </Link>
+          <Link href="/guia">
+            <button className="bg-white border border-blue-500 text-blue-600 hover:bg-blue-100 py-3 px-6 rounded-2xl shadow-md transition-all duration-300">
+              Ver o Guia
+            </button>
+          </Link>
+        </motion.div>
+      </main>
+
+      <footer className="mt-20 text-gray-500 text-sm">
+        © {new Date().getFullYear()} TI-Saúde — Desenvolvido com 💙
+      </footer>
     </div>
   );
-};
-
-export default Home;
+}
