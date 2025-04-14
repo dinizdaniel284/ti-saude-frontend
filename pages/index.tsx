@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0ABAB5] to-white flex flex-col items-center justify-center px-6 py-16 text-dark-text">
+    <div className="min-h-screen bg-gradient-to-r from-green-400 via-blue-500 to-blue-600 flex flex-col items-center justify-center px-6 py-16 text-dark-text">
       <Head>
         <title>Bem-vindo ao TI-Saúde</title>
         <meta
@@ -40,7 +40,7 @@ export default function Home() {
           transition={{ delay: 0.6, duration: 0.5 }}
           className="text-lg text-gray-600 mb-8"
         >
-          🚀 Cursos, testes interativos, guias, e muito mais. Tudo em um só lugar.
+          🚀 Cursos, testes interativos, guias, e muito mais. Tudo em um só lugar para você evoluir na área de TI!
         </motion.p>
 
         <motion.div
@@ -60,10 +60,20 @@ export default function Home() {
             </button>
           </Link>
         </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.1, duration: 0.5 }}
+          className="mt-12 text-lg text-gray-800"
+        >
+          <p>Não perca a chance de dar o primeiro passo para uma carreira incrível na TI e Saúde!</p>
+        </motion.div>
       </main>
 
       <footer className="mt-20 text-gray-500 text-sm">
-        © {new Date().getFullYear()} TI-Saúde — Desenvolvido com 💙
+        <p>© {new Date().getFullYear()} TI-Saúde — Desenvolvido com 💙</p>
+        <p className="text-sm">Todos os direitos reservados.</p>
       </footer>
     </div>
   );

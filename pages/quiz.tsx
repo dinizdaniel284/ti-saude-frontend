@@ -55,6 +55,35 @@ export default function Quiz() {
       question: "Prefere projetos com resultados visuais ou que otimizem o funcionamento interno de sistemas?",
       options: ["Visuais", "Funcionamento interno", "Ambos são legais"],
     },
+    // Novas perguntas adicionadas
+    {
+      question: "Você tem interesse em trabalhar com Inteligência Artificial e automação?",
+      options: ["Sim, quero aprender mais", "Tenho curiosidade, mas ainda não sei muito", "Não é minha praia"],
+    },
+    {
+      question: "Como você lida com desafios técnicos difíceis?",
+      options: ["Adoro resolver problemas complexos", "Fico frustrado, mas tento superar", "Evito quando possível"],
+    },
+    {
+      question: "Qual a sua abordagem para aprender novas tecnologias?",
+      options: ["Prática e experiência", "Estudo teórico", "Através de tutoriais e cursos online"],
+    },
+    {
+      question: "Você acha que o trabalho em equipe é importante em TI?",
+      options: ["Sim, gosto de colaborar com outros", "Prefiro trabalhar sozinho", "Depende do projeto"],
+    },
+    {
+      question: "Você tem interesse em trabalhar com infraestrutura e servidores?",
+      options: ["Sim, adoro essa área", "Tenho curiosidade", "Não é o meu foco"],
+    },
+    {
+      question: "Você acha que TI é uma área com boas oportunidades para o futuro?",
+      options: ["Sim, o futuro da TI é promissor", "Não tenho certeza", "Não estou muito otimista"],
+    },
+    {
+      question: "Você se interessa por startups ou empresas estabelecidas em TI?",
+      options: ["Startups, gosto do ambiente dinâmico", "Empresas grandes, gosto de estrutura", "Depende do tipo de trabalho"],
+    },
   ];
 
   const handleOptionChange = (index: number) => {
@@ -91,26 +120,26 @@ export default function Quiz() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-700 via-purple-700 to-pink-600 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-r from-teal-400 to-blue-600 flex items-center justify-center p-8">
       <motion.div
-        className="bg-white bg-opacity-90 shadow-2xl rounded-3xl p-10 max-w-3xl w-full text-center"
+        className="bg-white shadow-2xl rounded-3xl p-10 w-full max-w-3xl text-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
         {loadingResult ? (
           <div className="flex flex-col items-center justify-center space-y-6">
-            <div className="w-16 h-16 border-4 border-blue-300 border-t-blue-700 rounded-full animate-spin"></div>
-            <p className="text-xl text-blue-800 font-medium">Calculando seu perfil...</p>
+            <div className="w-16 h-16 border-4 border-teal-300 border-t-teal-700 rounded-full animate-spin"></div>
+            <p className="text-xl text-teal-800 font-medium">Calculando seu perfil...</p>
           </div>
         ) : quizFinished ? (
           <>
             <h2 className="text-3xl font-bold text-green-700 mb-6">Parabéns, quiz finalizado!</h2>
             <p className="text-lg text-gray-700 mb-4">Aqui estão suas respostas:</p>
-            <ul className="text-left text-gray-800 space-y-4 mb-6">
+            <ul className="text-left text-gray-800 space-y-6 mb-6">
               {answers.map((answer, index) => (
-                <li key={index} className="bg-white bg-opacity-70 p-4 rounded-xl shadow">
-                  <strong className="text-blue-800">{questions[index].question}</strong>
+                <li key={index} className="bg-white bg-opacity-70 p-4 rounded-xl shadow-md">
+                  <strong className="text-teal-800">{questions[index].question}</strong>
                   <br />
                   <span className="ml-2">{answer}</span>
                 </li>
@@ -122,10 +151,10 @@ export default function Quiz() {
           </>
         ) : (
           <>
-            <h1 className="text-4xl font-extrabold text-blue-900 mb-6 drop-shadow-sm">
+            <h1 className="text-4xl font-extrabold text-teal-900 mb-6 drop-shadow-md">
               Quiz TI-Saúde
             </h1>
-            <p className="text-lg text-gray-700 mb-2">
+            <p className="text-lg text-gray-700 mb-4">
               Pergunta {currentQuestionIndex + 1} de {questions.length}
             </p>
 
@@ -140,15 +169,13 @@ export default function Quiz() {
                   {questions[currentQuestionIndex].question}
                 </motion.p>
 
-                <div className="space-y-4 mb-8">
+                <div className="space-y-6 mb-8">
                   {questions[currentQuestionIndex].options.map((option, index) => (
                     <motion.label
                       key={index}
-                      className={`block cursor-pointer px-5 py-4 rounded-xl border-2 font-medium text-gray-800 transition-all duration-300 ease-in-out bg-blue-50 ${
-                        selectedOption === index
-                          ? "border-blue-600 bg-blue-100 shadow-md scale-105"
-                          : "border-gray-300 hover:bg-blue-50"
-                      }`}
+                      className={`block cursor-pointer px-6 py-4 rounded-xl border-2 font-medium text-gray-800 transition-all duration-300 ease-in-out bg-teal-100 ${selectedOption === index
+                          ? "border-teal-600 bg-teal-200 shadow-xl scale-105"
+                          : "border-gray-300 hover:bg-teal-50"}`}
                       whileHover={{ scale: 1.05 }}
                     >
                       <input
@@ -157,7 +184,7 @@ export default function Quiz() {
                         value={index}
                         checked={selectedOption === index}
                         onChange={() => handleOptionChange(index)}
-                        className="mr-3 accent-blue-600"
+                        className="mr-3 accent-teal-600"
                       />
                       {option}
                     </motion.label>
@@ -168,7 +195,7 @@ export default function Quiz() {
 
             <motion.button
               onClick={handleNextQuestion}
-              className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition duration-300 transform hover:scale-105"
+              className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition duration-300 transform hover:scale-105"
               whileHover={{ scale: 1.1 }}
             >
               {currentQuestionIndex === questions.length - 1 ? "Finalizar" : "Próxima"}

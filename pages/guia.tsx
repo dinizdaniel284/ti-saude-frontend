@@ -34,7 +34,7 @@ const Guia = () => {
           <p className="text-lg leading-relaxed mb-6">
             A Tecnologia da Informação (TI) tem se tornado uma aliada essencial para transformar a saúde. Sistemas de gestão hospitalar, aplicativos de monitoramento e a análise de dados são apenas algumas das maneiras em que a TI pode aprimorar os cuidados médicos.
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-lg leading-relaxed mb-6">
             Se você é da área da saúde e está considerando migrar para a TI, este guia foi feito para você. Vamos te mostrar as melhores áreas para atuar, as habilidades necessárias e como começar sua jornada para uma nova carreira promissora.
           </p>
         </section>
@@ -45,7 +45,7 @@ const Guia = () => {
             <div className="bg-white p-6 rounded-3xl shadow-xl border-l-4 border-secondary-green hover:scale-105 transform transition-all duration-300">
               <h3 className="text-2xl font-semibold mb-2">💻 Desenvolvimento de Software para Saúde</h3>
               <p>
-                Imagine criar soluções digitais que ajudam hospitais e clínicas a oferecerem cuidados mais rápidos e eficientes. Se você gosta de programar, essa área oferece muitas oportunidades.
+                Imagine criar soluções digitais que ajudam hospitais e clínicas a oferecerem cuidados mais rápidos e eficientes. Se você gosta de programar, essa área oferece muitas oportunidades para transformar o cuidado com a saúde.
               </p>
             </div>
             <div className="bg-white p-6 rounded-3xl shadow-xl border-l-4 border-primary-blue hover:scale-105 transform transition-all duration-300">
@@ -66,10 +66,12 @@ const Guia = () => {
         <section className="mb-20">
           <h2 className="text-3xl font-semibold mb-6">🛠️ Habilidades Necessárias</h2>
           <ul className="list-disc list-inside space-y-4 text-lg">
-            <li><strong>💡 Programação:</strong> Python, JavaScript e SQL são as linguagens essenciais para a maioria dos sistemas de TI.</li>
+            <li><strong>💡 Programação:</strong> Python, JavaScript e SQL são as linguagens essenciais para a maioria dos sistemas de TI em saúde.</li>
             <li><strong>🧠 Conhecimentos em Saúde:</strong> Ter um entendimento básico de protocolos médicos, fluxos hospitalares e gestão de saúde é uma vantagem.</li>
             <li><strong>📋 Gestão de Projetos:</strong> Ser capaz de liderar ou colaborar na implementação de novos sistemas de TI no ambiente da saúde.</li>
             <li><strong>📈 Big Data e IA:</strong> Essenciais para processar grandes volumes de dados clínicos e gerar insights para melhorias na saúde.</li>
+            <li><strong>🔒 Cibersegurança:</strong> Conhecimentos em segurança digital são cruciais para proteger dados sensíveis e garantir a privacidade dos pacientes.</li>
+            <li><strong>📱 Desenvolvimento Mobile:</strong> Criar aplicativos voltados para a saúde, como monitoramento de pacientes e agendamentos médicos, é uma habilidade em alta.</li>
           </ul>
         </section>
 
