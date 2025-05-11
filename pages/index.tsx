@@ -76,6 +76,7 @@ export default function Home() {
       <footer className="mt-20 text-white/70 text-sm text-center">
         <p>© {new Date().getFullYear()} TI-Saúde — Desenvolvido com 💙</p>
         <p>Todos os direitos reservados.</p>
+        <p>Desenvolvedor: Daniel Diniz</p>
       </footer>
     </div>
   );
