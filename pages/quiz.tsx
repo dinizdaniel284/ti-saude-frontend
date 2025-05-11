@@ -192,16 +192,18 @@ export default function Quiz() {
                 </div>
               </>
             )}
-
-            <motion.button
-              onClick={handleNextQuestion}
-              className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition duration-300 transform hover:scale-105"
-              whileHover={{ scale: 1.1 }}
-            >
-              {currentQuestionIndex === questions.length - 1 ? "Finalizar" : "Próxima"}
-            </motion.button>
           </>
         )}
+      </motion.div>
+
+      <motion.div
+        className="fixed bottom-8 right-8 bg-teal-600 p-4 rounded-full shadow-xl cursor-pointer transition duration-300 transform hover:scale-110"
+        whileHover={{ scale: 1.1 }}
+        onClick={handleNextQuestion}
+      >
+        <div className="text-white font-bold text-lg">
+          {currentQuestionIndex === questions.length - 1 ? "Finalizar" : "Próxima"}
+        </div>
       </motion.div>
     </div>
   );
