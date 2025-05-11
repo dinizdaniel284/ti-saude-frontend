@@ -14,6 +14,7 @@ export default function Home() {
       <Head>
         <title>TI Saúde - Tecnologia para Profissionais da Saúde</title>
         <meta name="description" content="Descubra qual área de TI combina com você. Quiz e guias para profissionais da saúde que querem aprender tecnologia." />
+        <meta name="google-site-verification" content="o2OWszBRoFmqtrI9vL5ta-Nop0iU2hluhL2eo9J1glw" />
         <meta property="og:title" content="TI Saúde - Conectando Saúde e Tecnologia" />
         <meta property="og:description" content="Descubra sua carreira ideal em TI com nosso quiz e guias exclusivos para profissionais da saúde." />
         <meta property="og:image" content="https://ti-saude-frontend.vercel.app/social-banner.png" />
@@ -138,4 +139,4 @@ export default function Home() {
       </footer>
     </div>
   );
-}
+  
