@@ -56,21 +56,25 @@ export default function Home() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.9, duration: 0.4 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <Link href="/quiz">
-            <button className="bg-white text-blue-600 hover:bg-blue-100 font-semibold py-3 px-6 rounded-2xl shadow-lg transition-all duration-300">
-              Fazer o Quiz
-            </button>
-          </Link>
-          <Link href="/guia">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-2xl shadow-lg transition-all duration-300">
-              Ver o Guia
-            </button>
-          </Link>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link href="/quiz">
+              <button className="bg-white text-blue-600 hover:bg-blue-100 font-semibold py-3 px-6 rounded-2xl shadow-lg transition-all duration-300">
+                Fazer o Quiz
+              </button>
+            </Link>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link href="/guia">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-2xl shadow-lg transition-all duration-300">
+                Ver o Guia
+              </button>
+            </Link>
+          </motion.div>
         </motion.div>
 
         {/* Botões de Compartilhamento */}
@@ -80,7 +84,9 @@ export default function Home() {
           transition={{ delay: 1.2, duration: 0.6 }}
           className="mt-10 flex gap-4 justify-center"
         >
-          <a
+          <motion.a
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             href={`https://wa.me/?text=${text}%20${url}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -88,8 +94,11 @@ export default function Home() {
             className="bg-green-500 hover:bg-green-600 p-3 rounded-full shadow-lg text-white"
           >
             <FaWhatsapp size={22} />
-          </a>
-          <a
+          </motion.a>
+
+          <motion.a
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -97,8 +106,11 @@ export default function Home() {
             className="bg-blue-600 hover:bg-blue-700 p-3 rounded-full shadow-lg text-white"
           >
             <FaFacebookF size={22} />
-          </a>
-          <a
+          </motion.a>
+
+          <motion.a
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             href={`https://twitter.com/intent/tweet?text=${text}&url=${url}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -106,7 +118,7 @@ export default function Home() {
             className="bg-sky-500 hover:bg-sky-600 p-3 rounded-full shadow-lg text-white"
           >
             <FaTwitter size={22} />
-          </a>
+          </motion.a>
         </motion.div>
 
         <motion.div
