@@ -1,9 +1,14 @@
+'use client';
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { FaWhatsapp, FaFacebookF, FaTwitter } from 'react-icons/fa';
 
 export default function Home() {
+  const url = encodeURIComponent('https://ti-saude.vercel.app/quiz');
+  const text = encodeURIComponent('Descubra qual área de TI combina com você! Faça o quiz do TI-Saúde 🚀');
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#7FDBDA] via-blue-500 to-blue-700 flex flex-col items-center justify-center px-6 py-16 text-dark-text">
       <Head>
@@ -11,8 +16,13 @@ export default function Home() {
         <meta name="description" content="Descubra qual área de TI combina com você. Quiz e guias para profissionais da saúde que querem aprender tecnologia." />
         <meta property="og:title" content="TI Saúde - Conectando Saúde e Tecnologia" />
         <meta property="og:description" content="Descubra sua carreira ideal em TI com nosso quiz e guias exclusivos para profissionais da saúde." />
-        <meta property="og:image" content="https://ti-saude-frontend.vercel.app/logo.png" />
-        <meta property="og:url" content="https://ti-saude-frontend.vercel.app/" />
+        <meta property="og:image" content="https://ti-saude-frontend.vercel.app/social-banner.png" />
+        <meta property="og:url" content="https://ti-saude.vercel.app/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="TI Saúde - Conectando Saúde e Tecnologia" />
+        <meta name="twitter:description" content="Descubra sua carreira ideal em TI com nosso quiz e guias exclusivos para profissionais da saúde." />
+        <meta name="twitter:image" content="https://ti-saude-frontend.vercel.app/social-banner.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
@@ -63,10 +73,46 @@ export default function Home() {
           </Link>
         </motion.div>
 
+        {/* Botões de Compartilhamento */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.1, duration: 0.5 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+          className="mt-10 flex gap-4 justify-center"
+        >
+          <a
+            href={`https://wa.me/?text=${text}%20${url}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Compartilhar no WhatsApp"
+            className="bg-green-500 hover:bg-green-600 p-3 rounded-full shadow-lg text-white"
+          >
+            <FaWhatsapp size={22} />
+          </a>
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Compartilhar no Facebook"
+            className="bg-blue-600 hover:bg-blue-700 p-3 rounded-full shadow-lg text-white"
+          >
+            <FaFacebookF size={22} />
+          </a>
+          <a
+            href={`https://twitter.com/intent/tweet?text=${text}&url=${url}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Compartilhar no Twitter"
+            className="bg-sky-500 hover:bg-sky-600 p-3 rounded-full shadow-lg text-white"
+          >
+            <FaTwitter size={22} />
+          </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.4, duration: 0.5 }}
           className="mt-12 text-md sm:text-lg text-white/90"
         >
           <p>Não perca a chance de dar o primeiro passo para uma carreira incrível na TI e Saúde!</p>
