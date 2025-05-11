@@ -34,7 +34,7 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="text-4xl sm:text-5xl font-extrabold mb-6 text-white drop-shadow-lg"
         >
-          Transforme sua Carreira com TI na Saúde 💡
+          TI Saúde - Transforme sua Carreira com TI na Saúde 💡
         </motion.h1>
 
         <motion.p
@@ -139,3 +139,4 @@ export default function Home() {
       </footer>
     </div>
   );
+}
