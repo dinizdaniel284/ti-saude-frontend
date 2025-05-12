@@ -1,48 +1,25 @@
 import React, { useEffect } from 'react';
-import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
-import '../styles/globals.css';
-import * as gtag from '../lib/gtag';
-
-const GA_ID = gtag.GA_MEASUREMENT_ID;
-
+import { AppProps } from 'next/app';
+import '../styles/globals.css';  // Importando os estilos globais
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      gtag.pageview(url);
+      console.log(`Navegou para: ${url}`);
     };
 
+    // Usando os eventos de navegação do Next.js
     router.events.on('routeChangeComplete', handleRouteChange);
 
+    // Cleanup ao remover o evento
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, [router.events]);
+  }, [router]);
 
-  return (
-    <>
-      {/* Google Analytics Script */}
-      <script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-      />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_ID}', {
-              page_path: window.location.pathname,
-            });
-          `,
-        }}
-      />
-      <Component {...pageProps} />
-    </>
-  );
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;
