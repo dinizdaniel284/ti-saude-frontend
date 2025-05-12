@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ti-saude.vercel.app/
+
+# Sitemaps
+Sitemap: https://ti-saude.vercel.app/sitemap.xml

@@ -8,7 +8,7 @@ interface Question {
   options: string[];
 }
 
-export default function Quiz() {
+export default function QuizPage() {
   const router = useRouter();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -36,27 +36,26 @@ export default function Quiz() {
     { question: "Você se interessa por startups ou empresas estabelecidas em TI?", options: ["Startups, gosto do ambiente dinâmico", "Empresas grandes, gosto de estrutura", "Depende do tipo de trabalho"] },
   ];
 
-  const handleOptionChange = (index: number) => {
-    setSelectedOption(index);
-  };
+  const handleOptionChange = (index: number) => setSelectedOption(index);
 
   const handleNextQuestion = () => {
-    if (selectedOption !== null) {
-      const updatedAnswers = [...answers];
-      updatedAnswers[currentQuestionIndex] = questions[currentQuestionIndex].options[selectedOption];
-      setAnswers(updatedAnswers);
-      setSelectedOption(null);
-      if (currentQuestionIndex < questions.length - 1) {
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
-      } else {
-        setLoadingResult(true);
-        setTimeout(() => {
-          setQuizFinished(true);
-          setLoadingResult(false);
-        }, 2000);
-      }
-    } else {
+    if (selectedOption === null) {
       alert("Por favor, selecione uma opção.");
+      return;
+    }
+    const updatedAnswers = [...answers];
+    updatedAnswers[currentQuestionIndex] = questions[currentQuestionIndex].options[selectedOption];
+    setAnswers(updatedAnswers);
+    setSelectedOption(null);
+
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      setLoadingResult(true);
+      setTimeout(() => {
+        setQuizFinished(true);
+        setLoadingResult(false);
+      }, 2000);
     }
   };
 
@@ -76,15 +75,11 @@ export default function Quiz() {
   };
 
   const shareQuiz = () => {
-    const shareUrl = window.location.href;
-    navigator.clipboard.writeText(shareUrl).then(() => {
-      alert("Link copiado! Compartilhe com seus amigos.");
-    });
+    navigator.clipboard.writeText(window.location.href);
+    alert("Link copiado! Compartilhe com seus amigos.");
   };
 
-  const goHome = () => {
-    router.push("/");
-  };
+  const goHome = () => router.push("/");
 
   const getProfile = () => {
     const area = answers[0];

@@ -1,45 +1,42 @@
-# 🌐 TI-Saúde - Conectando Saúde e Tecnologia
+# 💙 TI-Saúde
 
-🚀 Descubra qual área de TI combina com você!  
-Este projeto ajuda profissionais da saúde a encontrarem seu caminho na tecnologia com quizzes, guias e conteúdos educativos.
+Bem-vindo ao **TI-Saúde**, um projeto que conecta o mundo da **Tecnologia da Informação** com a **área da Saúde**. Ideal para profissionais da saúde que desejam iniciar sua jornada na TI de forma direcionada e interativa.
 
-## 📸 Preview
+![TI-Saúde Banner](https://ti-saude.vercel.app/banner.png) <!-- opcional, pode adicionar um banner futuramente -->
 
-![Preview](https://ti-saude-frontend.vercel.app/social-banner.png)
+## 🚀 Funcionalidades
 
----
+- ✅ **Quiz interativo** para descobrir qual área da TI combina com você
+- 📘 **Guia de introdução à TI para profissionais da saúde**
+- 📱 Design responsivo e moderno
+- 🔗 Botões sociais para **WhatsApp**, **Instagram** e **Facebook**
+- 🧠 Desenvolvido com foco em aprendizado e engajamento
 
-## 🧠 Funcionalidades
-
-- ✅ Página inicial com animações
-- ✅ Quiz interativo para descobrir a área de TI ideal
-- ✅ Botões de compartilhamento social (WhatsApp, Facebook, Twitter)
-- ✅ Design moderno com Tailwind CSS + Framer Motion
-- ✅ Responsivo para celular, tablet e desktop
-
----
-
-## 🛠️ Tecnologias Utilizadas
+## 🧩 Tecnologias Utilizadas
 
 - [Next.js](https://nextjs.org/)
-- [React](https://reactjs.org/)
+- [React](https://react.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Framer Motion](https://www.framer.com/motion/)
-- [React Icons](https://react-icons.github.io/react-icons/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [MongoDB Atlas (no backend)](https://www.mongodb.com/atlas)
 
----
+## 🌐 Link do Projeto
 
-## 📦 Instalação Local
+👉 [Acesse o site TI-Saúde](https://ti-saude.vercel.app)
+
+## 📂 Estrutura de Pastas (Frontend)
 
 ```bash
-# Clone o repositório
-git clone https://github.com/dinizdaniel284/ti-saude-frontend.git
+ti-saude-frontend/
+├── app/
+│   ├── page.tsx         # Página inicial
+│   ├── guia/page.tsx    # Guia introdutório
+│   └── quiz/page.tsx    # Quiz interativo
+├── public/
+├── styles/
+├── components/          # Componentes reutilizáveis (futuramente)
+├── next.config.js
+├── next-sitemap.config.js
+└── README.md
 
-# Acesse a pasta
-cd ti-saude-frontend
-
-# Instale as dependências
-npm install
-
-# Rode o projeto
-npm run dev

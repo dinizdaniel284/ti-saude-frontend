@@ -1,46 +1,55 @@
-import React, { useEffect } from 'react';
-import { AppProps } from 'next/app';
-import '../styles/globals.css'; // ✅ funciona 100%
-
-// Importa a função do gtag para o Google Analytics
-import * as gtag from '../lib/gtag';
-
-// ID do Google Analytics
-const GA_ID = gtag.GA_MEASUREMENT_ID;
+import { useEffect } from 'react';
+import type { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
+import Script from 'next/script';
+import * as gtag from '../lib/gtag'; // GA_MEASUREMENT_ID aqui
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      gtag.pageview(url); // Chama a função para registrar a visualização da página
+      gtag.pageview(url);
     };
 
-    // Quando a rota mudar, chama a função para registrar a visualização da página
-    window.addEventListener('routeChangeComplete', handleRouteChange);
-
+    router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
-      window.removeEventListener('routeChangeComplete', handleRouteChange);
+      router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, []);
+  }, [router.events]);
 
   return (
     <>
-      {/* Script do Google Analytics */}
-      <script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+      {/* Google Analytics */}
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_MEASUREMENT_ID}`}
       />
-      <script
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_ID}', {
+            gtag('config', '${gtag.GA_MEASUREMENT_ID}', {
               page_path: window.location.pathname,
             });
           `,
         }}
       />
+
+      {/* Google AdSense */}
+      <Script
+        id="adsense-script"
+        strategy="afterInteractive"
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7353371878367127"
+        crossOrigin="anonymous"
+      />
+
       <Component {...pageProps} />
     </>
   );
