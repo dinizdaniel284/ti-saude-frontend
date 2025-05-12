@@ -132,11 +132,13 @@ export default function Home() {
         </motion.div>
       </main>
 
-      <footer className="mt-20 text-white/70 text-sm text-center">
-        <p>© {new Date().getFullYear()} TI-Saúde — Desenvolvido com 💙</p>
-        <p>Todos os direitos reservados.</p>
-        <p>Desenvolvedor: Daniel Diniz</p>
-      </footer>
-    </div>
-  );
-}
+      <footer className="mt-20 text-white/70 text-sm text-center space-y-2">
+  <p>© {new Date().getFullYear()} TI-Saúde — Desenvolvido com 💙</p>
+  <p>Todos os direitos reservados.</p>
+  <p>Desenvolvedor: Daniel Diniz</p>
+  <p>
+    <Link href="/privacidade" className="underline hover:text-white transition">
+      Política de Privacidade
+    </Link>
+  </p>
+</footer>
