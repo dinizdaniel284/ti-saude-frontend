@@ -1,13 +1,8 @@
-import React from 'react';
-
-export default function ContatoPage() {
+export default function Contato() {
   return (
-    <div>
-      <h1>Fale Conosco</h1>
-      <p>
-        Tem dúvidas, sugestões ou quer colaborar com o projeto <strong>TI & Saúde</strong>? Entre em contato conosco! 
-        Estamos sempre abertos a parcerias e feedbacks construtivos.
-      </p>
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Fale Conosco</h1>
+      <p>Entre em contato para dúvidas, sugestões ou parcerias na área de TI e Saúde.</p>
       <p>Email: contato@tisaude.com.br</p>
     </div>
   );
