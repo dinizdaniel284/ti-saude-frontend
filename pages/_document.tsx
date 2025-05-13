@@ -8,6 +8,13 @@ class MyDocument extends Document {
     return (
       <Html lang="pt-BR">
         <Head>
+          {/* Google AdSense */}
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7353371878367127"
+            crossOrigin="anonymous"
+          />
+
           {/* Google Analytics */}
           {GA_ID && (
             <>
