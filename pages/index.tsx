@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FaWhatsapp, FaFacebookF, FaTwitter } from 'react-icons/fa';
+import Script from 'next/script';
 
 export default function Home() {
   const url = encodeURIComponent('https://ti-saude.vercel.app/quiz');
@@ -26,6 +27,14 @@ export default function Home() {
         <meta name="twitter:image" content="https://ti-saude-frontend.vercel.app/social-banner.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+
+      {/* AdSense script global */}
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7353371878367127"
+        crossOrigin="anonymous"
+        strategy="afterInteractive"
+      />
 
       <main className="text-center">
         <motion.h1
@@ -130,6 +139,20 @@ export default function Home() {
         >
           <p>Não perca a chance de dar o primeiro passo para uma carreira incrível na TI e Saúde!</p>
         </motion.div>
+
+        {/* AdSense bloco - rodapé-site */}
+        <div className="mt-16">
+          <ins className="adsbygoogle"
+            style={{ display: 'block' }}
+            data-ad-client="ca-pub-7353371878367127"
+            data-ad-slot="1253614132"
+            data-ad-format="auto"
+            data-full-width-responsive="true">
+          </ins>
+          <Script id="adsbygoogle-init" strategy="afterInteractive">
+            {`(adsbygoogle = window.adsbygoogle || []).push({});`}
+          </Script>
+        </div>
       </main>
 
       <footer className="mt-20 text-white/70 text-sm text-center space-y-2">
