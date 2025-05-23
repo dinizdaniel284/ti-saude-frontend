@@ -16,6 +16,7 @@ export default function Home() {
         <title>TI Saúde - Tecnologia para Profissionais da Saúde</title>
         <meta name="description" content="Descubra qual área de TI combina com você. Quiz e guias para profissionais da saúde que querem aprender tecnologia." />
         <meta name="google-site-verification" content="o2OWszBRoFmqtrI9vL5ta-Nop0iU2hluhL2eo9J1glw" />
+        <meta name="google-adsense-account" content="ca-pub-7353371878367127" />
         <meta property="og:title" content="TI Saúde - Conectando Saúde e Tecnologia" />
         <meta property="og:description" content="Descubra sua carreira ideal em TI com nosso quiz e guias exclusivos para profissionais da saúde." />
         <meta property="og:image" content="https://ti-saude-frontend.vercel.app/social-banner.png" />
@@ -28,7 +29,6 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      {/* AdSense script global */}
       <Script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7353371878367127"
@@ -87,7 +87,6 @@ export default function Home() {
           </motion.div>
         </motion.div>
 
-        {/* Botões de Compartilhamento */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -140,7 +139,6 @@ export default function Home() {
           <p>Não perca a chance de dar o primeiro passo para uma carreira incrível na TI e Saúde!</p>
         </motion.div>
 
-        {/* AdSense bloco - rodapé-site */}
         <div className="mt-16">
           <ins className="adsbygoogle"
             style={{ display: 'block' }}
