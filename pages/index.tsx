@@ -2,9 +2,9 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Script from 'next/script';
 import { motion } from 'framer-motion';
 import { FaWhatsapp, FaFacebookF, FaTwitter } from 'react-icons/fa';
-import Script from 'next/script';
 
 export default function Home() {
   const url = encodeURIComponent('https://ti-saude.vercel.app/quiz');
@@ -139,6 +139,7 @@ export default function Home() {
           <p>Não perca a chance de dar o primeiro passo para uma carreira incrível na TI e Saúde!</p>
         </motion.div>
 
+        {/* Google AdSense */}
         <div className="mt-16">
           <ins className="adsbygoogle"
             style={{ display: 'block' }}
