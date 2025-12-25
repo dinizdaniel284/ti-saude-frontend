@@ -25,8 +25,9 @@ body {
 }
 
 .animate-carousel {
-  animation: carousel 25s linear infinite;
+  animation: carousel 18s linear infinite;
 }
+
 
 .animate-carousel:hover {
   animation-play-state: paused;
@@ -34,7 +35,8 @@ body {
 
 @media (max-width: 768px) {
   .animate-carousel {
-    animation-duration: 35s;
+    animation-duration: 28s;
   }
 }
+
 
