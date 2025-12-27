@@ -1,28 +1,26 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const SectionSobre: React.FC = () => {
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16">
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-3xl font-bold text-blue-700 mb-6 text-center"
-      >
-        Sobre o TI Saúde
-      </motion.h2>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-        className="text-lg text-gray-700 text-center max-w-3xl mx-auto"
-      >
-        O TI Saúde conecta profissionais da saúde com o mundo da tecnologia. Aqui você encontra cursos, quizzes, guias e dicas para evoluir na carreira, migrando ou complementando sua atuação com habilidades digitais.
-      </motion.p>
+    <section className="py-20 px-6 bg-white min-h-screen">
+      <div className="max-w-4xl mx-auto">
+        <span className="text-cyan-600 font-bold uppercase tracking-widest text-sm">Sobre o Projeto</span>
+        <h1 className="text-4xl md:text-5xl font-black text-slate-900 mt-4 mb-8">TI & Saúde</h1>
+        
+        <div className="prose prose-lg text-slate-600 space-y-6">
+          <p>
+            O portal <strong>TI & Saúde</strong> é uma iniciativa dedicada a explorar a interseção entre tecnologia da informação e o setor assistencial. Nossa missão é capacitar profissionais de tecnologia para os desafios específicos da Saúde Digital.
+          </p>
+          <p>
+            Idealizado por <strong>Daniel Diniz</strong>, o projeto foca em pilares fundamentais como Backend robusto, análise de dados com Power BI e a implementação de Inteligência Artificial para otimização de processos clínicos.
+          </p>
+          <div className="bg-slate-50 p-6 rounded-2xl border-l-4 border-cyan-500">
+            <p className="italic font-medium text-slate-700">
+              "Acreditamos que o código bem escrito e o dado bem analisado são ferramentas poderosas para salvar vidas e melhorar a gestão hospitalar."
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

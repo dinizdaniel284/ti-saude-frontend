@@ -1,63 +1,47 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function FuturoTiSaude() {
   return (
-    <>
+    <div className="min-h-screen bg-slate-50 py-20 px-6">
       <Head>
-        <title>O Futuro da TI na Saúde | TI & Saúde</title>
-        <meta
-          name="description"
-          content="Descubra como a Tecnologia da Informação está moldando o futuro da saúde digital."
-        />
+        <title>O Futuro da TI na Saúde: Tendências para 2025 | TI & Saúde</title>
       </Head>
 
-      <article className="max-w-4xl mx-auto px-6 py-16">
-        <h1 className="text-4xl font-bold text-blue-700 mb-6">
-          O Futuro da TI na Saúde
+      <article className="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-[3rem] shadow-sm border border-slate-100">
+        <Link href="/" className="text-indigo-600 font-bold hover:underline mb-8 inline-block">
+          ← Voltar para a Home
+        </Link>
+        
+        <h1 className="text-4xl font-black text-slate-900 mb-8 leading-tight">
+          O Futuro da TI na Saúde: O que esperar nos <span className="text-indigo-600">próximos anos?</span>
         </h1>
+        
+        <div className="prose prose-lg text-slate-600 space-y-6">
+          <p>
+            A área de TI Hospitalar deixou de ser um setor de "suporte" para se tornar o <strong>setor de estratégia</strong>. Mas o que vem por aí?
+          </p>
 
-        <p className="text-gray-600 mb-6">
-          A Tecnologia da Informação está se tornando o coração do setor de saúde.
-          Sistemas inteligentes, dados e automação estão redefinindo como cuidamos
-          das pessoas.
-        </p>
+          <h2 className="text-2xl font-bold text-slate-800">1. IA Preditiva</h2>
+          <p>
+            Não apenas diagnosticar, mas prever. Algoritmos de IA agora analisam históricos para prever riscos de internação antes mesmo dos sintomas graves aparecerem.
+          </p>
 
-        <p>
-          Nos próximos anos, profissionais de TI terão papel essencial na criação
-          de soluções mais eficientes, seguras e humanas.
-        </p>
+          <h2 className="text-2xl font-bold text-slate-800">2. Blockchain na Saúde</h2>
+          <p>
+            A segurança definitiva para o histórico do paciente. Com o blockchain, o paciente se torna o verdadeiro dono do seu dado, autorizando o acesso de forma rastreável e inviolável.
+          </p>
 
-        <h2 className="text-2xl font-semibold text-blue-600 mt-8">
-          Tendências que já estão acontecendo
-        </h2>
+          <h2 className="text-2xl font-bold text-slate-800">3. Internet das Coisas Médicas (IoMT)</h2>
+          <p>
+            Camas inteligentes, marcapassos conectados e sensores de farmácia. Tudo gerando dados em tempo real no seu Dashboard de Power BI.
+          </p>
 
-        <ul className="list-disc ml-6 mt-4">
-          <li>Inteligência Artificial aplicada à medicina</li>
-          <li>Big Data para decisões clínicas</li>
-          <li>Telemedicina em larga escala</li>
-          <li>Integração de sistemas de saúde</li>
-        </ul>
-
-        <h2 className="text-2xl font-semibold text-blue-600 mt-8">
-          Oportunidades de carreira
-        </h2>
-
-        <p className="mt-4">
-          O futuro da saúde exige profissionais que entendam tecnologia e saibam
-          aplicar inovação com responsabilidade.
-        </p>
-
-        <ul className="list-disc ml-6 mt-4">
-          <li>Analista de Dados em Saúde</li>
-          <li>Especialista em Segurança da Informação</li>
-          <li>Engenheiro de Software</li>
-          <li>Especialista em IA aplicada à saúde</li>
-        </ul>
-
-        <p className="mt-6 font-medium text-gray-700">
-          Quem investir em conhecimento agora estará à frente dessa revolução.
-        </p>
+          <p className="bg-indigo-50 p-6 rounded-2xl border-l-4 border-indigo-500 font-medium">
+            O profissional que dominar a integração desses dados será o mais valorizado no mercado de saúde digital.
+          </p>
+        </div>
       </article>
-    </>
+    </div>
   );
 }

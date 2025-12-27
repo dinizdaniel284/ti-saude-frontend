@@ -1,43 +1,28 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const SectionContato: React.FC = () => {
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16">
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-3xl font-bold text-blue-700 mb-6 text-center"
-      >
-        Fale Conosco
-      </motion.h2>
+    <section className="py-20 px-6 bg-slate-50 min-h-screen">
+      <div className="max-w-3xl mx-auto text-center">
+        <h1 className="text-4xl font-black text-slate-900 mb-6">Fale Conosco</h1>
+        <p className="text-lg text-slate-600 mb-12">
+          Tem alguma dúvida, sugestão de conteúdo ou proposta de parceria? Estamos à disposição.
+        </p>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-        className="text-lg text-gray-700 text-center max-w-3xl mx-auto mb-8"
-      >
-        Tem alguma dúvida ou sugestão? Entre em contato conosco e responderemos rapidamente!
-      </motion.p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
+            <div className="text-3xl mb-4">📧</div>
+            <h3 className="font-bold text-slate-900 mb-2">E-mail</h3>
+            <p className="text-cyan-600 break-words font-medium">contato@tisaude.com.br</p>
+          </div>
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.6, duration: 0.5 }}
-        className="text-center"
-      >
-        <a
-          href="mailto:contato@ti-saude.vercel.app"
-          className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-2xl shadow-lg transition-all duration-300 inline-block"
-        >
-          Enviar Email
-        </a>
-      </motion.div>
+          <a href="https://wa.me/5519992278928" target="_blank" className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:border-cyan-500 transition-colors">
+            <div className="text-3xl mb-4">💬</div>
+            <h3 className="font-bold text-slate-900 mb-2">WhatsApp</h3>
+            <p className="text-green-600 font-medium">Chamar no Direto</p>
+          </a>
+        </div>
+      </div>
     </section>
   );
 };

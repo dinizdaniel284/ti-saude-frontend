@@ -1,60 +1,33 @@
 import Head from "next/head";
+import Link from "next/link";
 
-export default function PowerBI() {
+export default function PowerBISaude() {
   return (
-    <>
-      <Head>
-        <title>Power BI | TI & Saúde</title>
-        <meta
-          name="description"
-          content="Aprenda o que é Power BI e como ele transforma dados em decisões inteligentes."
-        />
-      </Head>
-
-      <main className="max-w-3xl mx-auto px-6 py-16">
-        <h1 className="text-4xl font-bold text-blue-700 mb-6">
-          O que é Power BI?
-        </h1>
-
-        <p className="text-lg text-gray-700 mb-4">
-          Power BI é uma ferramenta da Microsoft usada para analisar dados e
-          criar relatórios interativos.
-        </p>
-
-        <p className="text-lg text-gray-700 mb-6">
-          Ele transforma números e planilhas em gráficos fáceis de entender,
-          ajudando na tomada de decisões.
-        </p>
-
-        <h2 className="text-2xl font-semibold text-gray-800 mb-3">
-          📈 Onde o Power BI é usado?
-        </h2>
-
-        <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-          <li>Empresas</li>
-          <li>Hospitais</li>
-          <li>Gestão financeira</li>
-          <li>Análise de indicadores</li>
-        </ul>
-
-        <h2 className="text-2xl font-semibold text-gray-800 mb-3">
-          🩺 Power BI na Saúde
-        </h2>
-
-        <p className="text-lg text-gray-700 mb-6">
-          Na saúde, ele ajuda a analisar atendimentos, custos, desempenho de
-          equipes e qualidade dos serviços.
-        </p>
-
-        <h2 className="text-2xl font-semibold text-gray-800 mb-3">
-          🚀 Vale a pena aprender?
-        </h2>
-
-        <p className="text-lg text-gray-700">
-          Sim! É uma das ferramentas mais usadas no mercado e ótima para quem
-          quer entrar na área de dados.
-        </p>
-      </main>
-    </>
+    <div className="min-h-screen bg-white py-20 px-6">
+      <Head><title>Power BI na Saúde: Dashboards que Salvam Vidas | TI & Saúde</title></Head>
+      <article className="max-w-3xl mx-auto">
+        <Link href="/" className="text-yellow-600 font-bold hover:underline mb-8 inline-block">← Voltar para a Home</Link>
+        <h1 className="text-4xl font-black text-slate-900 mb-6 leading-tight">Power BI na Saúde: Visualizando o <span className="text-yellow-500">Sucesso Clínico.</span></h1>
+        <div className="prose prose-lg text-slate-600 space-y-6 leading-relaxed">
+          <p>O Power BI se tornou o padrão ouro para visualização de dados hospitalares. Com ele, transformamos planilhas estáticas em painéis dinâmicos e intuitivos.</p>
+          <h2 className="text-2xl font-bold text-slate-800">Exemplos de Dashboards Médicos:</h2>
+          <ul className="space-y-4">
+            <li className="flex gap-4 p-4 bg-yellow-50 rounded-xl">
+               <span className="text-2xl">📊</span>
+               <span><strong>Gestão de Leitos:</strong> Visualização em tempo real da ocupação da UTI.</span>
+            </li>
+            <li className="flex gap-4 p-4 bg-yellow-50 rounded-xl">
+               <span className="text-2xl">📈</span>
+               <span><strong>Faturamento Hospitalar:</strong> Controle de glosas e desempenho financeiro por convênio.</span>
+            </li>
+          </ul>
+          <p>O grande diferencial do Power BI na saúde é a capacidade de cruzar dados do RH, Financeiro e Assistencial em um único lugar.</p>
+        </div>
+        <footer className="mt-12 p-8 bg-slate-900 rounded-[2rem] text-center">
+           <p className="text-white font-bold mb-4 text-xl">Precisa de um Dashboard Profissional?</p>
+           <a href="https://wa.me/5519992278928" className="bg-yellow-500 text-slate-900 font-black px-8 py-3 rounded-xl hover:bg-yellow-400 transition">Solicitar Orçamento</a>
+        </footer>
+      </article>
+    </div>
   );
 }

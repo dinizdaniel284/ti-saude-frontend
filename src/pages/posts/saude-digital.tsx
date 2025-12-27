@@ -1,60 +1,26 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function SaudeDigital() {
   return (
-    <>
-      <Head>
-        <title>Saúde Digital | TI & Saúde</title>
-        <meta
-          name="description"
-          content="Entenda o que é Saúde Digital e como a tecnologia está transformando a medicina."
-        />
-      </Head>
-
-      <main className="max-w-3xl mx-auto px-6 py-16">
-        <h1 className="text-4xl font-bold text-blue-700 mb-6">
-          O que é Saúde Digital?
+    <div className="min-h-screen bg-white py-20 px-6">
+      <Head><title>Saúde Digital: O Ecossistema da Inovação | TI & Saúde</title></Head>
+      <article className="max-w-3xl mx-auto">
+        <Link href="/" className="text-emerald-600 font-bold hover:underline mb-8 inline-block">← Voltar para a Home</Link>
+        <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
+          Saúde Digital: Conectando <span className="text-emerald-600">Tecnologia e Cuidado.</span>
         </h1>
-
-        <p className="text-lg text-gray-700 mb-4">
-          Saúde Digital é o uso da tecnologia para melhorar atendimentos,
-          diagnósticos, gestão hospitalar e a qualidade de vida das pessoas.
-        </p>
-
-        <p className="text-lg text-gray-700 mb-6">
-          Ela conecta profissionais da saúde com soluções digitais que tornam
-          os processos mais rápidos, seguros e eficientes.
-        </p>
-
-        <h2 className="text-2xl font-semibold text-gray-800 mb-3">
-          🩻 Exemplos de Saúde Digital
-        </h2>
-
-        <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-          <li>Telemedicina</li>
-          <li>Prontuário eletrônico</li>
-          <li>Aplicativos de saúde</li>
-          <li>Análise de dados clínicos</li>
-        </ul>
-
-        <h2 className="text-2xl font-semibold text-gray-800 mb-3">
-          💻 Onde entra a TI?
-        </h2>
-
-        <p className="text-lg text-gray-700 mb-6">
-          Profissionais de TI atuam criando sistemas, cuidando da segurança dos
-          dados e analisando informações médicas.
-        </p>
-
-        <h2 className="text-2xl font-semibold text-gray-800 mb-3">
-          🌍 Por que essa área cresce tanto?
-        </h2>
-
-        <p className="text-lg text-gray-700">
-          Porque tecnologia salva tempo, reduz erros e melhora o cuidado com o
-          paciente. É uma das áreas mais promissoras do mercado.
-        </p>
-      </main>
-    </>
+        <div className="prose prose-lg text-slate-600 space-y-6">
+          <p className="text-xl font-medium text-slate-800">A saúde digital não é apenas sobre computadores, é sobre melhorar a jornada do paciente através do dado.</p>
+          <p>O conceito de Saúde Digital abrange desde o uso de aplicativos de monitoramento até grandes sistemas de gestão hospitalar (HIS) e prontuários eletrônicos (PEP). O objetivo é um só: eficiência clínica.</p>
+          <h2 className="text-2xl font-bold text-slate-800">Os 3 Pilares da Saúde Digital:</h2>
+          <ul className="list-disc pl-5 space-y-2">
+            <li><strong>Conectividade:</strong> Sistemas que conversam entre si (Interoperabilidade).</li>
+            <li><strong>Mobilidade:</strong> Acesso aos dados do paciente em qualquer lugar, de forma segura.</li>
+            <li><strong>Engajamento:</strong> Ferramentas que permitem ao paciente cuidar da própria saúde.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
   );
 }
