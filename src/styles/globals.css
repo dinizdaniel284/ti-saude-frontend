@@ -13,8 +13,10 @@ body {
   font-family: 'Arial', sans-serif;
   background-color: var(--soft-white);
   color: var(--dark-text);
+  scroll-behavior: smooth;
 }
 
+/* --- ANIMAÇÃO DO CARROSSEL --- */
 @keyframes carousel {
   0% {
     transform: translateX(0);
@@ -25,18 +27,33 @@ body {
 }
 
 .animate-carousel {
+  display: flex;
+  width: max-content;
   animation: carousel 18s linear infinite;
+  /* O segredo para fluidez no celular: */
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000;
 }
-
 
 .animate-carousel:hover {
   animation-play-state: paused;
 }
 
+/* --- AJUSTE PARA CELULAR (MOBILE) --- */
 @media (max-width: 768px) {
   .animate-carousel {
-    animation-duration: 28s;
+    /* Deixando um pouco mais rápido para não parecer travado em telas pequenas */
+    animation-duration: 12s;
   }
 }
 
+/* --- UTILITÁRIOS EXTRAS (OPCIONAL) --- */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
 
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
