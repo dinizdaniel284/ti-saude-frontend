@@ -2,33 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://ti-saude-frontend.vercel.app/</loc>
+    <loc>https://ti-saude.vercel.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://ti-saude-frontend.vercel.app/sobre</loc>
+    <loc>https://ti-saude.vercel.app/sobre</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://ti-saude-frontend.vercel.app/privacidade</loc>
+    <loc>https://ti-saude.vercel.app/privacidade</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://ti-saude-frontend.vercel.app/quiz</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://ti-saude.vercel.app/termos-de-uso</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://ti-saude.vercel.app/posts/telemedicina</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://ti-saude-frontend.vercel.app/contato</loc>
+    <loc>https://ti-saude.vercel.app/posts/power-bi</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ti-saude.vercel.app/posts/seguranca-informacao-saude</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ti-saude.vercel.app/posts/ia-na-saude</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ti-saude.vercel.app/posts/analista-dados</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ti-saude.vercel.app/posts/backend</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ti-saude.vercel.app/posts/carreiras-ti-saude</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ti-saude.vercel.app/posts/evolucao-digital</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ti-saude.vercel.app/posts/futuro-ti-saude</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ti-saude.vercel.app/posts/saude-digital</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
 </urlset>

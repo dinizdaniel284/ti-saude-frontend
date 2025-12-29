@@ -8,6 +8,9 @@ class MyDocument extends Document {
     return (
       <Html lang="pt-BR">
         <Head>
+          {/* Verificação do Google Search Console */}
+          <meta name="google-site-verification" content="o2OWszBRoFmqtrI9vL5ta-Nop0iU2hluhL2eo9J1glw" />
+
           {/* Google AdSense */}
           <script
             async
@@ -33,6 +36,8 @@ class MyDocument extends Document {
               />
             </>
           )}
+
+          {/* Favicon e Fontes podem vir aqui abaixo */}
         </Head>
         <body>
           <Main />

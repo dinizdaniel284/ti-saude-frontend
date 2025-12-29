@@ -17,7 +17,7 @@ const Footer = () => {
             <ul className="space-y-3 text-slate-400 text-sm">
               <li><Link href="/sobre" className="hover:text-cyan-400 transition">Sobre o Projeto</Link></li>
               <li><Link href="/contato" className="hover:text-cyan-400 transition">Fale Conosco</Link></li>
-              <li><Link href="/anuncie" className="hover:text-cyan-400 transition">Anuncie Aqui</Link></li>
+              <li><a href="/sitemap.xml" className="hover:text-cyan-400 transition">Sitemap</a></li>
             </ul>
           </div>
 
