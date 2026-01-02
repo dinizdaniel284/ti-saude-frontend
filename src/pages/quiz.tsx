@@ -2,32 +2,45 @@
 import { useState, useMemo, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-// Array de questões (O mesmo que você já tem)
-const questions = [
-  { question: "Se você trabalhasse em um hospital, o que mais te atrairia resolver?", options: ["Otimizar o banco de dados e APIs (Backend)", "Criar dashboards para decisões médicas (Dados)", "Proteger prontuários contra invasões (Segurança)", "Melhorar a experiência do app para pacientes (Frontend)"] },
-  { question: "Como você prefere lidar com desafios técnicos?", options: ["Escrevendo lógica pura e algoritmos", "Analisando gráficos e padrões", "Investigando brechas e vulnerabilidades", "Projetando interfaces visuais"] },
-  { question: "Você se sente confortável trabalhando com grandes volumes de números e estatísticas?", options: ["Sim, adoro encontrar insights nos números", "Prefiro focar no funcionamento do sistema", "Prefiro focar na proteção da informação"] },
-  { question: "Qual dessas tecnologias mais te fascina no dia a dia?", options: ["Inteligência Artificial Preditiva", "Microsserviços e Integrações", "Criptografia e Cibersegurança", "Design e Usabilidade (UX/UI)"] },
-  { question: "Se pudesse criar uma solução para a saúde hoje, qual seria?", options: ["Um sistema de gestão hospitalar robusto", "Um software que prevê riscos de doenças", "Um canal de comunicação médico-paciente blindado", "Uma interface intuitiva para Telemedicina"] },
-  { question: "Como você prefere apresentar os resultados do seu trabalho?", options: ["Através de um sistema estável e performático", "Através de relatórios e indicadores visuais", "Através de relatórios de conformidade e riscos", "Através de uma interface bonita e funcional"] },
-  { question: "O que te motiva mais a aprender uma tecnologia nova?", options: ["A complexidade da lógica por trás dela", "A capacidade de gerar previsões e estratégias", "O poder de blindar sistemas contra ataques", "O impacto direto na facilidade de uso do usuário"] },
-  { question: "Qual o seu nível de interesse em Inteligência Artificial?", options: ["Quero criar os modelos e treinar dados", "Quero usar a IA para prever cenários", "Quero garantir que a IA seja segura e ética", "Quero integrar a IA na interface do usuário"] },
-  { question: "Como você lida com a privacidade de dados (LGPD)?", options: ["É um requisito técnico importante no código", "É a base para uma análise de dados ética", "É o meu foco principal de trabalho", "É algo que deve ser transparente para o usuário"] },
-  { question: "O que você busca na sua carreira em TI & Saúde?", options: ["Ser uma autoridade técnica em sistemas", "Ser o braço direito da gestão com dados", "Ser o guardião da infraestrutura crítica", "Ser quem transforma a tecnologia em algo humano"] },
-];
-
 export default function QuizPage() {
   const router = useRouter();
   const [isClient, setIsClient] = useState(false);
+  
+  // Novos estados para gerenciar os dados vindos do MongoDB
+  const [questions, setQuestions] = useState([]); 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [selected, setSelected] = useState<number | null>(null);
-  const [answers, setAnswers] = useState<number[]>([]);
+  const [selected, setSelected] = useState(null);
+  const [answers, setAnswers] = useState([]);
   const [finished, setFinished] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true); // Começa em true para o carregamento inicial
 
-  useEffect(() => { setIsClient(true); }, []);
+  useEffect(() => {
+    setIsClient(true);
+    
+    // Função para buscar as perguntas da sua API na Vercel
+    async function fetchQuestions() {
+      try {
+        // O link oficial da sua API que ficou pronto ontem
+        const response = await fetch("https://ti-saude-backend-k4g9.vercel.app/quiz");
+        const data = await response.json();
+        
+        // Verificamos se os dados vieram no formato { perguntas: [...] } ou direto [...]
+        const questionsList = data.perguntas || data;
+        
+        if (Array.isArray(questionsList) && questionsList.length > 0) {
+          setQuestions(questionsList);
+        }
+      } catch (error) {
+        console.error("Erro ao carregar o quiz:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
 
-  const handleSelect = (index: number) => {
+    fetchQuestions();
+  }, []);
+
+  const handleSelect = (index) => {
     setSelected(index);
     setTimeout(() => {
       setAnswers(prev => [...prev, index]);
@@ -36,16 +49,22 @@ export default function QuizPage() {
         setCurrentIndex(prev => prev + 1);
       } else {
         setLoading(true);
-        setTimeout(() => { setFinished(true); setLoading(false); }, 1500);
+        setTimeout(() => { 
+          setFinished(true); 
+          setLoading(false); 
+        }, 1500);
       }
     }, 400);
   };
 
   const profile = useMemo(() => {
-    if (answers.length < 10) return null;
+    // Ajustado para o tamanho real da lista de perguntas que vier do banco
+    if (questions.length === 0 || answers.length < questions.length) return null;
+    
     const counts = [0, 0, 0, 0];
     answers.forEach(val => counts[val]++);
     const maxIndex = counts.indexOf(Math.max(...counts));
+    
     const results = [
       { name: "Desenvolvedor Backend Hospitalar", color: "text-indigo-600", link: "/posts/backend" },
       { name: "Analista de Dados & BI Clínico", color: "text-cyan-600", link: "/posts/power-bi" },
@@ -53,9 +72,17 @@ export default function QuizPage() {
       { name: "Especialista em Saúde Digital e UX", color: "text-emerald-600", link: "/posts/saude-digital" }
     ];
     return results[maxIndex];
-  }, [answers]);
+  }, [answers, questions]);
 
-  if (!isClient) return <div className="min-h-screen bg-slate-950" />;
+  // Enquanto o cliente não carrega ou as perguntas estão vindo do banco
+  if (!isClient || (loading && questions.length === 0)) {
+    return (
+      <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-6 text-white text-center">
+        <div className="w-12 h-12 border-4 border-slate-700 border-t-cyan-500 rounded-full animate-spin mb-4"></div>
+        <p className="font-bold uppercase tracking-widest text-sm">Conectando ao Banco de Dados...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-6">
@@ -77,7 +104,7 @@ export default function QuizPage() {
         ) : (
           <div className="transition-all duration-300">
             <span className="bg-slate-100 text-slate-500 px-4 py-1 rounded-full font-black uppercase tracking-widest text-[10px]">
-              Questão {currentIndex + 1}
+              Questão {currentIndex + 1} de {questions.length}
             </span>
             <h1 className="text-2xl md:text-3xl font-black text-slate-900 mt-6 mb-10 leading-tight">
               {questions[currentIndex]?.question}
