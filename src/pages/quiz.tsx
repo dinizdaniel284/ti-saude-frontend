@@ -5,28 +5,20 @@ import { useRouter } from "next/navigation";
 export default function QuizPage() {
   const router = useRouter();
   const [isClient, setIsClient] = useState(false);
-  
-  // Novos estados para gerenciar os dados vindos do MongoDB
   const [questions, setQuestions] = useState([]); 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState(null);
   const [answers, setAnswers] = useState([]);
   const [finished, setFinished] = useState(false);
-  const [loading, setLoading] = useState(true); // Começa em true para o carregamento inicial
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setIsClient(true);
-    
-    // Função para buscar as perguntas da sua API na Vercel
     async function fetchQuestions() {
       try {
-        // O link oficial da sua API que ficou pronto ontem
         const response = await fetch("https://ti-saude-backend-k4g9.vercel.app/quiz");
         const data = await response.json();
-        
-        // Verificamos se os dados vieram no formato { perguntas: [...] } ou direto [...]
         const questionsList = data.perguntas || data;
-        
         if (Array.isArray(questionsList) && questionsList.length > 0) {
           setQuestions(questionsList);
         }
@@ -36,7 +28,6 @@ export default function QuizPage() {
         setLoading(false);
       }
     }
-
     fetchQuestions();
   }, []);
 
@@ -58,13 +49,10 @@ export default function QuizPage() {
   };
 
   const profile = useMemo(() => {
-    // Ajustado para o tamanho real da lista de perguntas que vier do banco
     if (questions.length === 0 || answers.length < questions.length) return null;
-    
     const counts = [0, 0, 0, 0];
     answers.forEach(val => counts[val]++);
     const maxIndex = counts.indexOf(Math.max(...counts));
-    
     const results = [
       { name: "Desenvolvedor Backend Hospitalar", color: "text-indigo-600", link: "/posts/backend" },
       { name: "Analista de Dados & BI Clínico", color: "text-cyan-600", link: "/posts/power-bi" },
@@ -74,7 +62,6 @@ export default function QuizPage() {
     return results[maxIndex];
   }, [answers, questions]);
 
-  // Enquanto o cliente não carrega ou as perguntas estão vindo do banco
   if (!isClient || (loading && questions.length === 0)) {
     return (
       <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-6 text-white text-center">
@@ -97,7 +84,7 @@ export default function QuizPage() {
           <div className="transition-all duration-700">
             <h2 className="text-3xl font-black text-slate-900 mb-2">Concluído!</h2>
             <div className={`text-2xl font-black mb-10 p-6 bg-slate-50 rounded-3xl ${profile.color}`}>{profile.name}</div>
-            <button onClick={() => router.push(profile.link)} className="w-full bg-slate-900 text-white font-black py-5 rounded-2xl hover:bg-cyan-500 transition-all active:scale-95 shadow-xl">
+            <button onClick={() => router.push(profile.link)} className="w-full bg-slate-900 text-white font-black py-5 rounded-2xl hover:bg-cyan-500 transition-all active:scale-95 shadow-xl cursor-pointer">
               VER MINHA TRILHA →
             </button>
           </div>
@@ -115,15 +102,25 @@ export default function QuizPage() {
                 <button
                   key={idx}
                   onClick={() => handleSelect(idx)}
-                  className={`flex items-center gap-4 px-6 py-5 rounded-2xl border-2 transition-all duration-200 ${
+                  className={`flex items-center gap-4 px-6 py-5 rounded-2xl border-2 transition-all duration-200 cursor-pointer ${
                     selected === idx 
                       ? "border-cyan-500 bg-cyan-50 -translate-y-1 shadow-md" 
-                      : "border-slate-100 bg-white hover:border-slate-300"
+                      : "border-slate-100 bg-white hover:border-slate-300 hover:shadow-sm"
                   }`}
                 >
-                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${selected === idx ? "border-cyan-500 bg-cyan-500" : "border-slate-300"}`}>
-                    {selected === idx && <div className="w-1.5 h-1.5 bg-white rounded-full"></div>}
+                  {/* Círculo de seleção com ícone de Check */}
+                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${
+                    selected === idx 
+                      ? "border-cyan-500 bg-cyan-500" 
+                      : "border-slate-300 bg-transparent"
+                  }`}>
+                    {selected === idx && (
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    )}
                   </div>
+
                   <span className={`font-bold text-sm md:text-base ${selected === idx ? "text-cyan-800" : "text-slate-600"}`}>
                     {option}
                   </span>
