@@ -2,23 +2,34 @@
 import { useState, useMemo, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+// Definindo o formato da pergunta para o TypeScript não reclamar
+interface Question {
+  question: string;
+  options: string[];
+}
+
 export default function QuizPage() {
   const router = useRouter();
   const [isClient, setIsClient] = useState(false);
-  const [questions, setQuestions] = useState([]); 
+  
+  // Definimos que o estado é um array de perguntas (Question[])
+  const [questions, setQuestions] = useState<Question[]>([]); 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [selected, setSelected] = useState(null);
-  const [answers, setAnswers] = useState([]);
+  const [selected, setSelected] = useState<number | null>(null);
+  const [answers, setAnswers] = useState<number[]>([]);
   const [finished, setFinished] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setIsClient(true);
+    
     async function fetchQuestions() {
       try {
         const response = await fetch("https://ti-saude-backend-k4g9.vercel.app/quiz");
         const data = await response.json();
+        
         const questionsList = data.perguntas || data;
+        
         if (Array.isArray(questionsList) && questionsList.length > 0) {
           setQuestions(questionsList);
         }
@@ -28,10 +39,11 @@ export default function QuizPage() {
         setLoading(false);
       }
     }
+
     fetchQuestions();
   }, []);
 
-  const handleSelect = (index) => {
+  const handleSelect = (index: number) => {
     setSelected(index);
     setTimeout(() => {
       setAnswers(prev => [...prev, index]);
@@ -50,9 +62,11 @@ export default function QuizPage() {
 
   const profile = useMemo(() => {
     if (questions.length === 0 || answers.length < questions.length) return null;
+    
     const counts = [0, 0, 0, 0];
     answers.forEach(val => counts[val]++);
     const maxIndex = counts.indexOf(Math.max(...counts));
+    
     const results = [
       { name: "Desenvolvedor Backend Hospitalar", color: "text-indigo-600", link: "/posts/backend" },
       { name: "Analista de Dados & BI Clínico", color: "text-cyan-600", link: "/posts/power-bi" },
@@ -84,7 +98,10 @@ export default function QuizPage() {
           <div className="transition-all duration-700">
             <h2 className="text-3xl font-black text-slate-900 mb-2">Concluído!</h2>
             <div className={`text-2xl font-black mb-10 p-6 bg-slate-50 rounded-3xl ${profile.color}`}>{profile.name}</div>
-            <button onClick={() => router.push(profile.link)} className="w-full bg-slate-900 text-white font-black py-5 rounded-2xl hover:bg-cyan-500 transition-all active:scale-95 shadow-xl cursor-pointer">
+            <button 
+              onClick={() => router.push(profile.link)} 
+              className="w-full bg-slate-900 text-white font-black py-5 rounded-2xl hover:bg-cyan-500 transition-all active:scale-95 shadow-xl cursor-pointer"
+            >
               VER MINHA TRILHA →
             </button>
           </div>
@@ -108,11 +125,8 @@ export default function QuizPage() {
                       : "border-slate-100 bg-white hover:border-slate-300 hover:shadow-sm"
                   }`}
                 >
-                  {/* Círculo de seleção com ícone de Check */}
                   <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${
-                    selected === idx 
-                      ? "border-cyan-500 bg-cyan-500" 
-                      : "border-slate-300 bg-transparent"
+                    selected === idx ? "border-cyan-500 bg-cyan-500" : "border-slate-300 bg-transparent"
                   }`}>
                     {selected === idx && (
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-white" viewBox="0 0 20 20" fill="currentColor">
@@ -120,7 +134,6 @@ export default function QuizPage() {
                       </svg>
                     )}
                   </div>
-
                   <span className={`font-bold text-sm md:text-base ${selected === idx ? "text-cyan-800" : "text-slate-600"}`}>
                     {option}
                   </span>
