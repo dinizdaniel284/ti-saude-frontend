@@ -2,7 +2,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-// Interface garantindo que o TypeScript entenda o novo formato
 interface Question {
   question: string;
   options: string[];
@@ -11,7 +10,6 @@ interface Question {
 export default function QuizPage() {
   const router = useRouter();
   const [isClient, setIsClient] = useState(false);
- 
   const [questions, setQuestions] = useState<Question[]>([]); 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -21,147 +19,88 @@ export default function QuizPage() {
 
   useEffect(() => {
     setIsClient(true);
-    
     async function fetchQuestions() {
       try {
         const response = await fetch("https://ti-saude-backend-k4g9.vercel.app/quiz");
         const data = await response.json();
-        
-        // Ajuste para pegar o array de perguntas corretamente do backend
         const questionsList = data.perguntas || data;
-        
-        if (Array.isArray(questionsList) && questionsList.length > 0) {
-          setQuestions(questionsList);
-        }
+        if (Array.isArray(questionsList)) setQuestions(questionsList);
       } catch (error) {
-        console.error("Erro ao carregar o quiz:", error);
+        console.error("Erro:", error);
       } finally {
         setLoading(false);
       }
     }
-
     fetchQuestions();
   }, []);
 
   const handleSelect = (index: number) => {
     setSelected(index);
-    // Pequeno delay para o usuário ver o que selecionou
     setTimeout(() => {
       setAnswers(prev => [...prev, index]);
       setSelected(null);
-      
       if (currentIndex < questions.length - 1) {
         setCurrentIndex(prev => prev + 1);
       } else {
-        setLoading(true);
-        // Simula o processamento do perfil
-        setTimeout(() => { 
-          setFinished(true); 
-          setLoading(false); 
-        }, 1500);
+        setFinished(true);
       }
     }, 400);
   };
 
   const profile = useMemo(() => {
-    // Só calcula se tiver respondido todas
     if (questions.length === 0 || answers.length < questions.length) return null;
-    
     const counts = [0, 0, 0, 0];
-    answers.forEach(val => {
-      if (val >= 0 && val <= 3) counts[val]++;
-    });
-    
+    answers.forEach(val => { if (counts[val] !== undefined) counts[val]++; });
     const maxIndex = counts.indexOf(Math.max(...counts));
-    
     const results = [
-      { name: "Desenvolvedor Backend Hospitalar", color: "text-indigo-600", link: "/posts/backend" },
-      { name: "Analista de Dados & BI Clínico", color: "text-cyan-600", link: "/posts/power-bi" },
-      { name: "Especialista em Segurança & LGPD", color: "text-red-600", link: "/posts/seguranca-informacao-saude" },
-      { name: "Especialista em Saúde Digital e UX", color: "text-emerald-600", link: "/posts/saude-digital" }
+      { name: "Backend Hospitalar", color: "text-indigo-600", link: "/posts/backend" },
+      { name: "Dados & BI Clínico", color: "text-cyan-600", link: "/posts/power-bi" },
+      { name: "Segurança & LGPD", color: "text-red-600", link: "/posts/seguranca-informacao-saude" },
+      { name: "Saúde Digital e UX", color: "text-emerald-600", link: "/posts/saude-digital" }
     ];
-    
     return results[maxIndex];
   }, [answers, questions]);
 
-  // Enquanto o Next.js não carrega no cliente ou está buscando no banco
-  if (!isClient || (loading && questions.length === 0)) {
-    return (
-      <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-6 text-white text-center">
-        <div className="w-12 h-12 border-4 border-slate-700 border-t-cyan-500 rounded-full animate-spin mb-4"></div>
-        <p className="font-bold uppercase tracking-widest text-sm">Conectando ao Banco de Dados...</p>
-      </div>
-    );
-  }
+  if (!isClient) return null;
 
-  // Caso ocorra algum erro e a lista venha vazia
-  if (questions.length === 0) {
-    return (
-      <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-6 text-white text-center">
-        <p className="mb-4">Ops! Não conseguimos carregar as perguntas.</p>
-        <button onClick={() => window.location.reload()} className="bg-cyan-500 px-6 py-2 rounded-xl text-slate-900 font-bold">Tentar Novamente</button>
-      </div>
-    );
-  }
+  const currentQuestion = questions[currentIndex];
 
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-6">
-      <div className="bg-white shadow-2xl rounded-[2.5rem] p-8 md:p-12 w-full max-w-2xl text-center min-h-[500px] flex flex-col justify-center relative transition-all">
-        
+      <div className="bg-white shadow-2xl rounded-[2.5rem] p-8 md:p-12 w-full max-w-2xl text-center min-h-[500px] flex flex-col justify-center">
         {loading ? (
-          <div className="flex flex-col items-center transition-opacity duration-500">
-            <div className="w-12 h-12 border-4 border-slate-100 border-t-cyan-500 rounded-full animate-spin mb-4"></div>
-            <p className="text-slate-800 font-bold uppercase tracking-tighter">Mapeando Perfil...</p>
-          </div>
+          <p className="text-slate-800 font-bold animate-pulse">CARREGANDO...</p>
         ) : finished && profile ? (
-          <div className="transition-all duration-700">
-            <h2 className="text-3xl font-black text-slate-900 mb-2">Concluído!</h2>
-            <p className="text-slate-500 mb-6 uppercase text-xs font-bold tracking-widest">Seu perfil ideal é:</p>
-            <div className={`text-2xl font-black mb-10 p-6 bg-slate-50 rounded-3xl ${profile.color}`}>{profile.name}</div>
-            <button 
-              onClick={() => router.push(profile.link)} 
-              className="w-full bg-slate-900 text-white font-black py-5 rounded-2xl hover:bg-cyan-500 transition-all active:scale-95 shadow-xl cursor-pointer"
-            >
-              VER MINHA TRILHA →
+          <div>
+            <h2 className="text-3xl font-black text-slate-900 mb-6">Seu Perfil:</h2>
+            <div className={`text-2xl font-black mb-10 ${profile.color}`}>{profile.name}</div>
+            <button onClick={() => router.push(profile.link)} className="w-full bg-slate-900 text-white font-black py-5 rounded-2xl">
+              VER MINHA TRILHA
             </button>
           </div>
-        ) : (
-          <div className="transition-all duration-300">
-            <span className="bg-slate-100 text-slate-500 px-4 py-1 rounded-full font-black uppercase tracking-widest text-[10px]">
-              Questão {currentIndex + 1} de {questions.length}
+        ) : currentQuestion ? (
+          <div>
+            <span className="bg-slate-100 text-slate-500 px-4 py-1 rounded-full font-black text-[10px]">
+              QUESTÃO {currentIndex + 1} DE {questions.length}
             </span>
-            <h1 className="text-2xl md:text-3xl font-black text-slate-900 mt-6 mb-10 leading-tight">
-              {questions[currentIndex]?.question}
+            <h1 className="text-2xl font-black text-slate-900 mt-6 mb-10">
+              {currentQuestion.question}
             </h1>
-
-            <div className="grid grid-cols-1 gap-4 text-left">
-              {questions[currentIndex]?.options.map((option, idx) => (
+            <div className="grid grid-cols-1 gap-4">
+              {currentQuestion.options.map((option, idx) => (
                 <button
                   key={idx}
                   onClick={() => handleSelect(idx)}
-                  className={`flex items-center gap-4 px-6 py-5 rounded-2xl border-2 transition-all duration-200 cursor-pointer ${
-                    selected === idx 
-                      ? "border-cyan-500 bg-cyan-50 -translate-y-1 shadow-md" 
-                      : "border-slate-100 bg-white hover:border-slate-300 hover:shadow-sm"
+                  className={`px-6 py-5 rounded-2xl border-2 font-bold transition-all ${
+                    selected === idx ? "border-cyan-500 bg-cyan-50" : "border-slate-100 bg-white"
                   }`}
                 >
-                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${
-                    selected === idx ? "border-cyan-500 bg-cyan-500" : "border-slate-300 bg-transparent"
-                  }`}>
-                    {selected === idx && (
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-white" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    )}
-                  </div>
-                  <span className={`font-bold text-sm md:text-base ${selected === idx ? "text-cyan-800" : "text-slate-600"}`}>
-                    {option}
-                  </span>
+                  {option}
                 </button>
               ))}
             </div>
           </div>
-        )}
+        ) : null}
       </div>
     </div>
   );
