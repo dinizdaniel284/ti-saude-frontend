@@ -2,7 +2,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-// Definindo o formato da pergunta para o TypeScript não reclamar
+// Interface garantindo que o TypeScript entenda o novo formato
 interface Question {
   question: string;
   options: string[];
@@ -11,8 +11,7 @@ interface Question {
 export default function QuizPage() {
   const router = useRouter();
   const [isClient, setIsClient] = useState(false);
-  
-  // Definimos que o estado é um array de perguntas (Question[])
+ 
   const [questions, setQuestions] = useState<Question[]>([]); 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -28,6 +27,7 @@ export default function QuizPage() {
         const response = await fetch("https://ti-saude-backend-k4g9.vercel.app/quiz");
         const data = await response.json();
         
+        // Ajuste para pegar o array de perguntas corretamente do backend
         const questionsList = data.perguntas || data;
         
         if (Array.isArray(questionsList) && questionsList.length > 0) {
@@ -45,13 +45,16 @@ export default function QuizPage() {
 
   const handleSelect = (index: number) => {
     setSelected(index);
+    // Pequeno delay para o usuário ver o que selecionou
     setTimeout(() => {
       setAnswers(prev => [...prev, index]);
       setSelected(null);
+      
       if (currentIndex < questions.length - 1) {
         setCurrentIndex(prev => prev + 1);
       } else {
         setLoading(true);
+        // Simula o processamento do perfil
         setTimeout(() => { 
           setFinished(true); 
           setLoading(false); 
@@ -61,10 +64,14 @@ export default function QuizPage() {
   };
 
   const profile = useMemo(() => {
+    // Só calcula se tiver respondido todas
     if (questions.length === 0 || answers.length < questions.length) return null;
     
     const counts = [0, 0, 0, 0];
-    answers.forEach(val => counts[val]++);
+    answers.forEach(val => {
+      if (val >= 0 && val <= 3) counts[val]++;
+    });
+    
     const maxIndex = counts.indexOf(Math.max(...counts));
     
     const results = [
@@ -73,14 +80,26 @@ export default function QuizPage() {
       { name: "Especialista em Segurança & LGPD", color: "text-red-600", link: "/posts/seguranca-informacao-saude" },
       { name: "Especialista em Saúde Digital e UX", color: "text-emerald-600", link: "/posts/saude-digital" }
     ];
+    
     return results[maxIndex];
   }, [answers, questions]);
 
+  // Enquanto o Next.js não carrega no cliente ou está buscando no banco
   if (!isClient || (loading && questions.length === 0)) {
     return (
       <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-6 text-white text-center">
         <div className="w-12 h-12 border-4 border-slate-700 border-t-cyan-500 rounded-full animate-spin mb-4"></div>
         <p className="font-bold uppercase tracking-widest text-sm">Conectando ao Banco de Dados...</p>
+      </div>
+    );
+  }
+
+  // Caso ocorra algum erro e a lista venha vazia
+  if (questions.length === 0) {
+    return (
+      <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-6 text-white text-center">
+        <p className="mb-4">Ops! Não conseguimos carregar as perguntas.</p>
+        <button onClick={() => window.location.reload()} className="bg-cyan-500 px-6 py-2 rounded-xl text-slate-900 font-bold">Tentar Novamente</button>
       </div>
     );
   }
@@ -97,6 +116,7 @@ export default function QuizPage() {
         ) : finished && profile ? (
           <div className="transition-all duration-700">
             <h2 className="text-3xl font-black text-slate-900 mb-2">Concluído!</h2>
+            <p className="text-slate-500 mb-6 uppercase text-xs font-bold tracking-widest">Seu perfil ideal é:</p>
             <div className={`text-2xl font-black mb-10 p-6 bg-slate-50 rounded-3xl ${profile.color}`}>{profile.name}</div>
             <button 
               onClick={() => router.push(profile.link)} 
