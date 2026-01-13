@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ti-saude.vercel.app/sitemap.xml
