@@ -1,41 +1,53 @@
-# 🌐 TI-Saúde — Transforme sua Carreira com TI na Saúde
+# 🏥 TI-Saúde
+### Transforme sua Carreira com TI na Saúde
 
-Seja você da área da saúde querendo migrar para a tecnologia, ou alguém curioso sobre o futuro digital da medicina — este é o seu ponto de partida!
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js" />
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+</p>
 
-Aqui você encontra testes interativos, guias introdutórios, conteúdos sobre certificações e muito mais. Tudo feito para ajudar quem quer ingressar na área de **TI na Saúde**.
+> **O TI-Saúde** é um ponto de partida para profissionais da saúde que buscam migrar para a tecnologia ou entender o futuro digital da medicina.
 
-## 🚀 Funcionalidades
+---
 
-- ✅ Quiz interativo: descubra qual área da TI mais combina com você.
-- ✅ Guia introdutório: entenda os primeiros passos para migrar de carreira.
-- ✅ Compartilhamento via WhatsApp, Instagram e Facebook.
-- ✅ Visual moderno, responsivo e acessível.
-- ✅ SEO otimizado com Next.js e sitemap automático.
+### 🚀 Funcionalidades
+- [x] **Quiz Interativo:** Descubra sua área ideal na tecnologia.
+- [x] **Guia de Carreira:** Passo a passo para migração de área.
+- [x] **Social Ready:** Compartilhamento direto para WhatsApp e Instagram.
+- [x] **Alta Performance:** SEO otimizado e sitemap automático com Next.js.
 
-## 🔗 Acesse Agora
+---
 
-👉 [https://ti-saude.vercel.app](https://ti-saude.vercel.app)
+### 🧠 Stack Tecnológica
+| Ferramenta | Finalidade |
+| :--- | :--- |
+| **Next.js 15** | Framework React de alta performance |
+| **Framer Motion** | Animações suaves e modernas |
+| **TypeScript** | Tipagem estática para código robusto |
+| **Vercel** | Hospedagem e Deploy contínuo |
 
-## 🧠 Tecnologias Utilizadas
+---
 
-- [Next.js 15](https://nextjs.org)
-- [TypeScript](https://www.typescriptlang.org)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Framer Motion](https://www.framer.com/motion/)
-- [Vercel (Deploy)](https://vercel.com)
-- [next-sitemap](https://www.npmjs.com/package/next-sitemap)
+### 🔗 Link de Acesso
+Acesse o projeto rodando em tempo real: 
+👉 **[ti-saude.vercel.app](https://ti-saude.vercel.app)**
 
-## 👨‍💻 Como rodar localmente
+---
+
+### 👨‍💻 Como rodar localmente
 
 ```bash
 # Clone o repositório
-git clone https://github.com/dinizdaniel284/ti-saude-frontend.git
-
-# Acesse a pasta
-cd ti-saude-frontend
+git clone [https://github.com/dinizdaniel284/ti-saude-frontend.git](https://github.com/dinizdaniel284/ti-saude-frontend.git)
 
 # Instale as dependências
 npm install
 
 # Rode o servidor de desenvolvimento
 npm run dev
+
+<div align="center">
+Desenvolvido por <b>Daniel Diniz</b> 🚀
+</div>
