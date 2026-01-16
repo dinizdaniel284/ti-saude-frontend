@@ -17,6 +17,9 @@ export default function AnalistaDados() {
         <p>
           Atualmente, o setor de saúde enfrenta um desafio sem precedentes: o volume massivo de informações geradas por prontuários eletrônicos (PEP), dispositivos de IoT vestíveis e sistemas de gestão hospitalar (HIS). O papel do <strong>Analista de Dados na Saúde</strong> é filtrar esse mar de informações e extrair inteligência que impacte diretamente no desfecho clínico.
         </p>
+        
+        
+
         <p className="mt-4">
           Diferente de um analista de BI do varejo, o profissional de saúde lida com indicadores de vida. Estamos falando de analisar o <strong>Protocolo de Sepse</strong>, monitorar a taxa de ocupação de leitos de UTI e prever o tempo de desmame de ventilação mecânica. Cada dashboard criado pode ser a diferença entre um diagnóstico precoce e uma complicação evitável.
         </p>
@@ -53,8 +56,8 @@ export default function AnalistaDados() {
         </p>
         
         <div className="my-10 p-8 bg-slate-50 rounded-3xl border border-slate-200 italic text-slate-700">
-           <h4 className="font-bold mb-2 not-italic text-indigo-600">Exemplo Prático:</h4>
-           "Ao analisar os dados históricos de admissões, conseguimos prever com 85% de precisão o aumento da demanda por leitos de isolamento 48 horas antes do pico ocorrer, permitindo que a farmácia e a enfermagem se organizassem sem correria."
+            <h4 className="font-bold mb-2 not-italic text-indigo-600">Exemplo Prático:</h4>
+            "Ao analisar os dados históricos de admissões, conseguimos prever com 85% de precisão o aumento da demanda por leitos de isolamento 48 horas antes do pico ocorrer, permitindo que a farmácia e a enfermagem se organizassem sem correria."
         </div>
 
         <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">Principais Dashboards de Saúde</h3>
