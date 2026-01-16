@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import SectionContato from '../components/SectionContato';
-import { Mail, MessageCircle, ShieldCheck, MapPin } from 'lucide-react'; // Opcional: instale lucide-react ou use emojis
+import { Mail, MessageCircle, ShieldCheck, MapPin } from 'lucide-react';
 
 const ContatoPage: React.FC = () => {
   return (
@@ -30,48 +30,50 @@ const ContatoPage: React.FC = () => {
       {/* Cards de Contato Rápido */}
       <section className="py-12 px-6 -mt-10">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white p-8 rounded-[2.5rem] shadow-premium border border-slate-100 flex flex-col items-center text-center group hover:border-indigo-500 transition-all">
+          
+          <a href="mailto:contato@tisaude.com.br" className="bg-white p-8 rounded-[2.5rem] shadow-xl border border-slate-100 flex flex-col items-center text-center group hover:border-indigo-500 transition-all">
             <div className="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-all">
               <Mail size={24} />
             </div>
             <h3 className="font-black text-slate-900 uppercase text-xs tracking-widest mb-2">E-mail Direto</h3>
             <p className="text-slate-600 text-sm">contato@tisaude.com.br</p>
-          </div>
+          </a>
 
-          <div className="bg-white p-8 rounded-[2.5rem] shadow-premium border border-slate-100 flex flex-col items-center text-center group hover:border-green-500 transition-all">
+          <a href="https://wa.me/5519992278928" target="_blank" rel="noopener noreferrer" className="bg-white p-8 rounded-[2.5rem] shadow-xl border border-slate-100 flex flex-col items-center text-center group hover:border-green-500 transition-all">
             <div className="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-green-600 mb-6 group-hover:bg-green-600 group-hover:text-white transition-all">
               <MessageCircle size={24} />
             </div>
             <h3 className="font-black text-slate-900 uppercase text-xs tracking-widest mb-2">WhatsApp</h3>
             <p className="text-slate-600 text-sm">(19) 99227-8928</p>
-          </div>
+          </a>
 
-          <div className="bg-white p-8 rounded-[2.5rem] shadow-premium border border-slate-100 flex flex-col items-center text-center group hover:border-cyan-500 transition-all">
+          <div className="bg-white p-8 rounded-[2.5rem] shadow-xl border border-slate-100 flex flex-col items-center text-center group hover:border-cyan-500 transition-all">
             <div className="w-14 h-14 bg-cyan-50 rounded-2xl flex items-center justify-center text-cyan-600 mb-6 group-hover:bg-cyan-600 group-hover:text-white transition-all">
               <ShieldCheck size={24} />
             </div>
             <h3 className="font-black text-slate-900 uppercase text-xs tracking-widest mb-2">Consultoria</h3>
             <p className="text-slate-600 text-sm">Especialista TI & Saúde</p>
           </div>
+          
         </div>
       </section>
 
-      {/* O Componente Original de Formulário */}
-      <div className="py-12">
+      {/* Formulário de Contato */}
+      <div className="py-12" id="form-contato">
         <SectionContato />
       </div>
 
-      {/* Texto de Compliance AdSense */}
-      <section className="py-20 px-6 border-t border-slate-100">
+      {/* Compliance e Rodapé Técnico */}
+      <footer className="py-20 px-6 border-t border-slate-100 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <MapPin className="mx-auto text-slate-300 mb-4" size={32} />
           <p className="text-slate-400 text-sm leading-relaxed">
-            Localizado em São Paulo - Atendimento para todo o Brasil.<br />
+            Localizado em São Paulo - Atendimento especializado para todo o Brasil.<br />
             Seus dados são protegidos conforme nossa <strong>Política de Privacidade</strong> e a <strong>LGPD</strong>.
-            Ao enviar uma mensagem, você concorda com o processamento dos dados apenas para fins de resposta comercial.
+            Ao enviar uma mensagem, você concorda com o processamento dos dados apenas para fins de contato profissional.
           </p>
         </div>
-      </section>
+      </footer>
     </div>
   );
 };

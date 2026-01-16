@@ -20,43 +20,45 @@ export default function CarreirasTISaude() {
       </section>
 
       {/* GRID DE CARREIRAS - VISUAL PREMIUM */}
-      <h2 className="text-3xl font-black text-slate-900 mt-16 mb-8 tracking-tight">
-        As Profissões de Elite do Setor
-      </h2>
-      
-      <div className="space-y-8">
-        <div className="group p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 transition-all hover:bg-white hover:shadow-premium hover:-translate-y-2">
-          <div className="flex items-center gap-4 mb-4">
-            <span className="w-10 h-10 flex items-center justify-center bg-indigo-600 text-white rounded-xl font-bold italic text-sm">01</span>
-            <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight">Analista de BI e Performance Clínica</h3>
+      <section>
+        <h2 className="text-3xl font-black text-slate-900 mt-16 mb-8 tracking-tight">
+          As Profissões de Elite do Setor
+        </h2>
+        
+        <div className="space-y-8">
+          <div className="group p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 transition-all hover:bg-white hover:shadow-2xl hover:-translate-y-2">
+            <div className="flex items-center gap-4 mb-4">
+              <span className="w-10 h-10 flex items-center justify-center bg-indigo-600 text-white rounded-xl font-bold italic text-sm">01</span>
+              <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight">Analista de BI e Performance Clínica</h3>
+            </div>
+            <p className="text-slate-600 leading-relaxed">
+              Não basta criar dashboards; é preciso entender de <strong>DRG (Diagnosis Related Groups)</strong> e KPIs assistenciais como a média de permanência e a taxa de ocupação. O analista de BI moderno ajuda hospitais a reduzirem custos sem perder a qualidade do desfecho clínico.
+            </p>
           </div>
-          <p className="text-slate-600 leading-relaxed">
-            Não basta criar dashboards; é preciso entender de <strong>DRG (Diagnosis Related Groups)</strong> e KPIs assistenciais como a média de permanência e a taxa de ocupação. O analista de BI moderno ajuda hospitais a reduzirem custos sem perder a qualidade do desfecho clínico.
-          </p>
-        </div>
 
-        <div className="group p-8 bg-[#020617] rounded-[2.5rem] border border-white/5 transition-all hover:shadow-indigo-500/10 hover:shadow-2xl hover:-translate-y-2">
-          <div className="flex items-center gap-4 mb-4">
-            <span className="w-10 h-10 flex items-center justify-center bg-cyan-400 text-slate-900 rounded-xl font-bold italic text-sm">02</span>
-            <h3 className="text-xl font-black text-white uppercase tracking-tight">Arquiteto de Interoperabilidade</h3>
+          <div className="group p-8 bg-[#020617] rounded-[2.5rem] border border-white/5 transition-all hover:shadow-indigo-500/10 hover:shadow-2xl hover:-translate-y-2">
+            <div className="flex items-center gap-4 mb-4">
+              <span className="w-10 h-10 flex items-center justify-center bg-cyan-400 text-slate-900 rounded-xl font-bold italic text-sm">02</span>
+              <h3 className="text-xl font-black text-white uppercase tracking-tight">Arquiteto de Interoperabilidade</h3>
+            </div>
+            <p className="text-slate-400 leading-relaxed">
+              Especialistas em padrões <strong>FHIR (Fast Healthcare Interoperability Resources)</strong> e <strong>HL7</strong> são os profissionais mais caros do mercado hoje. Eles garantem que o dado gerado no Apple Watch do paciente chegue com segurança ao Prontuário Eletrônico do Hospital.
+            </p>
           </div>
-          <p className="text-slate-400 leading-relaxed">
-            Especialistas em padrões <strong>FHIR (Fast Healthcare Interoperability Resources)</strong> e <strong>HL7</strong> são os profissionais mais caros do mercado hoje. Eles garantem que o dado gerado no Apple Watch do paciente chegue com segurança ao Prontuário Eletrônico do Hospital.
-          </p>
-        </div>
 
-        <div className="group p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 transition-all hover:bg-white hover:shadow-premium hover:-translate-y-2">
-          <div className="flex items-center gap-4 mb-4">
-            <span className="w-10 h-10 flex items-center justify-center bg-indigo-600 text-white rounded-xl font-bold italic text-sm">03</span>
-            <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight">CISO Hospitalar (Cybersecurity)</h3>
+          <div className="group p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 transition-all hover:bg-white hover:shadow-2xl hover:-translate-y-2">
+            <div className="flex items-center gap-4 mb-4">
+              <span className="w-10 h-10 flex items-center justify-center bg-indigo-600 text-white rounded-xl font-bold italic text-sm">03</span>
+              <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight">CISO Hospitalar (Cybersecurity)</h3>
+            </div>
+            <p className="text-slate-600 leading-relaxed">
+              Com o aumento de ataques de Ransomware a hospitais, o CISO (Chief Information Security Officer) focado em saúde precisa dominar a <strong>LGPD (Lei Geral de Proteção de Dados)</strong> e normas de segurança como a <strong>HIPAA</strong> e ISO 27701.
+            </p>
           </div>
-          <p className="text-slate-600 leading-relaxed">
-            Com o aumento de ataques de Ransomware a hospitais, o CISO (Chief Information Security Officer) focado em saúde precisa dominar a <strong>LGPD (Lei Geral de Proteção de Dados)</strong> e normas de segurança como a <strong>HIPAA</strong> e ISO 27701.
-          </p>
         </div>
-      </div>
+      </section>
 
-      {/* SEÇÃO DE SALÁRIOS E CERTIFICAÇÕES (MUITO IMPORTANTE PARA ADSENSE) */}
+      {/* SEÇÃO DE SALÁRIOS E CERTIFICAÇÕES */}
       <section className="my-20 bg-indigo-50 p-10 rounded-[3rem] border border-indigo-100">
         <h2 className="text-2xl font-black text-indigo-900 mb-6 uppercase tracking-widest text-center">Roadmap & Salários</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -78,6 +80,8 @@ export default function CarreirasTISaude() {
           </div>
         </div>
       </section>
+
+      
 
       <section>
         <h2 className="text-3xl font-black text-slate-900 mb-6 tracking-tight">Como Fazer a Transição?</h2>

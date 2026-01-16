@@ -23,33 +23,36 @@ export default function IAnaSaude() {
         </p>
       </section>
 
+      {/* DIAGRAMA DE APLICAÇÃO DE IA */}
+      
+
       {/* BOX DE PILARES TECNOLÓGICOS */}
-      <div className="my-16 space-y-6">
+      <section className="my-16 space-y-6">
         <h3 className="text-2xl font-black text-slate-900 mb-8 uppercase tracking-tighter">Onde a IA atua hoje?</h3>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-premium transition-all group">
+          <div className="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-2xl transition-all group hover:-translate-y-1">
             <span className="text-cyan-600 font-black text-sm block mb-4 uppercase">Visão Computacional</span>
             <p className="text-sm text-slate-600 leading-relaxed">
               Algoritmos de <em>Deep Learning</em> que analisam arquivos <strong>DICOM</strong> com precisão sobre-humana, detectando precocemente nódulos em exames de imagem.
             </p>
           </div>
           
-          <div className="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-premium transition-all group">
+          <div className="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-2xl transition-all group hover:-translate-y-1">
             <span className="text-indigo-600 font-black text-sm block mb-4 uppercase">Processamento (NLP)</span>
             <p className="text-sm text-slate-600 leading-relaxed">
               Uso de <strong>LLMs (Large Language Models)</strong> para estruturar dados não estruturados de prontuários, transformando anotações médicas em dados estatísticos.
             </p>
           </div>
 
-          <div className="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-premium transition-all group">
+          <div className="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-2xl transition-all group hover:-translate-y-1">
             <span className="text-purple-600 font-black text-sm block mb-4 uppercase">Análise Preditiva</span>
             <p className="text-sm text-slate-600 leading-relaxed">
               Modelos de regressão e séries temporais que monitoram sinais vitais para alertar sobre o risco de <strong>Choque Séptico</strong> horas antes do evento.
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
       <section>
         <h2 className="text-3xl font-black text-slate-900 mt-16 mb-6 tracking-tight">O Desafio da Engenharia de Dados</h2>

@@ -1,4 +1,5 @@
 import PostLayout from "../../components/PostLayout";
+import Link from "next/link"; // <-- Adicionado o import vital
 
 export default function Backend() {
   return (
@@ -11,34 +12,38 @@ export default function Backend() {
         "No ecossistema hospitalar, o Backend é a garantia de que os dados de um paciente estarão disponíveis para o médico no momento exato de uma emergência. É tecnologia com propósito de salvar."
       </p>
 
-      <p>
-        No mundo do desenvolvimento de software, o <strong>Backend</strong> é frequentemente chamado de "o que acontece nos bastidores". 
-        Diferente de um e-commerce comum, o backend em <strong>HealthTech</strong> precisa lidar com protocolos de interoperabilidade complexos e segurança crítica.
-      </p>
+      <section>
+        <p>
+          No mundo do desenvolvimento de software, o <strong>Backend</strong> é frequentemente chamado de "o que acontece nos bastidores". 
+          Diferente de um e-commerce comum, o backend em <strong>HealthTech</strong> precisa lidar com protocolos de interoperabilidade complexos e segurança crítica.
+        </p>
 
-      {/* SEÇÃO DE RESPONSABILIDADES COM CARDS LIMPOS */}
-      <h2 className="text-3xl font-black text-slate-900 mt-16 mb-8 tracking-tight">
-        🔧 O que um desenvolvedor Backend faz na Saúde?
-      </h2>
+        {/* SEÇÃO DE RESPONSABILIDADES COM CARDS LIMPOS */}
+        <h2 className="text-3xl font-black text-slate-900 mt-16 mb-8 tracking-tight">
+          🔧 O que um desenvolvedor Backend faz na Saúde?
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
+          <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
+            <h4 className="font-bold text-indigo-600 mb-2">Interoperabilidade</h4>
+            <p className="text-sm text-slate-600">Conectar prontuários eletrônicos (PEP) com sistemas laboratoriais e exames de imagem.</p>
+          </div>
+          <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
+            <h4 className="font-bold text-indigo-600 mb-2">Segurança Máxima</h4>
+            <p className="text-sm text-slate-600">Implementar criptografia de ponta a ponta seguindo a LGPD e padrões internacionais.</p>
+          </div>
+          <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
+            <h4 className="font-bold text-indigo-600 mb-2">Alta Disponibilidade</h4>
+            <p className="text-sm text-slate-600">Garantir que a telemedicina nunca fique fora do ar durante um atendimento crítico.</p>
+          </div>
+          <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
+            <h4 className="font-bold text-indigo-600 mb-2">Lógica Clínica</h4>
+            <p className="text-sm text-slate-600">Criar alertas automáticos para resultados de exames que detectam riscos imediatos.</p>
+          </div>
+        </div>
+      </section>
+
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
-        <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
-          <h4 className="font-bold text-indigo-600 mb-2">Interoperabilidade</h4>
-          <p className="text-sm text-slate-600">Conectar prontuários eletrônicos (PEP) com sistemas laboratoriais e exames de imagem.</p>
-        </div>
-        <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
-          <h4 className="font-bold text-indigo-600 mb-2">Segurança Máxima</h4>
-          <p className="text-sm text-slate-600">Implementar criptografia de ponta a ponta seguindo a LGPD e padrões internacionais.</p>
-        </div>
-        <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
-          <h4 className="font-bold text-indigo-600 mb-2">Alta Disponibilidade</h4>
-          <p className="text-sm text-slate-600">Garantir que a telemedicina nunca fique fora do ar durante um atendimento crítico.</p>
-        </div>
-        <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
-          <h4 className="font-bold text-indigo-600 mb-2">Lógica Clínica</h4>
-          <p className="text-sm text-slate-600">Criar alertas automáticos para resultados de exames que detectam riscos imediatos.</p>
-        </div>
-      </div>
 
       {/* BOX DE STACK TECNOLÓGICA (VISUAL DE DASHBOARD) */}
       <div className="relative p-8 my-16 bg-[#020617] rounded-[2.5rem] overflow-hidden group">
@@ -59,13 +64,15 @@ export default function Backend() {
         </div>
       </div>
 
-      <h2 className="text-3xl font-black text-slate-900 mt-16 mb-6 tracking-tight">
-        💡 Vitalidade para a Medicina Moderna
-      </h2>
-      <p>
-        Sem um backend sólido, a <strong>Inteligência Artificial</strong> na saúde não conseguiria processar dados, a telemedicina não teria estabilidade e os registros seriam fragmentados. 
-        O backend é o fio condutor da <strong>continuidade do cuidado</strong>.
-      </p>
+      <section>
+        <h2 className="text-3xl font-black text-slate-900 mt-16 mb-6 tracking-tight">
+          💡 Vitalidade para a Medicina Moderna
+        </h2>
+        <p>
+          Sem um backend sólido, a <strong>Inteligência Artificial</strong> na saúde não conseguiria processar dados, a telemedicina não teria estabilidade e os registros seriam fragmentados. 
+          O backend é o fio condutor da <strong>continuidade do cuidado</strong>.
+        </p>
+      </section>
 
       {/* FOOTER DO ARTIGO COM NAVEGAÇÃO */}
       <div className="mt-20 pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">

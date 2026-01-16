@@ -25,29 +25,29 @@ export default function AnalistaDados() {
         </p>
       </section>
 
-      {/* BOX DE CONTEÚDO TÉCNICO (ADSENSE AMA ISSO) */}
-      <div className="bg-[#020617] p-10 rounded-[2.5rem] my-12 text-white relative overflow-hidden">
+      {/* BOX DE CONTEÚDO TÉCNICO */}
+      <section className="bg-[#020617] p-10 rounded-[2.5rem] my-12 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/20 blur-3xl"></div>
         <h3 className="text-cyan-400 font-bold uppercase tracking-widest text-sm mb-6">Hard Skills & Ecossistema</h3>
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <li className="flex flex-col">
             <span className="text-white font-bold text-lg">SQL para Saúde</span>
-            <span className="text-slate-400 text-sm">Domínio de queries em bancos Oracle e SQL Server usados em sistemas como MV e Tasy.</span>
+            <span className="text-slate-300 text-sm">Domínio de queries em bancos Oracle e SQL Server usados em sistemas como MV e Tasy.</span>
           </li>
           <li className="flex flex-col">
             <span className="text-white font-bold text-lg">Interoperabilidade</span>
-            <span className="text-slate-400 text-sm">Conhecimento em padrões HL7 e FHIR para integração de dados entre sistemas.</span>
+            <span className="text-slate-300 text-sm">Conhecimento em padrões HL7 e FHIR para integração de dados entre sistemas.</span>
           </li>
           <li className="flex flex-col">
             <span className="text-white font-bold text-lg">Linguagens</span>
-            <span className="text-slate-400 text-sm">Python para limpeza de dados (Pandas/NumPy) e R para análises bioestatísticas.</span>
+            <span className="text-slate-300 text-sm">Python para limpeza de dados (Pandas/NumPy) e R para análises bioestatísticas.</span>
           </li>
           <li className="flex flex-col">
             <span className="text-white font-bold text-lg">LGPD & Segurança</span>
-            <span className="text-slate-400 text-sm">Anonimização de dados sensíveis e conformidade com a Lei Geral de Proteção de Dados.</span>
+            <span className="text-slate-300 text-sm">Anonimização de dados sensíveis e conformidade com a Lei Geral de Proteção de Dados.</span>
           </li>
         </ul>
-      </div>
+      </section>
 
       <section>
         <h2 className="text-3xl font-black text-slate-900 mt-16 mb-6 tracking-tight">O Impacto na Gestão e no Cuidado</h2>
@@ -77,16 +77,16 @@ export default function AnalistaDados() {
         </p>
       </section>
 
-      {/* CTA DE NAVEGAÇÃO INTERNA (MELHORA O SEO) */}
-      <div className="mt-20 flex flex-col md:flex-row justify-between items-center p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100 gap-8">
+      {/* CTA DE NAVEGAÇÃO INTERNA */}
+      <footer className="mt-20 flex flex-col md:flex-row justify-between items-center p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100 gap-8">
         <div>
           <h4 className="text-slate-900 font-black text-xl mb-2">Próximo Passo</h4>
           <p className="text-slate-500 text-sm">Entenda como a Telemedicina está integrando esses dados.</p>
         </div>
-        <Link href="/posts/telemedicina" className="whitespace-nowrap bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-slate-900 transition-all shadow-lg">
+        <Link href="/posts/telemedicina" className="whitespace-nowrap bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-slate-900 hover:scale-105 transition-all shadow-lg text-center">
           Ler sobre Telemedicina →
         </Link>
-      </div>
+      </footer>
     </PostLayout>
   );
 }

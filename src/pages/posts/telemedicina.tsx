@@ -22,9 +22,9 @@ export default function Telemedicina() {
         </p>
       </section>
 
-      {/* GRID DE DESAFIOS TÉCNICOS - DESIGN MODERNO */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-16">
-        <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:shadow-premium transition-all group">
+      {/* GRID DE DESAFIOS TÉCNICOS */}
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-8 my-16">
+        <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:shadow-2xl transition-all group hover:-translate-y-1">
           <div className="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-white text-xl mb-6 shadow-lg group-hover:rotate-12 transition-transform">
             ⚡
           </div>
@@ -34,17 +34,17 @@ export default function Telemedicina() {
           </p>
         </div>
 
-        <div className="p-8 bg-[#020617] rounded-[2.5rem] border border-white/5 shadow-2xl group">
+        <div className="p-8 bg-slate-900 rounded-[2.5rem] border border-white/5 shadow-2xl group hover:-translate-y-1 transition-all">
           <div className="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center text-white text-xl mb-6 shadow-lg group-hover:rotate-12 transition-transform">
             🔐
           </div>
           <h3 className="font-black text-indigo-400 mb-3 uppercase tracking-tighter text-sm">HIPAA & Segurança</h3>
-          <p className="text-xs text-slate-400 leading-relaxed">
+          <p className="text-xs text-slate-300 leading-relaxed">
             Criptografia de ponta a ponta (E2EE) e conformidade com padrões internacionais de saúde para armazenamento em nuvem de sessões gravadas e anexos.
           </p>
         </div>
 
-        <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:shadow-premium transition-all group">
+        <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:shadow-2xl transition-all group hover:-translate-y-1">
           <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center text-white text-xl mb-6 shadow-lg group-hover:rotate-12 transition-transform">
             📂
           </div>
@@ -53,7 +53,7 @@ export default function Telemedicina() {
             Integração com sistemas <strong>PACS</strong> para que o médico visualize tomografias e ressonâncias de alta resolução sem sair da janela de atendimento.
           </p>
         </div>
-      </div>
+      </section>
 
       <section>
         <h2 className="text-3xl font-black text-slate-900 mb-6 tracking-tight">IoMT: O Futuro do Telemonitoramento</h2>
@@ -66,13 +66,13 @@ export default function Telemedicina() {
       </section>
 
       {/* INFOBOX - TÉCNICO E ESTRATÉGICO */}
-      <div className="my-16 bg-cyan-900 text-white p-10 rounded-[3rem] relative overflow-hidden shadow-2xl">
-        <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 blur-[80px]"></div>
+      <section className="my-16 bg-cyan-950 text-white p-10 rounded-[3rem] relative overflow-hidden shadow-2xl">
+        <div className="absolute top-0 right-0 w-40 h-40 bg-cyan-500/10 blur-[80px]"></div>
         <h4 className="text-cyan-400 font-bold uppercase tracking-[0.2em] text-xs mb-4">Visão do Desenvolvedor</h4>
-        <p className="text-lg font-light leading-relaxed">
+        <p className="text-lg font-light leading-relaxed text-slate-200">
           O sucesso de uma plataforma de telemedicina em 2026 não depende da interface, mas da <strong>resiliência do backend</strong>. Escalabilidade via microsserviços e governança de dados via <strong>HL7 FHIR</strong> são os diferenciais das HealthTechs que dominam o mercado.
         </p>
-      </div>
+      </section>
 
       <section>
         <h2 className="text-3xl font-black text-slate-900 mb-6 tracking-tight">Conclusão</h2>
@@ -86,10 +86,10 @@ export default function Telemedicina() {
 
       {/* FOOTER DO POST COM CTA TÉCNICO */}
       <footer className="mt-20 pt-12 border-t border-slate-100">
-        <div className="bg-slate-950 rounded-[3.5rem] p-12 text-center relative overflow-hidden shadow-3xl">
+        <div className="bg-slate-950 rounded-[3.5rem] p-12 text-center relative overflow-hidden shadow-2xl">
           <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 to-transparent"></div>
           <h3 className="text-3xl font-black text-white mb-4 relative z-10">Sua Operação de Telessaúde é Escalável?</h3>
-          <p className="text-slate-400 mb-10 max-w-xl mx-auto font-light relative z-10">
+          <p className="text-slate-300 mb-10 max-w-xl mx-auto font-light relative z-10">
             Ajudamos instituições a estruturar arquiteturas de telemedicina seguras, integradas e em conformidade com as normas do CFM e LGPD.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
@@ -100,7 +100,7 @@ export default function Telemedicina() {
               Consultoria Técnica 🚀
             </a>
             <Link href="/" className="bg-white/5 text-white font-bold px-10 py-5 rounded-2xl hover:bg-white/10 transition-all border border-white/10 uppercase text-xs tracking-widest">
-              Ver Projetos
+              Voltar ao Início
             </Link>
           </div>
         </div>

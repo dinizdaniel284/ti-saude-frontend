@@ -23,7 +23,7 @@ export default function SegurancaSaude() {
       </section>
 
       {/* BOX DE PILARES TÉCNICOS - DESIGN DE ALERTA */}
-      <div className="bg-slate-900 p-10 md:p-16 rounded-[3rem] text-white my-16 shadow-2xl relative overflow-hidden">
+      <section className="bg-slate-900 p-10 md:p-16 rounded-[3rem] text-white my-16 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/10 blur-[100px]"></div>
         <h3 className="text-2xl font-black mb-10 text-red-500 uppercase tracking-[0.2em] text-center">Protocolos de Cibersegurança</h3>
         
@@ -33,7 +33,7 @@ export default function SegurancaSaude() {
               <span className="p-2 bg-red-600/20 rounded-lg text-red-500 text-sm">01</span>
               Criptografia AES-256 & TLS 1.3
             </h4>
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <p className="text-slate-300 text-sm leading-relaxed"> {/* Ajustado para slate-300 por contraste */}
               Todos os dados em repouso (at rest) e em trânsito (in transit) devem ser cifrados com os padrões mais altos da indústria para garantir que sejam ilegíveis em caso de interceptação.
             </p>
           </div>
@@ -43,7 +43,7 @@ export default function SegurancaSaude() {
               <span className="p-2 bg-red-600/20 rounded-lg text-red-500 text-sm">02</span>
               RBAC e Controle de Acesso
             </h4>
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <p className="text-slate-300 text-sm leading-relaxed">
               O <strong>Role-Based Access Control</strong> garante que o médico veja o histórico clínico, mas o setor de faturamento veja apenas dados de guias, limitando a exposição de dados sensíveis.
             </p>
           </div>
@@ -53,7 +53,7 @@ export default function SegurancaSaude() {
               <span className="p-2 bg-red-600/20 rounded-lg text-red-500 text-sm">03</span>
               Logs de Auditoria Imutáveis
             </h4>
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <p className="text-slate-300 text-sm leading-relaxed">
               Cada clique dentro do sistema deve ser rastreável. Auditorias perenes permitem identificar quem acessou ou exportou registros, criando uma cultura de responsabilidade (Accountability).
             </p>
           </div>
@@ -63,12 +63,12 @@ export default function SegurancaSaude() {
               <span className="p-2 bg-red-600/20 rounded-lg text-red-500 text-sm">04</span>
               Tokenização e Anonimização
             </h4>
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <p className="text-slate-300 text-sm leading-relaxed">
               Para fins de pesquisa e BI, os dados devem ser anonimizados, removendo o vínculo direto com a identidade do paciente, conforme exigido pela LGPD.
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
       <section>
         <h2 className="text-3xl font-black text-slate-900 mb-6 tracking-tight">LGPD: Dados Sensíveis e Base Legal</h2>
@@ -81,11 +81,11 @@ export default function SegurancaSaude() {
       </section>
 
       {/* QUOTE DE AUTORIDADE */}
-      <div className="my-20 border-y border-slate-100 py-10">
-        <p className="text-center text-slate-500 text-lg font-medium">
+      <section className="my-20 border-y border-slate-100 py-10">
+        <p className="text-center text-slate-500 text-lg font-medium italic">
           "No ecossistema da Saúde Digital, a segurança não é uma barreira para a inovação, mas o alicerce que permite que ela ocorra com confiança."
         </p>
-      </div>
+      </section>
 
       <section>
         <h2 className="text-3xl font-black text-slate-900 mb-6 tracking-tight">A Missão do Backend em Sistemas Críticos</h2>
@@ -96,7 +96,7 @@ export default function SegurancaSaude() {
 
       {/* CTA DE AUDITORIA */}
       <footer className="mt-20">
-        <div className="bg-gradient-to-br from-red-600 to-red-900 rounded-[3rem] p-12 text-center text-white shadow-2xl shadow-red-500/20">
+        <div className="bg-gradient-to-br from-red-600 to-red-900 rounded-[3rem] p-12 text-center text-white shadow-2xl">
           <h3 className="text-3xl font-black mb-4 tracking-tighter uppercase">Seu Sistema está em Conformidade?</h3>
           <p className="text-red-100 mb-10 max-w-xl mx-auto font-light text-lg">
             Garanta a proteção dos seus pacientes e evite multas milionárias. Oferecemos diagnósticos de segurança e consultoria de adequação à LGPD.
@@ -104,7 +104,7 @@ export default function SegurancaSaude() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="https://wa.me/5519992278928" 
-              className="bg-white text-red-900 font-black px-10 py-5 rounded-2xl hover:bg-red-50 transition-all hover:scale-105 shadow-lg uppercase text-xs tracking-widest"
+              className="bg-white text-red-900 font-black px-10 py-5 rounded-2xl hover:scale-105 transition-all shadow-lg uppercase text-xs tracking-widest"
             >
               Solicitar Auditoria 🛡️
             </a>

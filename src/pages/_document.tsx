@@ -19,7 +19,7 @@ class MyDocument extends Document {
           {/* Verificação do Google Search Console */}
           <meta name="google-site-verification" content="o2OWszBRoFmqtrI9vL5ta-Nop0iU2hluhL2eo9J1glw" />
 
-          {/* Google AdSense */}
+          {/* Google AdSense - ID Real configurado */}
           <script
             async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7353371878367127"
@@ -45,7 +45,7 @@ class MyDocument extends Document {
             </>
           )}
         </Head>
-        <body className="antialiased">
+        <body className="antialiased text-slate-900 bg-white">
           <Main />
           <NextScript />
         </body>

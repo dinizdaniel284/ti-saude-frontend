@@ -23,22 +23,22 @@ export default function EvolucaoDigital() {
       </section>
 
       {/* GRID DE IMPACTO OPERACIONAL */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-16">
-        <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-premium transition-all">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-8 my-16">
+        <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl hover:-translate-y-1 transition-all">
           <div className="text-cyan-600 text-3xl mb-4">🚀</div>
           <h3 className="font-black text-slate-900 mb-3 uppercase text-sm tracking-widest">Eficiência Operacional</h3>
           <p className="text-sm text-slate-600 leading-relaxed">
             Utilização de algoritmos de <em>Machine Learning</em> para otimizar o giro de salas cirúrgicas e prever picos de demanda no Pronto-Socorro baseados na sazonalidade epidemiológica.
           </p>
         </div>
-        <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-premium transition-all">
+        <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl hover:-translate-y-1 transition-all">
           <div className="text-indigo-600 text-3xl mb-4">🛡️</div>
           <h3 className="font-black text-slate-900 mb-3 uppercase text-sm tracking-widest">Segurança do Paciente</h3>
           <p className="text-sm text-slate-600 leading-relaxed">
             Sistemas de Apoio à Decisão Clínica (CDSS) que cruzam dados de alergias, exames laboratoriais e interações medicamentosas, disparando alertas automáticos antes da administração da droga.
           </p>
         </div>
-      </div>
+      </section>
 
       <section>
         <h2 className="text-3xl font-black text-slate-900 mb-6 tracking-tight">O Dado como Ativo Estratégico</h2>

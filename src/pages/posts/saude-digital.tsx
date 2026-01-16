@@ -22,46 +22,48 @@ export default function SaudeDigital() {
         </p>
       </section>
 
-      {/* INFOGRÁFICO DE PILARES - DESIGN PREMIUM */}
-      <h2 className="text-2xl font-black text-slate-800 mt-16 mb-8 text-center uppercase tracking-widest">Os Pilares da Maturidade Digital</h2>
-      
-      <div className="space-y-6">
-        <div className="group p-8 bg-emerald-50/50 rounded-[2.5rem] border border-emerald-100 hover:bg-white hover:shadow-premium transition-all">
-          <div className="flex flex-col md:flex-row md:items-center gap-6">
-            <div className="w-14 h-14 bg-emerald-500 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-lg">01</div>
-            <div className="flex-1">
-              <h3 className="text-xl font-black text-emerald-900 mb-2">Interoperabilidade Semântica</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Não basta trocar dados; o sistema receptor precisa entender o dado. O uso de padrões como <strong>HL7 FHIR</strong> e <strong>DICOM</strong> garante que o histórico do paciente flua entre hospitais, laboratórios e farmácias sem perda de contexto clínico.
-              </p>
+      {/* INFOGRÁFICO DE PILARES */}
+      <section>
+        <h2 className="text-2xl font-black text-slate-800 mt-16 mb-8 text-center uppercase tracking-widest">Os Pilares da Maturidade Digital</h2>
+        
+        <div className="space-y-6">
+          <div className="group p-8 bg-emerald-50/50 rounded-[2.5rem] border border-emerald-100 hover:bg-white hover:shadow-2xl transition-all hover:-translate-y-1">
+            <div className="flex flex-col md:flex-row md:items-center gap-6">
+              <div className="w-14 h-14 bg-emerald-500 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-lg">01</div>
+              <div className="flex-1">
+                <h3 className="text-xl font-black text-emerald-900 mb-2">Interoperabilidade Semântica</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Não basta trocar dados; o sistema receptor precisa entender o dado. O uso de padrões como <strong>HL7 FHIR</strong> e <strong>DICOM</strong> garante que o histórico do paciente flua entre hospitais, laboratórios e farmácias sem perda de contexto clínico.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="group p-8 bg-slate-900 rounded-[2.5rem] border border-slate-800 hover:shadow-2xl transition-all">
-          <div className="flex flex-col md:flex-row md:items-center gap-6">
-            <div className="w-14 h-14 bg-emerald-400 text-slate-900 rounded-2xl flex items-center justify-center text-2xl font-bold shadow-lg">02</div>
-            <div className="flex-1 text-white">
-              <h3 className="text-xl font-black text-emerald-400 mb-2">Segurança Beira-Leito</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                A mobilidade permite que a equipe assistencial utilize tablets e dispositivos portáteis para checagem de medicamentos via código de barras. Isso elimina o erro humano e garante que a <strong>Segurança do Paciente</strong> seja o norte da operação.
-              </p>
+          <div className="group p-8 bg-slate-900 rounded-[2.5rem] border border-slate-800 hover:shadow-2xl transition-all hover:-translate-y-1">
+            <div className="flex flex-col md:flex-row md:items-center gap-6">
+              <div className="w-14 h-14 bg-emerald-400 text-slate-900 rounded-2xl flex items-center justify-center text-2xl font-bold shadow-lg">02</div>
+              <div className="flex-1 text-white">
+                <h3 className="text-xl font-black text-emerald-400 mb-2">Segurança Beira-Leito</h3>
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  A mobilidade permite que a equipe assistencial utilize tablets e dispositivos portáteis para checagem de medicamentos via código de barras. Isso elimina o erro humano e garante que a <strong>Segurança do Paciente</strong> seja o norte da operação.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="group p-8 bg-emerald-50/50 rounded-[2.5rem] border border-emerald-100 hover:bg-white hover:shadow-premium transition-all">
-          <div className="flex flex-col md:flex-row md:items-center gap-6">
-            <div className="w-14 h-14 bg-emerald-500 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-lg">03</div>
-            <div className="flex-1">
-              <h3 className="text-xl font-black text-emerald-900 mb-2">Patient Experience & Telemonitoramento</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                O cuidado continua fora das paredes do hospital. Através de aplicativos e sensores IoT, a instituição monitora pacientes crônicos em tempo real, reduzindo a taxa de reinternação e aumentando o engajamento no tratamento.
-              </p>
+          <div className="group p-8 bg-emerald-50/50 rounded-[2.5rem] border border-emerald-100 hover:bg-white hover:shadow-2xl transition-all hover:-translate-y-1">
+            <div className="flex flex-col md:flex-row md:items-center gap-6">
+              <div className="w-14 h-14 bg-emerald-500 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-lg">03</div>
+              <div className="flex-1">
+                <h3 className="text-xl font-black text-emerald-900 mb-2">Patient Experience & Telemonitoramento</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  O cuidado continua fora das paredes do hospital. Através de aplicativos e sensores IoT, a instituição monitora pacientes crônicos em tempo real, reduzindo a taxa de reinternação e aumentando o engajamento no tratamento.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       
 
@@ -75,16 +77,16 @@ export default function SaudeDigital() {
         </p>
       </section>
 
-      {/* CTA SECTION COM DESIGN DE IMPACTO */}
-      <div className="mt-20 p-12 bg-gradient-to-br from-emerald-600 to-teal-800 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group">
+      {/* CTA SECTION */}
+      <section className="mt-20 p-12 bg-gradient-to-br from-emerald-600 to-teal-800 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group">
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-[100px] group-hover:bg-white/20 transition-all"></div>
-        <div className="relative z-10">
+        <div className="relative z-10 text-center md:text-left">
           <h3 className="text-3xl font-black mb-4 tracking-tighter uppercase">Rumo à Saúde 5.0</h3>
           <p className="text-emerald-100 text-lg mb-8 max-w-2xl font-light">
             Sua instituição está preparada para a jornada digital? Entenda como as ferramentas certas podem garantir sustentabilidade financeira e excelência no desfecho clínico.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/posts/ia-na-saude" className="bg-white text-emerald-900 font-black px-10 py-5 rounded-2xl hover:bg-emerald-100 transition-all text-center uppercase text-xs tracking-widest shadow-xl">
+            <Link href="/posts/ia-na-saude" className="bg-white text-emerald-900 font-black px-10 py-5 rounded-2xl hover:scale-105 transition-all text-center uppercase text-xs tracking-widest shadow-xl">
               Explorar IA na Saúde →
             </Link>
             <Link href="/posts/evolucao-digital" className="bg-emerald-900/30 text-white font-bold px-10 py-5 rounded-2xl hover:bg-emerald-900/50 transition-all text-center border border-white/20 uppercase text-xs tracking-widest">
@@ -92,7 +94,7 @@ export default function SaudeDigital() {
             </Link>
           </div>
         </div>
-      </div>
+      </section>
     </PostLayout>
   );
 }
