@@ -1,59 +1,66 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* 1. PRIMEIRO: Imports de fontes externas */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
+/* 2. SEGUNDO: Import do Tailwind */
+@import "tailwindcss";
+
+/* 3. TERCEIRO: Configurações de Tema */
+@theme {
+  --color-primary-cyan: #22d3ee;
+  --color-primary-indigo: #4f46e5;
+  --color-deep-slate: #020617;
+}
+
+/* 4. QUARTO: Variáveis e Regras Globais */
 :root {
-  --primary-blue: #1D4ED8;
-  --primary-hover: #2563EB;
-  --soft-white: #E0F7FA;
-  --dark-text: #111827;
+  --glass-border: rgba(255, 255, 255, 0.08);
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: var(--soft-white);
-  color: var(--dark-text);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #ffffff;
+  color: #020617;
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* --- ANIMAÇÃO DO CARROSSEL --- */
+/* 5. QUINTO: Suas classes customizadas */
+.text-gradient {
+  background-image: linear-gradient(to right, #22d3ee, #4f46e5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 @keyframes carousel {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .animate-carousel {
   display: flex;
   width: max-content;
-  animation: carousel 18s linear infinite;
-  /* O segredo para fluidez no celular: */
+  animation: carousel 30s linear infinite;
   will-change: transform;
-  backface-visibility: hidden;
-  perspective: 1000;
-}
-
-.animate-carousel:hover {
-  animation-play-state: paused;
-}
-
-/* --- AJUSTE PARA CELULAR (MOBILE) --- */
-@media (max-width: 768px) {
-  .animate-carousel {
-    /* Deixando um pouco mais rápido para não parecer travado em telas pequenas */
-    animation-duration: 12s;
-  }
-}
-
-/* --- UTILITÁRIOS EXTRAS (OPCIONAL) --- */
-.animate-float {
-  animation: float 6s ease-in-out infinite;
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-15px); }
 }
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }

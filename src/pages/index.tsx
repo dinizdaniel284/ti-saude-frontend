@@ -1,140 +1,158 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+
+// Imports ajustados para a nova pasta components
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import BannerQuiz from "../components/BannerQuiz";
 import CarouselHome from "../components/CarouselHome";
 
 const posts = [
-  { title: "Backend", desc: "APIs, lógica e sistemas que sustentam aplicações reais.", img: "/assets/backend.png", link: "/posts/backend" },
-  { title: "Saúde Digital", desc: "Tecnologia aplicada a hospitais, dados clínicos e inovação.", img: "/assets/saude.png", link: "/posts/saude-digital" },
-  { title: "Power BI", desc: "Transforme dados em decisões com dashboards profissionais.", img: "/assets/powerbi.png", link: "/posts/power-bi" },
-  { title: "Analista de Dados", desc: "Como dados se transformam em estratégia no mercado atual.", img: "/assets/powerbi.png", link: "/posts/analista-dados" },
-  { title: "IA na Saúde", desc: "Inteligência Artificial revolucionando diagnósticos e gestão.", img: "/assets/saude.png", link: "/posts/inteligencia-artificial-saude" },
-  { title: "Segurança da Informação", desc: "Proteção de dados, LGPD e segurança no setor da saúde.", img: "/assets/backend.png", link: "/posts/seguranca-informacao-saude" },
-  // ADICIONANDO OS NOVOS ARTIGOS DA SUA ÁRVORE PARA O GOOGLE INDEXAR:
-  { title: "Telemedicina", desc: "A revolução do atendimento à distância e infraestrutura necessária.", img: "/assets/saude.png", link: "/posts/telemedicina" },
-  { title: "O Futuro da TI", desc: "Tendências tecnológicas que vão dominar o setor nos próximos anos.", img: "/assets/backend.png", link: "/posts/futuro-ti-saude" },
-  { title: "Evolução Digital", desc: "O caminho da transformação digital em instituições de saúde.", img: "/assets/saude.png", link: "/posts/evolucao-digital" },
+  { title: "Backend Architecture", desc: "Arquiteturas escaláveis e sistemas de alta disponibilidade para o setor crítico da saúde.", img: "/assets/saude.png", link: "/posts/backend", tag: "Engenharia" },
+  { title: "Saúde Digital 4.0", desc: "A convergência entre IoT, telemedicina e interoperabilidade de dados clínicos.", img: "/assets/saude.png", link: "/posts/saude-digital", tag: "Inovação" },
+  { title: "Business Intelligence", desc: "Dashboards de alto impacto que transformam indicadores brutos em decisões médicas.", img: "/assets/saude.png", link: "/posts/power-bi", tag: "Dados" },
+  { title: "Data Science & IA", desc: "Algoritmos preditivos aplicados ao diagnóstico precoce e gestão populacional.", img: "/assets/saude.png", link: "/posts/inteligencia-artificial-saude", tag: "IA" },
+  { title: "Cybersecurity", desc: "Segurança de dados e conformidade com a LGPD no ecossistema hospitalar.", img: "/assets/saude.png", link: "/posts/seguranca-informacao-saude", tag: "Segurança" },
+  { title: "Telemedicina", desc: "Infraestrutura robusta para o novo padrão de atendimento global.", img: "/assets/saude.png", link: "/posts/telemedicina", tag: "Conectividade" },
 ];
 
 export default function Home() {
   return (
-    <>
+    <div className="bg-white min-h-screen">
       <Head>
-        <title>TI & Saúde | Tecnologia com Propósito</title>
-        <meta name="description" content="Onde a tecnologia encontra a saúde. Backend, Dados e IA aplicados à vida real." />
+        <title>TI & Saúde | Engenharia de Software com Propósito</title>
+        <meta name="description" content="Soluções tecnológicas de alto nível para o setor da saúde." />
       </Head>
 
-      {/* HERO SECTION - AZUL PROFUNDO E ILUMINADO */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 py-20 overflow-hidden border-b border-white/5">
-        
-        {/* Luzes de fundo para clarear o topo (Glows) */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-[120px]"></div>
+      <Header />
 
-        <div className="relative max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
-            
-            <div className="text-center md:text-left z-10">
-              <span className="inline-block mb-4 px-4 py-1 rounded-full bg-cyan-400 text-slate-900 text-xs font-black uppercase tracking-widest shadow-lg shadow-cyan-500/20">
-                Carreira & Tecnologia
+      <main>
+        {/* HERO SECTION - STARTUP PREMIUM */}
+        <section className="relative bg-[#020617] py-24 lg:py-40 overflow-hidden">
+          
+          {/* Efeitos de Luz Difusa (Glows de Luxo) */}
+          <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+          <div className="relative max-w-7xl mx-auto px-6">
+            <div className="flex flex-col items-center text-center mb-20">
+              <span className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em] backdrop-blur-md">
+                <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+                The Future of Health Tech
               </span>
 
-              <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight drop-shadow-sm">
-                A Tecnologia que <span className="text-cyan-400">salva vidas.</span><br />
-                Os Dados que <span className="text-indigo-400">curam o futuro.</span>
+              <h1 className="text-5xl md:text-8xl font-extrabold text-white mb-8 leading-[1.1] tracking-tighter">
+                Tecnologia que <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-indigo-400">salva vidas.</span><br />
+                Engenharia de <span className="text-slate-400">Elite.</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-xl font-light leading-relaxed">
-                Domine as ferramentas que estão reinventando a medicina. Aprenda 
-                <span className="text-white font-semibold italic"> Backend, Dados e IA</span> focados no setor que não para de crescer.
+              <p className="text-lg md:text-xl text-slate-400 mb-12 max-w-3xl font-light leading-relaxed">
+                Onde o <span className="text-white font-semibold">Backend robusto</span> e a <span className="text-white font-semibold">Inteligência de Dados</span> se encontram para redefinir o cuidado assistencial.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <Link href="/posts/backend" className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black px-10 py-4 rounded-2xl transition-all shadow-xl shadow-cyan-500/30 hover:-translate-y-1 text-center">
-                  QUERO COMEÇAR AGORA
+              <div className="flex flex-col sm:flex-row gap-5">
+                <Link href="/posts/backend" className="bg-white text-slate-950 font-black px-12 py-5 rounded-2xl transition-all hover:scale-105 hover:bg-cyan-400 active:scale-95 shadow-xl">
+                  EXPLORAR SOLUÇÕES
                 </Link>
-                <Link href="/sobre" className="border-2 border-white/20 text-white font-bold px-10 py-4 rounded-2xl hover:bg-white/5 transition-all text-center">
+                <Link href="/sobre" className="border border-white/20 text-white font-bold px-12 py-5 rounded-2xl hover:bg-white/10 transition-all backdrop-blur-sm">
                   CONHECER O PROJETO
                 </Link>
               </div>
             </div>
 
-            <div className="relative flex justify-center">
-              <div className="absolute inset-0 bg-cyan-500/20 blur-[100px] rounded-full animate-pulse"></div>
-              <Image
-                src="/assets/hero.png" 
-                alt="Inovação na Saúde"
-                width={420}
-                height={420}
-                priority
-                className="relative object-contain drop-shadow-[0_20px_50px_rgba(6,182,212,0.4)] animate-float"
-              />
+            {/* Carousel com Glassmorphism */}
+            <div className="relative mt-20 p-8 rounded-[3rem] bg-white/5 border border-white/10 backdrop-blur-xl">
+               <p className="text-center text-slate-500 text-[10px] font-black uppercase tracking-[0.5em] mb-10">Stack Tecnológica & Protocolos</p>
+               <CarouselHome />
             </div>
           </div>
+        </section>
 
-          {/* O CARROSSEL VOLTOU AQUI - Com margem e brilho próprio */}
-          <div className="relative pt-10 border-t border-white/10 opacity-90">
-             <p className="text-center text-slate-500 text-xs font-bold uppercase tracking-[0.3em] mb-8">Tecnologias que você vai dominar</p>
-             <CarouselHome />
-          </div>
-        </div>
-      </section>
+        {/* FEED DE PROJETOS/ARTIGOS */}
+        <section className="bg-slate-50 py-32">
+          <div className="max-w-7xl mx-auto px-6">
+            
+            <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-6">
+              <div className="max-w-xl">
+                <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tighter">Deep Tech na Saúde</h2>
+                <p className="text-slate-500 text-lg">Insights técnicos sobre arquitetura, dados e inovação clínica.</p>
+              </div>
+              <div className="h-[1px] flex-1 bg-slate-200 mb-4 hidden md:block ml-10"></div>
+            </div>
 
-      {/* CONTEÚDO PRINCIPAL */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-12">
-          
-          {/* GRID DE POSTS - Agora com 9 cards para encher a página */}
-          <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {posts.map((post, i) => (
-              <Link key={i} href={post.link} className="group">
-                <div className="bg-slate-50 h-full rounded-3xl p-6 border border-slate-100 hover:border-cyan-200 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                   <div className="h-40 mb-6 flex items-center justify-center bg-white rounded-2xl p-4 shadow-sm">
-                      <Image src={post.img} alt={post.title} width={150} height={80} className="object-contain group-hover:scale-110 transition-transform" />
-                   </div>
-                   <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors">
-                     {post.title}
-                   </h3>
-                   <p className="text-slate-600 leading-relaxed text-sm">
-                     {post.desc}
-                   </p>
-                   <div className="mt-4 flex items-center text-cyan-600 font-bold text-xs uppercase tracking-widest">
-                      Ler Artigo <span className="ml-2 group-hover:translate-x-2 transition-transform">→</span>
-                   </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* SIDEBAR FIXA */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-28 space-y-8">
-              <BannerQuiz />
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               
-              <div className="p-8 bg-gradient-to-br from-indigo-600 to-blue-700 rounded-[2rem] text-white shadow-xl relative overflow-hidden group">
-                <div className="absolute -right-4 -top-4 w-24 h-24 bg-white/10 rounded-full blur-2xl group-hover:bg-white/20 transition-all"></div>
-                <h3 className="text-2xl font-bold mb-3 relative z-10">Comunidade <br/> TI & Saúde</h3>
-                <p className="text-indigo-100 mb-6 text-sm font-light leading-relaxed relative z-10">
-                  Participe do nosso grupo e receba conteúdos práticos de Backend e Dados direto no seu WhatsApp.
-                </p>
-                <a href="https://wa.me/5519992278928" target="_blank" className="block w-full text-center bg-white text-indigo-600 font-black py-4 rounded-2xl hover:scale-105 transition-transform shadow-lg">
-                  ENTRAR AGORA
-                </a>
+              {/* GRID DE POSTS */}
+              <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
+                {posts.map((post, i) => (
+                  <Link key={i} href={post.link} className="group">
+                    <article className="relative bg-white h-full rounded-[2.5rem] p-8 border border-slate-200 transition-all duration-500 hover:shadow-premium hover:-translate-y-3 overflow-hidden">
+                      <div className="absolute top-0 right-0 p-6">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 bg-slate-50 px-3 py-1 rounded-full border border-slate-100">{post.tag}</span>
+                      </div>
+                      
+                      <div className="h-44 mb-8 flex items-center justify-start group-hover:scale-110 transition-transform duration-500">
+                        <Image 
+                          src={post.img} 
+                          alt={post.title} 
+                          width={100} 
+                          height={100} 
+                          className="object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all"
+                          priority={i < 2}
+                        />
+                      </div>
+
+                      <h3 className="text-2xl font-black text-slate-900 mb-4 group-hover:text-indigo-600 transition-colors tracking-tight">
+                        {post.title}
+                      </h3>
+                      <p className="text-slate-500 leading-relaxed text-sm mb-8">
+                        {post.desc}
+                      </p>
+                      
+                      <div className="flex items-center text-slate-900 font-black text-[10px] uppercase tracking-[0.2em] group-hover:text-indigo-600 transition-all">
+                        ANALYZE CASE <span className="ml-2 transition-transform group-hover:translate-x-2">→</span>
+                      </div>
+                    </article>
+                  </Link>
+                ))}
               </div>
 
-              {/* Box de Autor para passar confiança ao AdSense */}
-              <div className="p-6 bg-slate-50 rounded-[2rem] border border-slate-200">
-                <h4 className="font-bold text-slate-900 mb-2">Editor Responsável</h4>
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  Artigos revisados por <strong>Daniel Diniz</strong>, focado em levar tecnologia de ponta para o setor assistencial.
-                </p>
-              </div>
+              {/* SIDEBAR */}
+              <aside className="lg:col-span-1">
+                <div className="sticky top-28 space-y-10">
+                  <BannerQuiz />
+                  
+                  <div className="p-10 bg-slate-900 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group border border-white/10">
+                    <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-indigo-500/20 rounded-full blur-3xl"></div>
+                    <h3 className="text-3xl font-bold mb-4 leading-tight">Ready to build?</h3>
+                    <p className="text-slate-400 mb-8 font-light leading-relaxed text-sm">
+                      Junte-se ao ecossistema de desenvolvedores que estão moldando o futuro assistencial através do código.
+                    </p>
+                    <a href="https://wa.me/5519992278928" target="_blank" className="inline-flex items-center justify-center w-full bg-white text-slate-900 font-black py-5 rounded-2xl transition-all hover:bg-cyan-400 shadow-lg">
+                      JOIN COMMUNITY
+                    </a>
+                  </div>
+
+                  {/* Profile Widget */}
+                  <div className="p-6 bg-white rounded-[2rem] border border-slate-200 flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-indigo-500 to-cyan-400 p-[2px]">
+                      <div className="w-full h-full rounded-full bg-white flex items-center justify-center font-black text-slate-900 italic text-sm">DD</div>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-sm">Daniel Diniz</h4>
+                      <p className="text-[9px] text-slate-400 uppercase font-black tracking-widest">Lead Systems Architect</p>
+                    </div>
+                  </div>
+                </div>
+              </aside>
+
             </div>
           </div>
+        </section>
+      </main>
 
-        </div>
-      </section>
-    </>
+      <Footer />
+    </div>
   );
 }

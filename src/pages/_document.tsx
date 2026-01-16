@@ -8,6 +8,14 @@ class MyDocument extends Document {
     return (
       <Html lang="pt-BR">
         <Head>
+          {/* Preconnect para acelerar o carregamento das fontes */}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link 
+            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" 
+            rel="stylesheet" 
+          />
+
           {/* Verificação do Google Search Console */}
           <meta name="google-site-verification" content="o2OWszBRoFmqtrI9vL5ta-Nop0iU2hluhL2eo9J1glw" />
 
@@ -36,10 +44,8 @@ class MyDocument extends Document {
               />
             </>
           )}
-
-          {/* Favicon e Fontes podem vir aqui abaixo */}
         </Head>
-        <body>
+        <body className="antialiased">
           <Main />
           <NextScript />
         </body>

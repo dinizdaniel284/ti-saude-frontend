@@ -1,86 +1,82 @@
-import Head from "next/head";
-import Link from "next/link";
+import PostLayout from "../../components/PostLayout";
 
 export default function Backend() {
   return (
-    <>
-      <Head>
-        <title>O que é Backend na Saúde? Guia Completo | TI & Saúde</title>
-        <meta
-          name="description"
-          content="Descubra a importância do desenvolvimento Backend no setor de saúde, desde a integração de sistemas hospitalares até a segurança de dados sensíveis."
-        />
-      </Head>
+    <PostLayout 
+      title="Backend: O Motor Invisível da Saúde Digital" 
+      category="Engenharia de Software & HealthTech"
+    >
+      {/* INTRODUÇÃO IMPACTANTE */}
+      <p className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed mb-12 italic border-l-4 border-indigo-500 pl-6">
+        "No ecossistema hospitalar, o Backend é a garantia de que os dados de um paciente estarão disponíveis para o médico no momento exato de uma emergência. É tecnologia com propósito de salvar."
+      </p>
 
-      <main className="max-w-4xl mx-auto px-6 py-16 bg-white my-10 rounded-[2.5rem] shadow-sm border border-slate-100">
-        <Link href="/" className="text-blue-600 font-bold hover:underline mb-8 inline-block">
-          ← Voltar para a Home
-        </Link>
+      <p>
+        No mundo do desenvolvimento de software, o <strong>Backend</strong> é frequentemente chamado de "o que acontece nos bastidores". 
+        Diferente de um e-commerce comum, o backend em <strong>HealthTech</strong> precisa lidar com protocolos de interoperabilidade complexos e segurança crítica.
+      </p>
 
-        <header className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-black text-blue-800 mb-6 leading-tight">
-            Backend: O Motor Invisível da <span className="text-blue-500">Saúde Digital</span>
-          </h1>
-          <p className="text-xl text-gray-600 leading-relaxed font-light">
-            Entenda por que o desenvolvimento backend é o pilar fundamental para garantir que hospitais e clínicas funcionem sem interrupções.
-          </p>
-        </header>
-
-        <section className="prose prose-lg text-gray-700 space-y-8">
-          <p>
-            No mundo do desenvolvimento de software, o <strong>Backend</strong> é frequentemente chamado de "o que acontece nos bastidores". Em um contexto hospitalar, ele é muito mais do que apenas lógica de programação: é a garantia de que os dados de um paciente estarão disponíveis para o médico no momento exato de uma emergência.
-          </p>
-
-          <h2 className="text-2xl font-bold text-gray-800 mt-10 mb-4">
-            🔧 O que um desenvolvedor Backend faz na área da Saúde?
-          </h2>
-          <p>
-            Diferente de um e-commerce comum, o backend em <strong>HealthTech</strong> precisa lidar com protocolos de interoperabilidade complexos. O desenvolvedor backend é responsável por:
-          </p>
-          <ul className="list-disc pl-6 space-y-4">
-            <li><strong>Integração de Sistemas (Interoperabilidade):</strong> Conectar o software de prontuário eletrônico (PEP) com o sistema de laboratório e exames de imagem.</li>
-            <li><strong>Segurança de Dados:</strong> Implementar criptografia de ponta a ponta para proteger informações sensíveis de acordo com a LGPD e padrões internacionais como o HIPAA.</li>
-            <li><strong>APIs de Alta Disponibilidade:</strong> Garantir que os serviços de telemedicina nunca fiquem fora do ar durante um atendimento remoto.</li>
-            <li><strong>Lógica de Negócio Clínica:</strong> Definir alertas automáticos no sistema quando um resultado de exame crítico é detectado.</li>
-          </ul>
-
-          <div className="bg-slate-50 p-8 rounded-3xl border border-blue-100 my-10">
-            <h3 className="font-bold text-blue-700 text-xl mb-3">🚀 Stack Tecnológica Recomendada</h3>
-            <p className="text-gray-600 mb-4">
-              Para trabalhar com grandes volumes de dados hospitalares, as tecnologias mais robustas são:
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-white p-4 rounded-xl shadow-sm">
-                <strong>Linguagens:</strong> Node.js, Python (Django/FastAPI) e Java.
-              </div>
-              <div className="bg-white p-4 rounded-xl shadow-sm">
-                <strong>Bancos de Dados:</strong> PostgreSQL, MongoDB e Redis para cache rápido.
-              </div>
-            </div>
-          </div>
-
-          <h2 className="text-2xl font-bold text-gray-800 mt-10 mb-4">
-            💡 Por que o Backend é vital para a Medicina moderna?
-          </h2>
-          <p>
-            Sem um backend sólido, a inteligência artificial na saúde não conseguiria processar dados, a telemedicina não teria estabilidade e os registros de saúde seriam fragmentados. O backend é o que permite a <strong>continuidade do cuidado</strong>, permitindo que diferentes profissionais acessem o mesmo histórico de forma segura e rápida.
-          </p>
-
-          <section className="bg-blue-600 text-white p-8 rounded-[2rem] mt-16">
-            <h2 className="text-2xl font-bold mb-4">Conclusão</h2>
-            <p className="opacity-90 leading-relaxed">
-              O desenvolvimento backend na saúde é uma das áreas mais desafiadoras e gratificantes da tecnologia. Exige responsabilidade, precisão e um compromisso constante com a segurança. Se você deseja construir sistemas que realmente impactam a vida das pessoas, o backend é a porta de entrada.
-            </p>
-          </section>
-        </section>
-
-        <div className="mt-12 flex justify-between items-center p-6 border-t border-gray-100">
-          <p className="text-gray-500 text-sm italic">Confira também nosso artigo sobre Ciência de Dados.</p>
-          <Link href="/posts/analista-dados" className="text-blue-600 font-bold hover:underline">
-            Ver Próximo Artigo →
-          </Link>
+      {/* SEÇÃO DE RESPONSABILIDADES COM CARDS LIMPOS */}
+      <h2 className="text-3xl font-black text-slate-900 mt-16 mb-8 tracking-tight">
+        🔧 O que um desenvolvedor Backend faz na Saúde?
+      </h2>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
+        <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
+          <h4 className="font-bold text-indigo-600 mb-2">Interoperabilidade</h4>
+          <p className="text-sm text-slate-600">Conectar prontuários eletrônicos (PEP) com sistemas laboratoriais e exames de imagem.</p>
         </div>
-      </main>
-    </>
+        <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
+          <h4 className="font-bold text-indigo-600 mb-2">Segurança Máxima</h4>
+          <p className="text-sm text-slate-600">Implementar criptografia de ponta a ponta seguindo a LGPD e padrões internacionais.</p>
+        </div>
+        <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
+          <h4 className="font-bold text-indigo-600 mb-2">Alta Disponibilidade</h4>
+          <p className="text-sm text-slate-600">Garantir que a telemedicina nunca fique fora do ar durante um atendimento crítico.</p>
+        </div>
+        <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
+          <h4 className="font-bold text-indigo-600 mb-2">Lógica Clínica</h4>
+          <p className="text-sm text-slate-600">Criar alertas automáticos para resultados de exames que detectam riscos imediatos.</p>
+        </div>
+      </div>
+
+      {/* BOX DE STACK TECNOLÓGICA (VISUAL DE DASHBOARD) */}
+      <div className="relative p-8 my-16 bg-[#020617] rounded-[2.5rem] overflow-hidden group">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/20 blur-3xl group-hover:bg-indigo-500/40 transition-all"></div>
+        <h3 className="relative z-10 font-bold text-cyan-400 text-xl mb-6 tracking-widest uppercase text-center md:text-left">
+          🚀 Stack Tecnológica Recomendada
+        </h3>
+        
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+            <span className="block text-slate-400 text-[10px] uppercase font-bold mb-2 tracking-widest">Linguagens</span>
+            <p className="text-white font-medium">Node.js, Python (FastAPI) e Java Spring.</p>
+          </div>
+          <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+            <span className="block text-slate-400 text-[10px] uppercase font-bold mb-2 tracking-widest">Databases</span>
+            <p className="text-white font-medium">PostgreSQL, MongoDB e Redis (Cache).</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 className="text-3xl font-black text-slate-900 mt-16 mb-6 tracking-tight">
+        💡 Vitalidade para a Medicina Moderna
+      </h2>
+      <p>
+        Sem um backend sólido, a <strong>Inteligência Artificial</strong> na saúde não conseguiria processar dados, a telemedicina não teria estabilidade e os registros seriam fragmentados. 
+        O backend é o fio condutor da <strong>continuidade do cuidado</strong>.
+      </p>
+
+      {/* FOOTER DO ARTIGO COM NAVEGAÇÃO */}
+      <div className="mt-20 pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="text-center md:text-left">
+          <p className="text-slate-400 text-xs uppercase tracking-widest font-bold mb-1">Próxima Leitura</p>
+          <h4 className="text-slate-900 font-bold">Analista de Dados: O Futuro das Decisões</h4>
+        </div>
+        <Link href="/posts/analista-dados" className="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-600 transition-all shadow-lg text-sm uppercase tracking-widest">
+          Ver Próximo Artigo →
+        </Link>
+      </div>
+    </PostLayout>
   );
 }

@@ -1,101 +1,125 @@
-import Head from "next/head";
+import PostLayout from "../../components/PostLayout";
 import Link from "next/link";
 
 export default function SegurancaSaude() {
   return (
-    <div className="min-h-screen bg-white py-20 px-6">
-      <Head>
-        <title>Segurança da Informação e LGPD na Saúde | TI & Saúde</title>
-        <meta 
-          name="description" 
-          content="Proteja dados sensíveis de pacientes: Guia de cibersegurança hospitalar, conformidade com a LGPD, criptografia e auditoria de sistemas de saúde." 
-        />
-      </Head>
+    <PostLayout 
+      title="Segurança da Informação e LGPD na Saúde: Protegendo o Bem mais Valioso" 
+      category="Privacidade & Dados"
+    >
+      {/* INTRODUÇÃO COM PESO ÉTICO */}
+      <p className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed mb-12 italic border-l-4 border-red-500 pl-6">
+        "Na saúde, um vazamento de dados não é apenas um prejuízo financeiro ou jurídico; é uma violação da intimidade humana e um risco direto à continuidade assistencial."
+      </p>
 
-      <article className="max-w-4xl mx-auto">
-        <Link href="/" className="text-red-600 font-bold hover:underline mb-8 inline-block">
-          ← Voltar para a Home
-        </Link>
+      <section>
+        <h2 className="text-3xl font-black text-slate-900 mt-12 mb-6 tracking-tight">O Setor Hospitalar na Mira do Ransomware</h2>
+        <p>
+          Com a aceleração da digitalização, hospitais e clínicas tornaram-se alvos preferenciais para ataques de <strong>Ransomware</strong>. O motivo é simples: a criticidade dos dados. A impossibilidade de acessar um prontuário em meio a uma cirurgia ou o sequestro de dados de pacientes gera uma pressão extrema para o pagamento de resgates. 
+        </p>
+        <p className="mt-4">
+          A <strong>Segurança da Informação</strong> na saúde em 2026 exige uma arquitetura de <strong>Zero Trust</strong> (Confiança Zero), onde cada requisição, mesmo interna, deve ser autenticada, autorizada e criptografada.
+        </p>
+      </section>
+
+      {/* BOX DE PILARES TÉCNICOS - DESIGN DE ALERTA */}
+      <div className="bg-slate-900 p-10 md:p-16 rounded-[3rem] text-white my-16 shadow-2xl relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/10 blur-[100px]"></div>
+        <h3 className="text-2xl font-black mb-10 text-red-500 uppercase tracking-[0.2em] text-center">Protocolos de Cibersegurança</h3>
         
-        <header className="mb-12">
-          <div className="flex items-center gap-2 mb-4">
-             <span className="bg-red-100 text-red-600 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest">
-               Crítico
-             </span>
-             <span className="text-slate-400 text-xs font-bold uppercase tracking-widest">Privacidade & Dados</span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
-            Segurança na Saúde: Protegendo o bem mais valioso, <span className="text-red-600">o Dado.</span>
-          </h1>
-          <p className="text-xl text-slate-600 font-light leading-relaxed">
-            Como garantir a integridade das informações clínicas em um cenário de crescentes ataques cibernéticos a hospitais e clínicas.
-          </p>
-        </header>
-
-        <div className="prose prose-lg text-slate-600 space-y-8 leading-relaxed">
-          <p>
-            Na saúde, um vazamento de dados não custa apenas multas milionárias aplicadas pela ANPD; ele custa a confiança pública e, em casos extremos, pode interromper o cuidado assistencial. Com a digitalização, o setor tornou-se o alvo principal de <strong>Ransomware</strong>, exigindo uma postura de vigilância constante.
-          </p>
-
-          <section>
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">O que é a LGPD aplicada à Saúde?</h2>
-            <p>
-              A Lei Geral de Proteção de Dados (LGPD) classifica as informações de saúde como <strong>dados sensíveis</strong>. Isso significa que o tratamento desses dados (coleta, armazenamento e processamento) exige uma base legal rigorosa. Desde o Prontuário Eletrônico (PEP) até o sistema de faturamento, tudo deve seguir o princípio da "privacidade por design".
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="space-y-4">
+            <h4 className="text-white font-bold flex items-center gap-3">
+              <span className="p-2 bg-red-600/20 rounded-lg text-red-500 text-sm">01</span>
+              Criptografia AES-256 & TLS 1.3
+            </h4>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Todos os dados em repouso (at rest) e em trânsito (in transit) devem ser cifrados com os padrões mais altos da indústria para garantir que sejam ilegíveis em caso de interceptação.
             </p>
-          </section>
-
-          <div className="bg-slate-900 p-10 rounded-[2.5rem] text-white my-12 shadow-2xl border-l-8 border-red-600">
-            <h3 className="text-xl font-bold mb-6 text-red-500">Pilares da Cibersegurança Hospitalar:</h3>
-            <ul className="space-y-6 text-sm md:text-base text-slate-300">
-              <li className="flex items-start gap-4">
-                <span className="text-2xl">🔒</span>
-                <div>
-                  <strong>Criptografia AES-256:</strong> Dados armazenados no banco precisam estar cifrados para que, mesmo em caso de furto, sejam ilegíveis.
-                </div>
-              </li>
-              <li className="flex items-start gap-4">
-                <span className="text-2xl">👤</span>
-                <div>
-                  <strong>RBAC (Role-Based Access Control):</strong> Implementação de níveis de acesso onde médicos veem apenas o histórico clínico e o faturamento vê apenas dados financeiros.
-                </div>
-              </li>
-              <li className="flex items-start gap-4">
-                <span className="text-2xl">📝</span>
-                <div>
-                  <strong>Logs e Auditoria:</strong> Registro imutável de quem acessou, modificou ou exportou qualquer dado de paciente, garantindo rastreabilidade total.
-                </div>
-              </li>
-            </ul>
+          </div>
+          
+          <div className="space-y-4">
+            <h4 className="text-white font-bold flex items-center gap-3">
+              <span className="p-2 bg-red-600/20 rounded-lg text-red-500 text-sm">02</span>
+              RBAC e Controle de Acesso
+            </h4>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              O <strong>Role-Based Access Control</strong> garante que o médico veja o histórico clínico, mas o setor de faturamento veja apenas dados de guias, limitando a exposição de dados sensíveis.
+            </p>
           </div>
 
-          <section>
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">A Missão do Desenvolvedor Backend</h2>
-            <p>
-              O desenvolvedor backend é o arquiteto da muralha. Utilizar protocolos modernos como <strong>OAuth2 e JWT</strong> para autenticação, além de realizar testes de intrusão (PenTests) regulares, é vital. A segurança não é um estado estático, mas um processo de melhoria contínua.
+          <div className="space-y-4">
+            <h4 className="text-white font-bold flex items-center gap-3">
+              <span className="p-2 bg-red-600/20 rounded-lg text-red-500 text-sm">03</span>
+              Logs de Auditoria Imutáveis
+            </h4>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Cada clique dentro do sistema deve ser rastreável. Auditorias perenes permitem identificar quem acessou ou exportou registros, criando uma cultura de responsabilidade (Accountability).
             </p>
-            <p>
-              Veja também nossa análise sobre a <Link href="/posts/evolucao-digital" className="text-red-600 font-bold hover:underline">evolução digital na saúde</Link>.
-            </p>
-          </section>
+          </div>
 
-          <p className="italic border-l-4 border-slate-200 pl-6 text-slate-500 py-2">
-            "No setor hospitalar, a cibersegurança é uma extensão direta do cuidado ao paciente."
+          <div className="space-y-4">
+            <h4 className="text-white font-bold flex items-center gap-3">
+              <span className="p-2 bg-red-600/20 rounded-lg text-red-500 text-sm">04</span>
+              Tokenização e Anonimização
+            </h4>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Para fins de pesquisa e BI, os dados devem ser anonimizados, removendo o vínculo direto com a identidade do paciente, conforme exigido pela LGPD.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <section>
+        <h2 className="text-3xl font-black text-slate-900 mb-6 tracking-tight">LGPD: Dados Sensíveis e Base Legal</h2>
+        <p>
+          A Lei Geral de Proteção de Dados classifica as informações de saúde como <strong>dados sensíveis</strong>. Isso impõe aos desenvolvedores e gestores de TI a obrigação de implementar a "Privacidade por Design" (Privacy by Design). Não basta proteger o banco de dados; a segurança deve estar na concepção de cada nova funcionalidade do software.
+        </p>
+        <p className="mt-4">
+          O uso de protocolos modernos de autenticação como <strong>OAuth2, OpenID Connect e JWT</strong> (JSON Web Tokens) não são mais opcionais para qualquer HealthTech ou sistema hospitalar que deseje estar em conformidade com a ANPD.
+        </p>
+      </section>
+
+      {/* QUOTE DE AUTORIDADE */}
+      <div className="my-20 border-y border-slate-100 py-10">
+        <p className="text-center text-slate-500 text-lg font-medium">
+          "No ecossistema da Saúde Digital, a segurança não é uma barreira para a inovação, mas o alicerce que permite que ela ocorra com confiança."
+        </p>
+      </div>
+
+      <section>
+        <h2 className="text-3xl font-black text-slate-900 mb-6 tracking-tight">A Missão do Backend em Sistemas Críticos</h2>
+        <p>
+          Para quem atua na engenharia de software hospitalar, o foco deve ser a <strong>resiliência</strong>. Isso envolve a implementação de redundâncias, planos de recuperação de desastres (Disaster Recovery) e PenTests (testes de intrusão) regulares para identificar vulnerabilidades antes que os invasores o façam.
+        </p>
+      </section>
+
+      {/* CTA DE AUDITORIA */}
+      <footer className="mt-20">
+        <div className="bg-gradient-to-br from-red-600 to-red-900 rounded-[3rem] p-12 text-center text-white shadow-2xl shadow-red-500/20">
+          <h3 className="text-3xl font-black mb-4 tracking-tighter uppercase">Seu Sistema está em Conformidade?</h3>
+          <p className="text-red-100 mb-10 max-w-xl mx-auto font-light text-lg">
+            Garanta a proteção dos seus pacientes e evite multas milionárias. Oferecemos diagnósticos de segurança e consultoria de adequação à LGPD.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="https://wa.me/5519992278928" 
+              className="bg-white text-red-900 font-black px-10 py-5 rounded-2xl hover:bg-red-50 transition-all hover:scale-105 shadow-lg uppercase text-xs tracking-widest"
+            >
+              Solicitar Auditoria 🛡️
+            </a>
+            <Link href="/posts/evolucao-digital" className="bg-red-800/40 text-white font-bold px-10 py-5 rounded-2xl hover:bg-red-800/60 transition-all border border-white/20 uppercase text-xs tracking-widest">
+              Ver Evolução Digital
+            </Link>
+          </div>
+        </div>
+        
+        <div className="mt-12 text-center">
+          <p className="text-slate-400 text-sm">
+            Leia também: <Link href="/posts/ia-na-saude" className="text-red-600 font-bold hover:underline">O papel da Inteligência Artificial na Segurança de Dados</Link>
           </p>
         </div>
-
-        <footer className="mt-16 pt-8 border-t border-slate-100 flex flex-col items-center text-center">
-           <h3 className="text-3xl font-black text-slate-900 mb-4">Seu sistema está em conformidade?</h3>
-           <p className="text-slate-600 max-w-lg mb-8">Oferecemos diagnóstico de segurança e consultoria técnica para adequação à LGPD em sistemas hospitalares e HealthTechs.</p>
-           <a 
-             href="https://wa.me/5519992278928" 
-             target="_blank"
-             rel="noopener noreferrer"
-             className="inline-flex items-center gap-3 bg-red-600 text-white font-black px-12 py-5 rounded-2xl hover:bg-red-700 transition shadow-xl shadow-red-600/30 transform hover:scale-105"
-           >
-             SOLICITAR AUDITORIA 🛡️
-           </a>
-        </footer>
-      </article>
-    </div>
+      </footer>
+    </PostLayout>
   );
 }
