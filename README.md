@@ -1,5 +1,9 @@
 # 🏥 TI-Saúde
 ### Transforme sua Carreira com TI na Saúde
+<p align="center">
+  <a href="README.md">🇧🇷 Português</a> | <a href="README_en.md">🇺🇸 English</a>
+</p>
+
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js" />
